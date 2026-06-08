@@ -377,31 +377,33 @@
       letter-spacing: .03em;
     }
 
-    /* Brownie cards cluster */
+    /* ── Hero product showcase ───────────────────────────── */
     .hero__visual {
       position: relative;
-      height: 520px;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
+      gap: 14px;
+      padding: 60px 0 40px;
     }
     .brownie-card {
-      position: absolute;
+      position: relative;
       border-radius: var(--radius-lg);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 20px;
-      box-shadow: var(--shadow-lg);
-      transition: transform 400ms cubic-bezier(.34,1.56,.64,1);
+      padding: 16px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.45);
+      transition: transform 380ms cubic-bezier(.34,1.56,.64,1), box-shadow 380ms ease;
       cursor: default;
       overflow: hidden;
+      flex-shrink: 0;
     }
     .brownie-card::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.25) 55%, rgba(0,0,0,.08) 100%);
+      background: linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.22) 50%, rgba(0,0,0,.04) 100%);
       z-index: 1;
     }
     .brownie-card__img {
@@ -409,59 +411,63 @@
       inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
+      object-position: center top;
       z-index: 0;
     }
-    .brownie-card > * { position: relative; z-index: 1; }
-    .brownie-card:hover { transform: translateY(-8px) scale(1.03) !important; }
+    .brownie-card > *:not(.brownie-card__img) { position: relative; z-index: 2; }
+    .brownie-card:hover {
+      transform: translateY(-10px) scale(1.04) !important;
+      box-shadow: 0 32px 80px rgba(0,0,0,.55);
+    }
     .brownie-card__name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--white);
       line-height: 1.1;
     }
     .brownie-card__desc {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
-      color: rgba(255,255,255,.75);
-      margin-top: 4px;
+      color: rgba(255,255,255,.72);
+      margin-top: 3px;
       letter-spacing: .03em;
     }
     .brownie-card__protein {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      background: rgba(255,255,255,.2);
-      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,.18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       color: var(--white);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: .08em;
-      padding: 4px 10px;
+      letter-spacing: .1em;
+      padding: 4px 9px;
       border-radius: 100px;
-      margin-top: 10px;
+      margin-top: 8px;
       width: fit-content;
+      border: 1px solid rgba(255,255,255,.22);
     }
-    /* Chocolate card */
+    /* Side cards */
     .card-choc {
-      width: 220px; height: 280px;
-      background: #3D1F0A;
-      top: 30px; left: 40px;
-      transform: rotate(-6deg);
+      width: 152px; height: 210px;
+      background: #2C1005;
+      transform: rotate(-5deg) translateY(18px);
     }
-    /* Red Velvet card */
+    /* Center/featured card */
     .card-red {
-      width: 200px; height: 260px;
-      background: #6B0F1A;
-      top: 80px; right: 30px;
-      transform: rotate(5deg);
+      width: 172px; height: 250px;
+      background: #4A0010;
+      transform: rotate(0deg);
+      z-index: 3;
     }
-    /* Blondie card */
+    /* Side card */
     .card-blond {
-      width: 210px; height: 270px;
-      background: #5C4200;
-      bottom: 30px; left: 80px;
-      transform: rotate(3deg);
+      width: 152px; height: 210px;
+      background: #3D2800;
+      transform: rotate(5deg) translateY(18px);
     }
     .float-tag {
       position: absolute;
@@ -480,9 +486,9 @@
       animation: float 3s ease-in-out infinite;
     }
     .float-tag svg { flex-shrink: 0; }
-    .float-tag--1 { bottom: 60px; right: 0; animation-delay: 0s; }
-    .float-tag--2 { top: 40px; right: 40px; animation-delay: .8s; }
-    .float-tag--3 { bottom: 100px; left: 10px; animation-delay: 1.5s; }
+    .float-tag--1 { bottom: 12px; right: -10px; animation-delay: 0s; }
+    .float-tag--2 { top: 12px; right: 20px; animation-delay: .8s; }
+    .float-tag--3 { top: 12px; left: 10px; animation-delay: 1.5s; }
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
@@ -820,56 +826,56 @@
     }
     .about__visual {
       position: relative;
-      height: 460px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 500px;
+      border-radius: var(--radius-xl);
+      overflow: visible;
     }
     .about__photo-main {
-      position: absolute;
-      width: 300px; height: 360px;
+      width: 100%;
+      height: 100%;
       border-radius: var(--radius-xl);
       overflow: hidden;
       box-shadow: var(--shadow-lg);
-      left: 50%; top: 50%;
-      transform: translate(-50%, -50%) rotate(-4deg);
-      border: 5px solid var(--white);
     }
     .about__photo-main img {
       width: 100%; height: 100%;
       object-fit: cover;
+      object-position: center center;
     }
     .about__photo-accent {
       position: absolute;
-      width: 180px; height: 210px;
+      width: 155px; height: 185px;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: var(--shadow-md);
-      right: 0; bottom: 20px;
-      transform: rotate(6deg);
+      box-shadow: 0 16px 48px rgba(0,0,0,.28);
+      right: -20px;
+      bottom: -20px;
       border: 4px solid var(--white);
+      z-index: 5;
     }
     .about__photo-accent img {
       width: 100%; height: 100%;
       object-fit: cover;
+      object-position: center top;
     }
     .about__quote-badge {
       position: absolute;
-      top: 20px; left: 10px;
+      top: 24px;
+      left: 24px;
       background: var(--white);
       border-radius: var(--radius-md);
       padding: 14px 18px;
       box-shadow: var(--shadow-md);
-      max-width: 200px;
+      max-width: 210px;
       z-index: 10;
     }
     .about__quote-text {
       font-family: 'Playfair Display', serif;
-      font-size: .9rem;
+      font-size: .88rem;
       font-weight: 700;
       color: var(--brown-800);
       font-style: italic;
-      line-height: 1.3;
+      line-height: 1.35;
     }
     .about__content { display: flex; flex-direction: column; gap: 20px; }
     .about__values { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
@@ -1023,16 +1029,20 @@
     }
 
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+      .hero { grid-template-columns: 1fr; gap: 40px; text-align: center; }
       .hero__actions { justify-content: center; }
       .hero__stats { justify-content: center; }
-      .hero__visual { height: 360px; }
-      .card-choc { width: 160px; height: 210px; left: 20px; top: 20px; }
-      .card-red  { width: 155px; height: 200px; right: 10px; top: 60px; }
-      .card-blond{ width: 160px; height: 200px; bottom: 10px; left: 60px; }
+      .hero__visual { padding: 24px 0 32px; gap: 10px; justify-content: center; }
+      .card-choc  { width: 122px; height: 168px; transform: rotate(-5deg) translateY(14px); }
+      .card-red   { width: 138px; height: 196px; transform: rotate(0deg); }
+      .card-blond { width: 122px; height: 168px; transform: rotate(5deg) translateY(14px); }
+      .float-tag--1 { bottom: 4px; right: 0; font-size: 11px; padding: 7px 10px; }
+      .float-tag--2 { top: 4px;  right: 8px; font-size: 11px; padding: 7px 10px; }
+      .float-tag--3 { top: 4px;  left: 4px;  font-size: 11px; padding: 7px 10px; }
       .wholesale__inner { grid-template-columns: 1fr; gap: 48px; }
-      .about__inner { grid-template-columns: 1fr; gap: 48px; }
-      .about__visual { height: 280px; }
+      .about__inner { grid-template-columns: 1fr; gap: 40px; }
+      .about__visual { height: 340px; }
+      .about__photo-accent { width: 120px; height: 145px; right: -10px; bottom: -10px; }
     }
 
     @media (max-width: 768px) {
@@ -1049,6 +1059,11 @@
     @media (max-width: 480px) {
       .why__grid { grid-template-columns: 1fr; }
       .hero__stats { flex-wrap: wrap; gap: 20px; justify-content: center; }
+      .card-choc  { width: 100px; height: 140px; transform: rotate(-5deg) translateY(12px); }
+      .card-red   { width: 114px; height: 164px; }
+      .card-blond { width: 100px; height: 140px; transform: rotate(5deg) translateY(12px); }
+      .float-tag  { display: none; }
+      .about__photo-accent { display: none; }
     }
   </style>
 </head>
@@ -1129,7 +1144,7 @@
         </div>
       </div>
 
-      <div class="hero__visual animate-in" style="padding-right: clamp(16px,4vw,48px); animation-delay:150ms;">
+      <div class="hero__visual animate-in" style="animation-delay:150ms;">
         <!-- Chocolate -->
         <div class="brownie-card card-choc" role="img" aria-label="Chocolate protein brownie">
           <img class="brownie-card__img" src="https://www.rightchewsfoods.com/gallery_gen/8d741ae8ad086e38560ef1a16a1217c0_560x674_fit.jpg" alt="Right Chews Chocolate protein brownie" loading="eager" />
@@ -1496,12 +1511,12 @@
   <section class="about" id="about">
     <div class="container">
       <div class="about__inner">
-        <div class="about__visual animate-in" aria-hidden="true">
+        <div class="about__visual animate-in">
           <div class="about__photo-main">
-            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&h=720&q=80&auto=format&fit=crop" alt="Freshly baked protein brownies" loading="lazy" />
+            <img src="https://www.rightchewsfoods.com/gallery_gen/df3e6258877221b1b569bc1cbae77df6_fit.png" alt="Right Chews Foods kitchen and product" loading="lazy" />
           </div>
           <div class="about__photo-accent">
-            <img src="https://images.unsplash.com/photo-1542124292-5783e02f2f30?w=400&h=500&q=80&auto=format&fit=crop" alt="Brownie close-up texture" loading="lazy" />
+            <img src="https://www.rightchewsfoods.com/gallery_gen/8d741ae8ad086e38560ef1a16a1217c0_560x674_fit.jpg" alt="Right Chews Chocolate protein brownie" loading="lazy" />
           </div>
           <div class="about__quote-badge">
             <p class="about__quote-text">"Eat well. Eat great. No compromise."</p>
