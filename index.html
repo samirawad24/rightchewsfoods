@@ -381,31 +381,34 @@
     .hero__visual {
       position: relative;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      gap: 12px;
-      height: 540px;
-      overflow: hidden;
+      gap: 14px;
+      padding: 60px 16px 48px;
     }
     .brownie-card {
       position: relative;
-      border-radius: var(--radius-lg);
+      border-radius: 28px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 18px;
-      box-shadow: 0 28px 72px rgba(0,0,0,.5);
-      transition: transform 380ms cubic-bezier(.34,1.56,.64,1), box-shadow 380ms ease;
+      box-shadow: 0 16px 48px rgba(44,26,14,.35);
+      transition: transform 360ms cubic-bezier(.34,1.56,.64,1), box-shadow 360ms ease;
       cursor: default;
       overflow: hidden;
       flex: 1;
       min-width: 0;
+      border: 3px solid rgba(255,255,255,.55);
     }
     .brownie-card::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,.80) 0%, rgba(0,0,0,.20) 45%, rgba(0,0,0,.02) 100%);
+      background: linear-gradient(to top,
+        rgba(30,12,4,.72) 0%,
+        rgba(30,12,4,.12) 42%,
+        rgba(0,0,0,0) 100%);
       z-index: 1;
     }
     .brownie-card__img {
@@ -415,62 +418,64 @@
       object-fit: cover;
       object-position: center center;
       z-index: 0;
+      transition: transform 360ms ease;
     }
+    .brownie-card:hover .brownie-card__img { transform: scale(1.06); }
     .brownie-card > *:not(.brownie-card__img) { position: relative; z-index: 2; }
     .brownie-card:hover {
-      transform: translateY(-10px) scale(1.03) !important;
-      box-shadow: 0 40px 90px rgba(0,0,0,.60);
+      transform: translateY(-12px) rotate(0deg) !important;
+      box-shadow: 0 28px 64px rgba(44,26,14,.45);
+      border-color: rgba(255,255,255,.9);
     }
     .brownie-card__name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--white);
       line-height: 1.1;
+      text-shadow: 0 1px 8px rgba(0,0,0,.5);
     }
     .brownie-card__desc {
       font-size: 11px;
       font-weight: 500;
-      color: rgba(255,255,255,.70);
-      margin-top: 4px;
-      letter-spacing: .03em;
+      color: rgba(255,255,255,.82);
+      margin-top: 3px;
+      letter-spacing: .02em;
+      text-shadow: 0 1px 6px rgba(0,0,0,.4);
     }
     .brownie-card__protein {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      background: rgba(255,255,255,.18);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      color: var(--white);
+      gap: 5px;
+      background: var(--gold);
+      color: var(--brown-900);
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: .1em;
-      padding: 4px 10px;
+      padding: 5px 10px;
       border-radius: 100px;
-      margin-top: 9px;
+      margin-top: 10px;
       width: fit-content;
-      border: 1px solid rgba(255,255,255,.25);
     }
-    /* Side cards — fill space, slight outward tilt */
+    /* Side cards */
     .card-choc {
-      height: 470px;
+      height: 400px;
       background: #2C1005;
-      transform: rotate(-4deg);
+      transform: rotate(-3deg) translateY(20px);
     }
-    /* Center card — tallest, upright, most prominent */
+    /* Center card — tallest */
     .card-red {
-      flex: 1.25;
-      height: 520px;
+      flex: 1.2;
+      height: 450px;
       background: #4A0010;
       transform: rotate(0deg);
       z-index: 3;
     }
     /* Side card */
     .card-blond {
-      height: 470px;
+      height: 400px;
       background: #3D2800;
-      transform: rotate(4deg);
+      transform: rotate(3deg) translateY(20px);
     }
     /* ── Hero perks row ─────────────────────────────────── */
     .hero__perks {
@@ -1034,10 +1039,10 @@
       .hero__actions { justify-content: center; }
       .hero__stats { justify-content: center; }
       .hero__perks { justify-content: center; }
-      .hero__visual { height: 360px; gap: 10px; }
-      .card-choc  { height: 320px; }
-      .card-red   { height: 360px; }
-      .card-blond { height: 320px; }
+      .hero__visual { gap: 10px; padding: 32px 12px 28px; }
+      .card-choc  { height: 280px; transform: rotate(-3deg) translateY(16px); }
+      .card-red   { height: 320px; }
+      .card-blond { height: 280px; transform: rotate(3deg) translateY(16px); }
       .wholesale__inner { grid-template-columns: 1fr; gap: 48px; }
       .about__inner { grid-template-columns: 1fr; gap: 40px; }
       .about__visual { height: 340px; }
@@ -1058,10 +1063,11 @@
     @media (max-width: 480px) {
       .why__grid { grid-template-columns: 1fr; }
       .hero__stats { flex-wrap: wrap; gap: 20px; justify-content: center; }
-      .hero__visual { height: 280px; gap: 8px; }
-      .card-choc  { height: 245px; }
-      .card-red   { height: 280px; }
-      .card-blond { height: 245px; }
+      .hero__visual { gap: 8px; padding: 24px 8px 20px; }
+      .card-choc  { height: 210px; transform: rotate(-3deg) translateY(12px); }
+      .card-red   { height: 240px; }
+      .card-blond { height: 210px; transform: rotate(3deg) translateY(12px); }
+      .brownie-card { border-width: 2px; }
       .hero__perks { gap: 4px 14px; }
       .about__photo-accent { display: none; }
     }
@@ -1515,7 +1521,7 @@
       <div class="about__inner">
         <div class="about__visual animate-in">
           <div class="about__photo-main">
-            <img src="https://www.rightchewsfoods.com/gallery_gen/df3e6258877221b1b569bc1cbae77df6_fit.png" alt="Right Chews Foods kitchen and product" loading="lazy" />
+            <img src="our-story.png" alt="Right Chews Foods kitchen" loading="lazy" />
           </div>
           <div class="about__photo-accent">
             <img src="https://www.rightchewsfoods.com/gallery_gen/8d741ae8ad086e38560ef1a16a1217c0_560x674_fit.jpg" alt="Right Chews Chocolate protein brownie" loading="lazy" />
