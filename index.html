@@ -286,15 +286,43 @@
       min-height: 100dvh;
       padding-top: calc(var(--nav-h) + 40px);
       padding-bottom: 80px;
-      background:
-        radial-gradient(ellipse 80% 60% at 65% 40%, rgba(201,168,76,.10) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(212,98,42,.08) 0%, transparent 60%),
-        var(--cream-100);
+      position: relative;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
       gap: 64px;
+      overflow: hidden;
     }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero__bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+      filter: brightness(.45) saturate(1.1);
+    }
+    .hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(105deg, rgba(26,14,7,.92) 0%, rgba(44,26,14,.75) 50%, rgba(44,26,14,.30) 100%),
+        linear-gradient(to top, rgba(26,14,7,.6) 0%, transparent 50%);
+    }
+    .hero > .container,
+    .hero > div:not(.hero__bg) {
+      position: relative;
+      z-index: 1;
+    }
+    .hero__content .hero__stat-num { color: var(--gold); }
+    .hero__content .heading-xl { color: var(--white); }
+    .hero__content .heading-xl em { color: var(--gold); }
+    .hero__content .body-lg { color: rgba(255,255,255,.78); }
+    .hero__stats { border-top-color: rgba(255,255,255,.18); }
+    .hero__stat-label { color: rgba(255,255,255,.55); }
     .hero__content { display: flex; flex-direction: column; gap: 24px; }
     .hero__badge {
       display: inline-flex;
@@ -1031,13 +1059,7 @@
     <div class="container">
       <div class="nav__inner">
         <a href="#" class="nav__logo" aria-label="Right Chews Foods home">
-          <div class="nav__logo-mark" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-              <path d="M8 12h8M12 8v8"/>
-            </svg>
-          </div>
-          <div class="nav__logo-text">Right<span>Chews</span><br/>Foods</div>
+          <img src="https://www.rightchewsfoods.com/gallery/logo%20RC.png" alt="Right Chews Foods logo" style="height:46px; width:auto; display:block;" />
         </a>
 
         <ul class="nav__links" role="list">
@@ -1065,6 +1087,9 @@
 
   <!-- ═══ HERO ═══ -->
   <section class="hero" id="home">
+    <div class="hero__bg" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1589375566517-2ed7e7571afe?w=1920&h=1080&q=85&auto=format&fit=crop" alt="" />
+    </div>
     <div class="container" style="display:contents;">
       <div class="hero__content animate-in" style="padding-left: clamp(16px,4vw,48px);">
         <div class="hero__badge" aria-label="Now available for wholesale">
@@ -1107,7 +1132,7 @@
       <div class="hero__visual animate-in" style="padding-right: clamp(16px,4vw,48px); animation-delay:150ms;">
         <!-- Chocolate -->
         <div class="brownie-card card-choc" role="img" aria-label="Chocolate protein brownie">
-          <img class="brownie-card__img" src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=500&q=80&auto=format&fit=crop" alt="Rich chocolate brownies" loading="eager" />
+          <img class="brownie-card__img" src="https://www.rightchewsfoods.com/gallery_gen/8d741ae8ad086e38560ef1a16a1217c0_560x674_fit.jpg" alt="Right Chews Chocolate protein brownie" loading="eager" />
           <div class="brownie-card__name">Chocolate</div>
           <div class="brownie-card__desc">Powerful, rich & functional</div>
           <div class="brownie-card__protein">
@@ -1118,7 +1143,7 @@
 
         <!-- Red Velvet -->
         <div class="brownie-card card-red" role="img" aria-label="Red velvet protein brownie">
-          <img class="brownie-card__img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=500&q=80&auto=format&fit=crop" alt="Red velvet cake brownie" loading="eager" />
+          <img class="brownie-card__img" src="https://www.rightchewsfoods.com/gallery_gen/0df1c70172b5e6a6af286140e26fc191_560x674_fit.jpg" alt="Right Chews Red Velvet protein brownie" loading="eager" />
           <div class="brownie-card__name">Red Velvet</div>
           <div class="brownie-card__desc">Sophistication with purpose</div>
           <div class="brownie-card__protein">
@@ -1129,7 +1154,7 @@
 
         <!-- Blondie -->
         <div class="brownie-card card-blond" role="img" aria-label="Blondie protein brownie">
-          <img class="brownie-card__img" src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=500&q=80&auto=format&fit=crop" alt="Golden blondie brownie bar" loading="eager" />
+          <img class="brownie-card__img" src="https://www.rightchewsfoods.com/gallery_gen/bebbc11ca891b54536ab692ac305c4ce_560x674_fit.jpg" alt="Right Chews Blondie protein brownie" loading="eager" />
           <div class="brownie-card__name">Blondie</div>
           <div class="brownie-card__desc">Soft, golden & functional</div>
           <div class="brownie-card__protein">
@@ -1193,7 +1218,7 @@
         <!-- Chocolate -->
         <article class="product-card animate-in" style="animation-delay:0ms;">
           <div class="product-card__visual">
-            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&h=400&q=80&auto=format&fit=crop" alt="Chocolate protein brownie" loading="lazy" />
+            <img src="https://www.rightchewsfoods.com/gallery_gen/8d741ae8ad086e38560ef1a16a1217c0_560x674_fit.jpg" alt="Right Chews Chocolate protein brownie" loading="lazy" />
             <span class="product-card__label">Bestseller</span>
           </div>
           <div class="product-card__body">
@@ -1226,7 +1251,7 @@
         <!-- Red Velvet -->
         <article class="product-card animate-in" style="animation-delay:100ms;">
           <div class="product-card__visual">
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&q=80&auto=format&fit=crop" alt="Red velvet protein brownie" loading="lazy" />
+            <img src="https://www.rightchewsfoods.com/gallery_gen/0df1c70172b5e6a6af286140e26fc191_560x674_fit.jpg" alt="Right Chews Red Velvet protein brownie" loading="lazy" />
             <span class="product-card__label">Customer Fav</span>
           </div>
           <div class="product-card__body">
@@ -1259,7 +1284,7 @@
         <!-- Blondie -->
         <article class="product-card animate-in" style="animation-delay:200ms;">
           <div class="product-card__visual">
-            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&h=400&q=80&auto=format&fit=crop" alt="Blondie protein brownie bar" loading="lazy" />
+            <img src="https://www.rightchewsfoods.com/gallery_gen/bebbc11ca891b54536ab692ac305c4ce_560x674_fit.jpg" alt="Right Chews Blondie protein brownie" loading="lazy" />
             <span class="product-card__label">New Flavor</span>
           </div>
           <div class="product-card__body">
