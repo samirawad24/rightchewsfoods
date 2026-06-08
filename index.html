@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Right Chews Foods — Premium protein brownies built for retail. 20g protein, clean ingredients, retail-ready packaging. Wholesale inquiries welcome." />
+  <title>Right Chews Foods | Protein Brownies for Retail</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Tokens ─────────────────────────────────────────────── */
+    :root {
+      --brown-900: #1A0E07;
+      --brown-800: #2C1A0E;
+      --brown-700: #3D2411;
+      --brown-600: #5C3518;
+      --brown-500: #7A4A25;
+      --cream-100: #FDF8F0;
+      --cream-200: #F5ECD7;
+      --cream-300: #EDD9B8;
+      --orange:    #D4622A;
+      --orange-lt: #E07848;
+      --gold:      #C9A84C;
+      --gold-lt:   #D9BC72;
+      --white:     #FFFFFF;
+      --text-muted: #8A7060;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 40px;
+
+      --shadow-sm:  0 2px 8px rgba(44,26,14,.12);
+      --shadow-md:  0 8px 32px rgba(44,26,14,.18);
+      --shadow-lg:  0 20px 60px rgba(44,26,14,.25);
+
+      --nav-h: 72px;
+      --transition: 220ms ease;
+    }
+
+    /* ── Reset ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--cream-100);
+      color: var(--brown-800);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    ul { list-style: none; }
+
+    /* ── Utility ────────────────────────────────────────────── */
+    .container { max-width: 1200px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+    .section-label {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .heading-xl {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.08;
+      color: var(--brown-800);
+    }
+    .heading-lg {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--brown-800);
+    }
+    .heading-md {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+    .body-lg { font-size: 1.125rem; line-height: 1.7; color: var(--brown-600); }
+    .body-md { font-size: 1rem;     line-height: 1.65; color: var(--brown-600); }
+
+    /* ── Animate-in ─────────────────────────────────────────── */
+    .animate-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .animate-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .animate-in { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ── Buttons ────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-xl);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .02em;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(212,98,42,.35);
+    }
+    .btn-primary:hover {
+      background: var(--orange-lt);
+      box-shadow: 0 8px 28px rgba(212,98,42,.45);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--brown-800);
+      border-color: var(--brown-800);
+    }
+    .btn-secondary:hover {
+      background: var(--brown-800);
+      color: var(--white);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,.12);
+      color: var(--white);
+      border-color: rgba(255,255,255,.35);
+      backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,.22);
+      border-color: rgba(255,255,255,.6);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--brown-900);
+      box-shadow: 0 4px 20px rgba(201,168,76,.35);
+    }
+    .btn-gold:hover {
+      background: var(--gold-lt);
+      box-shadow: 0 8px 28px rgba(201,168,76,.45);
+    }
+
+    .btn-sm { padding: 10px 20px; font-size: 13px; }
+
+    /* ════════════════════════════════════════════════════════
+       NAV
+    ════════════════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(253,248,240,.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .nav.scrolled {
+      border-color: var(--cream-300);
+      box-shadow: 0 2px 20px rgba(44,26,14,.10);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav__logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--brown-800) 0%, var(--brown-600) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav__logo-text {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--brown-800);
+      line-height: 1.1;
+    }
+    .nav__logo-text span { color: var(--orange); }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav__link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--brown-700);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: var(--orange);
+      transition: width var(--transition);
+      border-radius: 2px;
+    }
+    .nav__link:hover { color: var(--orange); }
+    .nav__link:hover::after { width: 100%; }
+    .nav__cta { margin-left: 8px; }
+
+    /* Hamburger */
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .nav__hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--brown-800);
+      border-radius: 2px;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    .nav__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav__mobile {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      background: var(--cream-100);
+      border-top: 1px solid var(--cream-300);
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      z-index: 99;
+    }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile .nav__link {
+      padding: 12px 0;
+      font-size: 16px;
+      border-bottom: 1px solid var(--cream-300);
+    }
+    .nav__mobile .btn { margin-top: 16px; width: 100%; justify-content: center; }
+
+    /* ════════════════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════════════════ */
+    .hero {
+      min-height: 100dvh;
+      padding-top: calc(var(--nav-h) + 40px);
+      padding-bottom: 80px;
+      background:
+        radial-gradient(ellipse 80% 60% at 65% 40%, rgba(201,168,76,.10) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(212,98,42,.08) 0%, transparent 60%),
+        var(--cream-100);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 64px;
+    }
+    .hero__content { display: flex; flex-direction: column; gap: 24px; }
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--brown-800);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      width: fit-content;
+    }
+    .hero__badge-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .4; }
+    }
+    .hero__title { max-width: 560px; }
+    .hero__title em {
+      font-style: italic;
+      color: var(--orange);
+    }
+    .hero__subtitle { max-width: 460px; }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero__stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 8px;
+      padding-top: 24px;
+      border-top: 1px solid var(--cream-300);
+    }
+    .hero__stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--brown-800);
+      line-height: 1;
+    }
+    .hero__stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 4px;
+      letter-spacing: .03em;
+    }
+
+    /* Brownie cards cluster */
+    .hero__visual {
+      position: relative;
+      height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .brownie-card {
+      position: absolute;
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      box-shadow: var(--shadow-lg);
+      transition: transform 400ms cubic-bezier(.34,1.56,.64,1);
+      cursor: default;
+      overflow: hidden;
+    }
+    .brownie-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.25) 55%, rgba(0,0,0,.08) 100%);
+      z-index: 1;
+    }
+    .brownie-card__img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .brownie-card > * { position: relative; z-index: 1; }
+    .brownie-card:hover { transform: translateY(-8px) scale(1.03) !important; }
+    .brownie-card__name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+    }
+    .brownie-card__desc {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,.75);
+      margin-top: 4px;
+      letter-spacing: .03em;
+    }
+    .brownie-card__protein {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255,255,255,.2);
+      backdrop-filter: blur(8px);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-top: 10px;
+      width: fit-content;
+    }
+    /* Chocolate card */
+    .card-choc {
+      width: 220px; height: 280px;
+      background: #3D1F0A;
+      top: 30px; left: 40px;
+      transform: rotate(-6deg);
+    }
+    /* Red Velvet card */
+    .card-red {
+      width: 200px; height: 260px;
+      background: #6B0F1A;
+      top: 80px; right: 30px;
+      transform: rotate(5deg);
+    }
+    /* Blondie card */
+    .card-blond {
+      width: 210px; height: 270px;
+      background: #5C4200;
+      bottom: 30px; left: 80px;
+      transform: rotate(3deg);
+    }
+    .float-tag {
+      position: absolute;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--brown-800);
+      white-space: nowrap;
+      z-index: 10;
+      animation: float 3s ease-in-out infinite;
+    }
+    .float-tag svg { flex-shrink: 0; }
+    .float-tag--1 { bottom: 60px; right: 0; animation-delay: 0s; }
+    .float-tag--2 { top: 40px; right: 40px; animation-delay: .8s; }
+    .float-tag--3 { bottom: 100px; left: 10px; animation-delay: 1.5s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* ════════════════════════════════════════════════════════
+       MARQUEE
+    ════════════════════════════════════════════════════════ */
+    .marquee-section {
+      background: var(--brown-800);
+      overflow: hidden;
+      padding: 16px 0;
+      border-top: 1px solid var(--brown-700);
+      border-bottom: 1px solid var(--brown-700);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 28s linear infinite;
+      width: max-content;
+    }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--cream-200);
+      padding: 0 40px;
+      white-space: nowrap;
+    }
+    .marquee-dot {
+      width: 5px; height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none; }
+    }
+
+    /* ════════════════════════════════════════════════════════
+       PRODUCTS
+    ════════════════════════════════════════════════════════ */
+    .products { padding: 100px 0; }
+    .products__header { text-align: center; margin-bottom: 60px; }
+    .products__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .product-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+      background: var(--white);
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .product-card__visual {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+    }
+    .product-card__visual img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 500ms ease;
+    }
+    .product-card:hover .product-card__visual img {
+      transform: scale(1.06);
+    }
+    .product-card__visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.45) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .product-card__label {
+      position: absolute;
+      bottom: 14px; right: 14px;
+      background: rgba(255,255,255,.18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,.3);
+      z-index: 2;
+    }
+
+    .product-card__body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+    .product-card__name { color: var(--brown-800); }
+    .product-card__desc { font-size: .9rem; line-height: 1.6; color: var(--text-muted); }
+    .product-card__macros {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-top: 1px solid var(--cream-300);
+      border-bottom: 1px solid var(--cream-300);
+    }
+    .macro {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .macro__val {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--brown-800);
+      font-variant-numeric: tabular-nums;
+    }
+    .macro__key {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .product-card__action { margin-top: auto; }
+    .product-card__action .btn { width: 100%; justify-content: center; }
+
+    /* ════════════════════════════════════════════════════════
+       WHY RIGHT CHEWS
+    ════════════════════════════════════════════════════════ */
+    .why {
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 50%, rgba(212,98,42,.06) 0%, transparent 70%),
+        var(--cream-200);
+      padding: 100px 0;
+    }
+    .why__header { text-align: center; margin-bottom: 60px; }
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .why-tile {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      border: 1px solid var(--cream-300);
+    }
+    .why-tile:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+    .why-tile__icon {
+      width: 56px; height: 56px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--brown-800), var(--brown-600));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .why-tile__icon svg { color: var(--gold); }
+    .why-tile__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--brown-800);
+      margin-bottom: 10px;
+    }
+    .why-tile__desc { font-size: .875rem; line-height: 1.65; color: var(--text-muted); }
+
+    /* ════════════════════════════════════════════════════════
+       WHOLESALE
+    ════════════════════════════════════════════════════════ */
+    .wholesale {
+      background: linear-gradient(135deg, var(--brown-900) 0%, var(--brown-800) 60%, var(--brown-700) 100%);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .wholesale::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .wholesale::after {
+      content: '';
+      position: absolute;
+      bottom: -150px; left: -150px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(212,98,42,.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .wholesale__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+    .wholesale__content { color: var(--white); }
+    .wholesale__content .section-label { color: var(--gold); }
+    .wholesale__content .heading-lg { color: var(--white); }
+    .wholesale__subtitle { color: rgba(255,255,255,.7); margin: 16px 0 32px; font-size: 1.05rem; line-height: 1.65; }
+    .wholesale__benefits { display: flex; flex-direction: column; gap: 16px; }
+    .wholesale__benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .benefit-check {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .benefit-text {
+      font-size: .95rem;
+      color: rgba(255,255,255,.85);
+      line-height: 1.5;
+    }
+    .benefit-text strong { color: var(--white); font-weight: 600; }
+
+    /* Form */
+    .wholesale__form {
+      background: var(--cream-100);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.3);
+    }
+    .form__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--brown-800);
+      margin-bottom: 6px;
+    }
+    .form__subtitle { font-size: .875rem; color: var(--text-muted); margin-bottom: 24px; }
+    .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form__group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form__group:last-of-type { margin-bottom: 0; }
+    .form__label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--brown-700);
+      letter-spacing: .02em;
+    }
+    .form__label .req { color: var(--orange); margin-left: 2px; }
+    .form__input, .form__select, .form__textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--cream-300);
+      border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--brown-800);
+      background: var(--white);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      -webkit-appearance: none;
+    }
+    .form__input:focus, .form__select:focus, .form__textarea:focus {
+      outline: none;
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(212,98,42,.12);
+    }
+    .form__input.error { border-color: #DC2626; }
+    .form__error {
+      font-size: 12px;
+      color: #DC2626;
+      display: none;
+    }
+    .form__error.visible { display: block; }
+    .form__textarea { resize: vertical; min-height: 100px; }
+    .form__select { cursor: pointer; }
+    .form__submit {
+      width: 100%;
+      justify-content: center;
+      margin-top: 20px;
+      font-size: 15px;
+      padding: 16px;
+    }
+    .form__success {
+      display: none;
+      text-align: center;
+      padding: 32px;
+    }
+    .form__success.visible { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .success-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ════════════════════════════════════════════════════════
+       ABOUT
+    ════════════════════════════════════════════════════════ */
+    .about { padding: 100px 0; }
+    .about__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about__visual {
+      position: relative;
+      height: 460px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about__photo-main {
+      position: absolute;
+      width: 300px; height: 360px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%) rotate(-4deg);
+      border: 5px solid var(--white);
+    }
+    .about__photo-main img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .about__photo-accent {
+      position: absolute;
+      width: 180px; height: 210px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      right: 0; bottom: 20px;
+      transform: rotate(6deg);
+      border: 4px solid var(--white);
+    }
+    .about__photo-accent img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .about__quote-badge {
+      position: absolute;
+      top: 20px; left: 10px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      box-shadow: var(--shadow-md);
+      max-width: 200px;
+      z-index: 10;
+    }
+    .about__quote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--brown-800);
+      font-style: italic;
+      line-height: 1.3;
+    }
+    .about__content { display: flex; flex-direction: column; gap: 20px; }
+    .about__values { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+    .value-pill {
+      background: var(--cream-200);
+      color: var(--brown-700);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 100px;
+      border: 1px solid var(--cream-300);
+    }
+
+    /* ════════════════════════════════════════════════════════
+       TESTIMONIALS
+    ════════════════════════════════════════════════════════ */
+    .testimonials {
+      background: var(--cream-200);
+      padding: 100px 0;
+    }
+    .testimonials__header { text-align: center; margin-bottom: 60px; }
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--cream-300);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 16px;
+    }
+    .testimonial-stars svg { color: var(--gold); }
+    .testimonial-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--brown-700);
+      margin-bottom: 24px;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .av-1 { background: linear-gradient(135deg, #5C3218, #9B5530); }
+    .av-2 { background: linear-gradient(135deg, #6B0F1A, #9B2335); }
+    .av-3 { background: linear-gradient(135deg, #7A5500, #C9A84C); }
+    .testimonial-name { font-weight: 600; font-size: .9rem; color: var(--brown-800); }
+    .testimonial-role { font-size: .8rem; color: var(--text-muted); margin-top: 1px; }
+
+    /* ════════════════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════════════════ */
+    .footer {
+      background: var(--brown-900);
+      color: rgba(255,255,255,.65);
+      padding: 60px 0 32px;
+    }
+    .footer__inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer__brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .footer__brand-name span { color: var(--orange); }
+    .footer__tagline { font-size: .85rem; margin-top: 8px; line-height: 1.55; }
+    .footer__social { display: flex; gap: 12px; margin-top: 20px; }
+    .footer__social-btn {
+      width: 38px; height: 38px;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.65);
+      transition: background var(--transition), color var(--transition);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .footer__social-btn:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .footer__col-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .footer__col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer__col li a {
+      font-size: .875rem;
+      color: rgba(255,255,255,.55);
+      transition: color var(--transition);
+    }
+    .footer__col li a:hover { color: var(--white); }
+    .footer__contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: .875rem;
+      margin-bottom: 10px;
+    }
+    .footer__contact-item svg { margin-top: 2px; flex-shrink: 0; }
+    .footer__contact-item a { color: rgba(255,255,255,.55); transition: color var(--transition); }
+    .footer__contact-item a:hover { color: var(--gold); }
+    .footer__bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .8rem;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer__bottom a { color: rgba(255,255,255,.45); transition: color var(--transition); }
+    .footer__bottom a:hover { color: var(--white); }
+
+    /* ════════════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .why__grid { grid-template-columns: repeat(2, 1fr); }
+      .footer__inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+      .hero__actions { justify-content: center; }
+      .hero__stats { justify-content: center; }
+      .hero__visual { height: 360px; }
+      .card-choc { width: 160px; height: 210px; left: 20px; top: 20px; }
+      .card-red  { width: 155px; height: 200px; right: 10px; top: 60px; }
+      .card-blond{ width: 160px; height: 200px; bottom: 10px; left: 60px; }
+      .wholesale__inner { grid-template-columns: 1fr; gap: 48px; }
+      .about__inner { grid-template-columns: 1fr; gap: 48px; }
+      .about__visual { height: 280px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__hamburger { display: flex; }
+      .products__grid { grid-template-columns: 1fr; max-width: 400px; margin-inline: auto; }
+      .testimonials__grid { grid-template-columns: 1fr; }
+      .form__row { grid-template-columns: 1fr; }
+      .why__grid { grid-template-columns: 1fr 1fr; }
+      .footer__inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer__bottom { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .why__grid { grid-template-columns: 1fr; }
+      .hero__stats { flex-wrap: wrap; gap: 20px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo" aria-label="Right Chews Foods home">
+          <div class="nav__logo-mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+              <path d="M8 12h8M12 8v8"/>
+            </svg>
+          </div>
+          <div class="nav__logo-text">Right<span>Chews</span><br/>Foods</div>
+        </a>
+
+        <ul class="nav__links" role="list">
+          <li><a href="#products" class="nav__link">Products</a></li>
+          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#wholesale" class="nav__link">Wholesale</a></li>
+          <li><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+
+        <a href="#wholesale" class="btn btn-primary btn-sm nav__cta">Wholesale Inquiry</a>
+
+        <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav__mobile" id="mobileMenu" role="menu">
+      <a href="#products" class="nav__link" role="menuitem">Products</a>
+      <a href="#about" class="nav__link" role="menuitem">About</a>
+      <a href="#wholesale" class="nav__link" role="menuitem">Wholesale</a>
+      <a href="#contact" class="nav__link" role="menuitem">Contact</a>
+      <a href="#wholesale" class="btn btn-primary">Wholesale Inquiry</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="home">
+    <div class="container" style="display:contents;">
+      <div class="hero__content animate-in" style="padding-left: clamp(16px,4vw,48px);">
+        <div class="hero__badge" aria-label="Now available for wholesale">
+          <span class="hero__badge-dot" aria-hidden="true"></span>
+          Now Available for Wholesale
+        </div>
+
+        <h1 class="heading-xl hero__title">
+          Protein That Actually <em>Tastes</em> Like a Treat.
+        </h1>
+
+        <p class="body-lg hero__subtitle">
+          Premium protein brownies built for real shelves. Three indulgent flavors, 20g protein each — crafted for health-forward retailers who demand both taste and function.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#products" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            Shop Products
+          </a>
+          <a href="#wholesale" class="btn btn-secondary">Wholesale Inquiries</a>
+        </div>
+
+        <div class="hero__stats" role="list" aria-label="Key facts">
+          <div class="hero__stat" role="listitem">
+            <div class="hero__stat-num">20g</div>
+            <div class="hero__stat-label">Protein per brownie</div>
+          </div>
+          <div class="hero__stat" role="listitem">
+            <div class="hero__stat-num">3</div>
+            <div class="hero__stat-label">Bold flavors</div>
+          </div>
+          <div class="hero__stat" role="listitem">
+            <div class="hero__stat-num">0</div>
+            <div class="hero__stat-label">Artificial flavors</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__visual animate-in" style="padding-right: clamp(16px,4vw,48px); animation-delay:150ms;">
+        <!-- Chocolate -->
+        <div class="brownie-card card-choc" role="img" aria-label="Chocolate protein brownie">
+          <img class="brownie-card__img" src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=500&q=80&auto=format&fit=crop" alt="Rich chocolate brownies" loading="eager" />
+          <div class="brownie-card__name">Chocolate</div>
+          <div class="brownie-card__desc">Powerful, rich & functional</div>
+          <div class="brownie-card__protein">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            20G PROTEIN
+          </div>
+        </div>
+
+        <!-- Red Velvet -->
+        <div class="brownie-card card-red" role="img" aria-label="Red velvet protein brownie">
+          <img class="brownie-card__img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=500&q=80&auto=format&fit=crop" alt="Red velvet cake brownie" loading="eager" />
+          <div class="brownie-card__name">Red Velvet</div>
+          <div class="brownie-card__desc">Sophistication with purpose</div>
+          <div class="brownie-card__protein">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            20G PROTEIN
+          </div>
+        </div>
+
+        <!-- Blondie -->
+        <div class="brownie-card card-blond" role="img" aria-label="Blondie protein brownie">
+          <img class="brownie-card__img" src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=500&q=80&auto=format&fit=crop" alt="Golden blondie brownie bar" loading="eager" />
+          <div class="brownie-card__name">Blondie</div>
+          <div class="brownie-card__desc">Soft, golden & functional</div>
+          <div class="brownie-card__protein">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            20G PROTEIN
+          </div>
+        </div>
+
+        <!-- Floating tags -->
+        <div class="float-tag float-tag--1" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4622A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Retail-Ready Packaging
+        </div>
+        <div class="float-tag float-tag--2" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Made in USA
+        </div>
+        <div class="float-tag float-tag--3" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2C7A2C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Clean Ingredients
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MARQUEE ═══ -->
+  <div class="marquee-section" aria-label="Product highlights" role="marquee">
+    <div class="marquee-track" aria-hidden="true">
+      <!-- doubled for seamless loop -->
+      <span class="marquee-item"><span class="marquee-dot"></span>20g Protein Per Brownie</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>No Artificial Flavors</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Retail-Ready Packaging</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>3 Bold Flavors</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Made in USA</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Wholesale Available</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Flexible MOQ</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>High Retail Margin</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>20g Protein Per Brownie</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>No Artificial Flavors</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Retail-Ready Packaging</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>3 Bold Flavors</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Made in USA</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Wholesale Available</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Flexible MOQ</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>High Retail Margin</span>
+    </div>
+  </div>
+
+  <!-- ═══ PRODUCTS ═══ -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="products__header animate-in">
+        <span class="section-label">Our Lineup</span>
+        <h2 class="heading-lg">Three Flavors. One Standard&nbsp;— Premium.</h2>
+        <p class="body-md" style="margin-top:12px; max-width:500px; margin-inline:auto;">
+          Each brownie delivers serious protein without sacrificing the indulgent taste your customers crave.
+        </p>
+      </div>
+
+      <div class="products__grid">
+        <!-- Chocolate -->
+        <article class="product-card animate-in" style="animation-delay:0ms;">
+          <div class="product-card__visual">
+            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&h=400&q=80&auto=format&fit=crop" alt="Chocolate protein brownie" loading="lazy" />
+            <span class="product-card__label">Bestseller</span>
+          </div>
+          <div class="product-card__body">
+            <h3 class="heading-md product-card__name">Chocolate</h3>
+            <p class="product-card__desc">Powerful, rich, and unapologetically indulgent. Deep cocoa meets clean protein in every decadent bite.</p>
+            <div class="product-card__macros" role="list" aria-label="Nutrition facts">
+              <div class="macro" role="listitem">
+                <span class="macro__val">20g</span>
+                <span class="macro__key">Protein</span>
+              </div>
+              <div class="macro" role="listitem">
+                <span class="macro__val">250</span>
+                <span class="macro__key">Calories</span>
+              </div>
+              <div class="macro" role="listitem">
+                <span class="macro__val">5g</span>
+                <span class="macro__key">Sugar</span>
+              </div>
+              <div class="macro" role="listitem">
+                <span class="macro__val">8g</span>
+                <span class="macro__key">Fat</span>
+              </div>
+            </div>
+            <div class="product-card__action">
+              <a href="#wholesale" class="btn btn-primary">Order Sample</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Red Velvet -->
+        <article class="product-card animate-in" style="animation-delay:100ms;">
+          <div class="product-card__visual">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&q=80&auto=format&fit=crop" alt="Red velvet protein brownie" loading="lazy" />
+            <span class="product-card__label">Customer Fav</span>
+          </div>
+          <div class="product-card__body">
+            <h3 class="heading-md product-card__name">Red Velvet</h3>
+            <p class="product-card__desc">Sophistication with purpose. A velvety texture with hints of vanilla and cocoa — elegance that sells itself.</p>
+            <div class="product-card__macros" role="list" aria-label="Nutrition facts">
+              <div class="macro" role="listitem">
+                <span class="macro__val">20g</span>
+                <span class="macro__key">Protein</span>
+              </div>
+              <div class="macro" role="listitem">
+                <span class="macro__val">245</span>
+                <span class="macro__key">Calories</span>
+              </div>
+              <div class="macro" role="listitem">
+                <span class="macro__val">5g</span>
+                <span class="macro__key">Sugar</span>
+              </div>
+              <div class="macro" role="listitem">
+                <span class="macro__val">7g</span>
+                <span class="macro__key">Fat</span>
+              </div>
+            </div>
+            <div class="product-card__action">
+              <a href="#wholesale" class="btn btn-primary">Order Sample</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blondie -->
+        <article class="product-card animate-in" style="animation-delay:200ms;">
+          <div class="product-card__visual">
+            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&h=400&q=80&auto=format&fit=crop" alt="Blondie protein brownie bar" loading="lazy" />
+            <span class="product-card__label">New Flavor</span>
+          </div>
+          <div class="product-card__body">
+            <h3 class="heading-md product-card__name">Blondie</h3>
+            <p class="product-card__desc">Soft, golden, and subtly sweet. Buttery caramel notes with functional protein — the one everyone keeps coming back for.</p>
+            <div class="product-card__macros" role="list" aria-label="Nutrition facts">
+              <div class="macro" role="listitem">
+                <span class="macro__val">20g</span>
+                <span class="macro__key">Protein</span>
+              </div>
+              <div class="macro" role="listitem">
+                <span class="macro__val">255</span>
+                <span class="macro__key">Calories</span>
+              </div>
+              <div class="macro" role="listitem">
+                <span class="macro__val">5g</span>
+                <span class="macro__key">Sugar</span>
+              </div>
+              <div class="macro" role="listitem">
+                <span class="macro__val">8g</span>
+                <span class="macro__key">Fat</span>
+              </div>
+            </div>
+            <div class="product-card__action">
+              <a href="#wholesale" class="btn btn-primary">Order Sample</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY RIGHT CHEWS ═══ -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="why__header animate-in">
+        <span class="section-label">Why Retailers Choose Us</span>
+        <h2 class="heading-lg">Built to Sell. Built to Last.</h2>
+        <p class="body-md" style="margin-top:12px; max-width:480px; margin-inline:auto;">
+          We engineered Right Chews from the shelf backward — every detail designed to move product.
+        </p>
+      </div>
+
+      <div class="why__grid">
+        <div class="why-tile animate-in" style="animation-delay:0ms;">
+          <div class="why-tile__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3 class="why-tile__title">20g Protein Per Brownie</h3>
+          <p class="why-tile__desc">Category-leading protein content that customers can feel good about. A claim that sells itself from the label.</p>
+        </div>
+
+        <div class="why-tile animate-in" style="animation-delay:80ms;">
+          <div class="why-tile__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="why-tile__title">Clean Ingredients</h3>
+          <p class="why-tile__desc">No artificial flavors, no mystery fillers. Just ingredients your health-conscious shoppers can actually pronounce.</p>
+        </div>
+
+        <div class="why-tile animate-in" style="animation-delay:160ms;">
+          <div class="why-tile__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          </div>
+          <h3 class="why-tile__title">Retail-Ready Packaging</h3>
+          <p class="why-tile__desc">Shelf-optimized design with UPC barcodes, nutrition panels, and eye-catching branding right out of the box.</p>
+        </div>
+
+        <div class="why-tile animate-in" style="animation-delay:240ms;">
+          <div class="why-tile__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h3 class="why-tile__title">High Margin for Retailers</h3>
+          <p class="why-tile__desc">Competitive wholesale pricing built to give your store strong margin. Premium product, smart economics — everyone wins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHOLESALE ═══ -->
+  <section class="wholesale" id="wholesale">
+    <div class="container">
+      <div class="wholesale__inner">
+        <div class="wholesale__content animate-in">
+          <span class="section-label">Wholesale Program</span>
+          <h2 class="heading-lg">Grow Your Shelves With&nbsp;Us.</h2>
+          <p class="wholesale__subtitle">
+            We partner with gyms, health food stores, specialty retailers, and grocery chains. Flexible minimum orders, fast fulfillment, and dedicated support — so you can focus on selling.
+          </p>
+
+          <ul class="wholesale__benefits" role="list">
+            <li class="wholesale__benefit" role="listitem">
+              <div class="benefit-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2C1A0E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="benefit-text"><strong>Flexible MOQ</strong> — Start small and scale up as demand grows. No need to over-commit on your first order.</span>
+            </li>
+            <li class="wholesale__benefit" role="listitem">
+              <div class="benefit-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2C1A0E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="benefit-text"><strong>Fast Fulfillment</strong> — Orders ship within 5–7 business days. Stock your shelves without the long waits.</span>
+            </li>
+            <li class="wholesale__benefit" role="listitem">
+              <div class="benefit-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2C1A0E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="benefit-text"><strong>Branded Display Options</strong> — Point-of-sale displays and branded fixtures available to boost in-store visibility.</span>
+            </li>
+            <li class="wholesale__benefit" role="listitem">
+              <div class="benefit-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2C1A0E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="benefit-text"><strong>Free Samples</strong> — Request a sample pack before committing. We stand behind every bite.</span>
+            </li>
+            <li class="wholesale__benefit" role="listitem">
+              <div class="benefit-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2C1A0E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="benefit-text"><strong>Dedicated Account Rep</strong> — A real person who knows your store and helps you succeed — not a chatbot.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="wholesale__form animate-in" style="animation-delay:150ms;" id="contact">
+          <div id="formContent">
+            <h3 class="form__title">Wholesale Inquiry</h3>
+            <p class="form__subtitle">Fill out the form and we'll be in touch within 1 business day.</p>
+
+            <form id="wholesaleForm" novalidate>
+              <div class="form__row">
+                <div class="form__group">
+                  <label class="form__label" for="bizName">Business Name <span class="req" aria-label="required">*</span></label>
+                  <input class="form__input" type="text" id="bizName" name="bizName" autocomplete="organization" placeholder="Your Store Name" required />
+                  <span class="form__error" id="bizNameErr" role="alert">Please enter your business name.</span>
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="contactName">Contact Name <span class="req" aria-label="required">*</span></label>
+                  <input class="form__input" type="text" id="contactName" name="contactName" autocomplete="name" placeholder="Your Full Name" required />
+                  <span class="form__error" id="contactNameErr" role="alert">Please enter your name.</span>
+                </div>
+              </div>
+
+              <div class="form__row">
+                <div class="form__group">
+                  <label class="form__label" for="email">Email <span class="req" aria-label="required">*</span></label>
+                  <input class="form__input" type="email" id="email" name="email" autocomplete="email" placeholder="you@yourbusiness.com" required />
+                  <span class="form__error" id="emailErr" role="alert">Please enter a valid email address.</span>
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="phone">Phone</label>
+                  <input class="form__input" type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 000-0000" />
+                </div>
+              </div>
+
+              <div class="form__group">
+                <label class="form__label" for="storeType">Store Type <span class="req" aria-label="required">*</span></label>
+                <select class="form__select" id="storeType" name="storeType" required>
+                  <option value="" disabled selected>Select your store type</option>
+                  <option value="gym">Gym / Fitness Center</option>
+                  <option value="health">Health Food Store</option>
+                  <option value="grocery">Grocery / Supermarket</option>
+                  <option value="specialty">Specialty Retailer</option>
+                  <option value="convenience">Convenience Store</option>
+                  <option value="online">Online Retailer</option>
+                  <option value="other">Other</option>
+                </select>
+                <span class="form__error" id="storeTypeErr" role="alert">Please select your store type.</span>
+              </div>
+
+              <div class="form__group">
+                <label class="form__label" for="units">Estimated Monthly Units</label>
+                <select class="form__select" id="units" name="units">
+                  <option value="" disabled selected>How many units per month?</option>
+                  <option value="under50">Under 50</option>
+                  <option value="50-150">50–150</option>
+                  <option value="150-500">150–500</option>
+                  <option value="500plus">500+</option>
+                </select>
+              </div>
+
+              <div class="form__group">
+                <label class="form__label" for="message">Message</label>
+                <textarea class="form__textarea" id="message" name="message" placeholder="Tell us about your store, which flavors interest you, or any questions you have..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-gold form__submit">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Send Wholesale Inquiry
+              </button>
+            </form>
+          </div>
+
+          <div class="form__success" id="formSuccess" aria-live="polite">
+            <div class="success-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="form__title">Inquiry Received!</h3>
+            <p style="font-size:.9rem; color: var(--text-muted); line-height:1.6;">
+              Thanks for reaching out. A member of our wholesale team will contact you within 1 business day.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about__inner">
+        <div class="about__visual animate-in" aria-hidden="true">
+          <div class="about__photo-main">
+            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&h=720&q=80&auto=format&fit=crop" alt="Freshly baked protein brownies" loading="lazy" />
+          </div>
+          <div class="about__photo-accent">
+            <img src="https://images.unsplash.com/photo-1542124292-5783e02f2f30?w=400&h=500&q=80&auto=format&fit=crop" alt="Brownie close-up texture" loading="lazy" />
+          </div>
+          <div class="about__quote-badge">
+            <p class="about__quote-text">"Eat well. Eat great. No compromise."</p>
+          </div>
+        </div>
+
+        <div class="about__content animate-in" style="animation-delay:150ms;">
+          <span class="section-label">Our Story</span>
+          <h2 class="heading-lg">Born From a Simple Belief.</h2>
+          <p class="body-md">
+            You shouldn't have to choose between eating well and eating great. Right Chews started with a kitchen, a conviction, and a protein brownie that didn't taste like cardboard.
+          </p>
+          <p class="body-md">
+            We spent months perfecting the formula — balancing macros and flavor until we had something we'd actually want to eat every day. Now we're bringing that same obsession to retail shelves nationwide.
+          </p>
+          <p class="body-md">
+            Every Right Chews brownie is made with clean ingredients, honest nutrition facts, and the kind of taste that turns first-time buyers into regulars. We're not just another protein snack — we're the one your customers will actually come back for.
+          </p>
+          <div class="about__values" role="list" aria-label="Brand values">
+            <span class="value-pill" role="listitem">Founder-Led</span>
+            <span class="value-pill" role="listitem">Made in USA</span>
+            <span class="value-pill" role="listitem">Clean Label</span>
+            <span class="value-pill" role="listitem">Function-First</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="testimonials__header animate-in">
+        <span class="section-label">Retail Partners</span>
+        <h2 class="heading-lg" id="testimonials-heading">What Retailers Are Saying.</h2>
+        <p class="body-md" style="margin-top:12px; max-width:440px; margin-inline:auto;">
+          From gyms to health food stores — retailers who've stocked Right Chews keep reordering.
+        </p>
+      </div>
+
+      <div class="testimonials__grid">
+        <article class="testimonial-card animate-in" style="animation-delay:0ms;">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="testimonial-quote">
+            "We added Right Chews to our front counter three months ago and they became one of our top-10 impulse buys within weeks. Customers ask for them by name now."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar av-1" aria-hidden="true">M</div>
+            <div>
+              <div class="testimonial-name">Marcus T.</div>
+              <div class="testimonial-role">Owner, Iron Republic Gym — Atlanta, GA</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card animate-in" style="animation-delay:100ms;">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="testimonial-quote">
+            "The packaging is clean, the macros are legit, and the taste actually delivers. Our wellness shoppers trust it. We've been reordering every 3 weeks."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar av-2" aria-hidden="true">J</div>
+            <div>
+              <div class="testimonial-name">Jamie R.</div>
+              <div class="testimonial-role">Buyer, Green Roots Market — Austin, TX</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card animate-in" style="animation-delay:200ms;">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="testimonial-quote">
+            "The margins are solid, the wholesale team is responsive, and the Red Velvet moves faster than anything else in our grab-and-go section. Win-win-win."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar av-3" aria-hidden="true">A</div>
+            <div>
+              <div class="testimonial-name">Alexis P.</div>
+              <div class="testimonial-role">Manager, Fuel & Function Nutrition — Miami, FL</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand-name">Right<span>Chews</span> Foods</div>
+          <p class="footer__tagline">Protein that actually tastes like a treat. Premium brownies built for retail — wholesale inquiries always welcome.</p>
+          <div class="footer__social">
+            <a href="https://instagram.com/rightchewsfoods" class="footer__social-btn" aria-label="Follow Right Chews Foods on Instagram" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="mailto:wholesale@rightchewsfoods.com" class="footer__social-btn" aria-label="Email Right Chews Foods">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Products</p>
+          <ul>
+            <li><a href="#products">Chocolate Brownie</a></li>
+            <li><a href="#products">Red Velvet Brownie</a></li>
+            <li><a href="#products">Blondie Brownie</a></li>
+            <li><a href="#wholesale">Sample Pack</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Company</p>
+          <ul>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#why">Why Right Chews</a></li>
+            <li><a href="#wholesale">Wholesale Program</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Contact</p>
+          <div class="footer__contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>Wholesale: <a href="mailto:wholesale@rightchewsfoods.com">wholesale@rightchewsfoods.com</a></span>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span><a href="https://instagram.com/rightchewsfoods" target="_blank" rel="noopener noreferrer">@rightchewsfoods</a></span>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Orlando, FL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 Right Chews Foods. All rights reserved.</span>
+        <div style="display:flex; gap:24px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Nav scroll effect ───────────────────────────────
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // ── Hamburger menu ──────────────────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ── IntersectionObserver animate-in ────────────────
+    const animateEls = document.querySelectorAll('.animate-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    animateEls.forEach(el => observer.observe(el));
+
+    // ── Form validation & submit ────────────────────────
+    const form = document.getElementById('wholesaleForm');
+    const formContent = document.getElementById('formContent');
+    const formSuccess = document.getElementById('formSuccess');
+
+    function showError(inputId, errId, show) {
+      const input = document.getElementById(inputId);
+      const err = document.getElementById(errId);
+      input.classList.toggle('error', show);
+      err.classList.toggle('visible', show);
+    }
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      const bizName = document.getElementById('bizName').value.trim();
+      const contactName = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const storeType = document.getElementById('storeType').value;
+
+      if (!bizName) { showError('bizName', 'bizNameErr', true); valid = false; }
+      else { showError('bizName', 'bizNameErr', false); }
+
+      if (!contactName) { showError('contactName', 'contactNameErr', true); valid = false; }
+      else { showError('contactName', 'contactNameErr', false); }
+
+      if (!email || !validateEmail(email)) { showError('email', 'emailErr', true); valid = false; }
+      else { showError('email', 'emailErr', false); }
+
+      if (!storeType) { showError('storeType', 'storeTypeErr', true); valid = false; }
+      else { showError('storeType', 'storeTypeErr', false); }
+
+      if (!valid) {
+        // Focus first error field
+        const firstErr = form.querySelector('.form__input.error, .form__select.error');
+        if (firstErr) firstErr.focus();
+        return;
+      }
+
+      // Simulate async submit
+      const submitBtn = form.querySelector('.form__submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      setTimeout(() => {
+        formContent.style.display = 'none';
+        formSuccess.classList.add('visible');
+      }, 900);
+    });
+
+    // Inline validation on blur
+    ['bizName', 'contactName'].forEach(id => {
+      document.getElementById(id).addEventListener('blur', function() {
+        const errId = id + 'Err';
+        showError(id, errId, !this.value.trim());
+      });
+    });
+    document.getElementById('email').addEventListener('blur', function() {
+      const v = this.value.trim();
+      showError('email', 'emailErr', !v || !validateEmail(v));
+    });
+    document.getElementById('storeType').addEventListener('change', function() {
+      showError('storeType', 'storeTypeErr', !this.value);
+    });
+  </script>
+</body>
+</html>
