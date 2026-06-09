@@ -1131,14 +1131,65 @@
       .form__flavors-grid { grid-template-columns: 1fr; gap: 8px; }
     }
 
+    @media (max-width: 600px) {
+      .hero__visual {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        padding-inline: 24px !important;
+        gap: 16px !important;
+        justify-content: flex-start !important;
+        width: 100vw !important;
+        margin-left: -24px !important; /* pull out to viewport edges */
+        margin-right: -24px !important;
+        padding-bottom: 20px !important;
+        scrollbar-width: none; /* Firefox */
+      }
+      .hero__visual::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+      }
+      .brownie-card {
+        flex: 0 0 250px !important; /* clean swipe cards */
+        scroll-snap-align: center;
+        transform: none !important; /* disable rotation on mobile */
+        height: 330px !important;
+        border-width: 2.5px !important;
+      }
+      
+      .calculator__results {
+        padding: 24px 16px !important;
+      }
+      .calculator__row-value {
+        font-size: 1.05rem !important;
+      }
+      .calculator__row.highlight .calculator__row-value {
+        font-size: 1.4rem !important;
+      }
+      
+      .faq-item__header {
+        font-size: 1.05rem !important;
+        padding: 18px 16px !important;
+      }
+      .faq-item__body {
+        padding: 0 16px 16px !important;
+        font-size: 0.9rem !important;
+      }
+      
+      .sell-sheet__table {
+        font-size: 11px !important;
+      }
+      .sell-sheet__table th, .sell-sheet__table td {
+        padding: 6px 8px !important;
+      }
+      .sell-sheet-print {
+        padding: 16px !important;
+      }
+    }
+
     @media (max-width: 480px) {
       .why__grid { grid-template-columns: 1fr; }
       .hero__stats { flex-wrap: wrap; gap: 20px; justify-content: center; }
-      .hero__visual { gap: 8px; padding: 24px 8px 20px; }
-      .card-choc  { height: 210px; transform: rotate(-3deg) translateY(12px); }
-      .card-red   { height: 240px; }
-      .card-blond { height: 210px; transform: rotate(3deg) translateY(12px); }
-      .brownie-card { border-width: 2px; }
       .hero__perks { gap: 4px 14px; }
       .about__photo-accent { display: none; }
     }
