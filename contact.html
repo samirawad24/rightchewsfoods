@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Right Chews Foods</title>
+  <meta name="description" content="Get in touch with Right Chews Foods. Questions, wholesale inquiries, media, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Contact section ────────────────────────────────── */
+    .contact-section { padding: 64px 0 88px; }
+    .contact-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 56px; align-items: start; }
+
+    /* Form card */
+    .contact-form-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 40px; border: 1px solid var(--cream-300); box-shadow: var(--shadow-md);
+    }
+    .contact-form-card__title {
+      font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
+      color: var(--brown-800); margin-bottom: 6px;
+    }
+    .contact-form-card__sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; line-height: 1.55; }
+    .contact-submit { width: 100%; justify-content: center; padding: 14px; font-size: 15px; margin-top: 4px; }
+
+    .contact-success {
+      display: none; text-align: center; padding: 32px 0;
+    }
+    .contact-success__icon {
+      width: 56px; height: 56px; border-radius: 50%; background: #D1FAE5;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px; color: #059669;
+    }
+    .contact-success__title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--brown-800); margin-bottom: 8px; }
+    .contact-success__sub { font-size: .875rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Info cards */
+    .contact-info { display: flex; flex-direction: column; gap: 16px; padding-top: 4px; }
+    .info-card {
+      background: var(--white); border-radius: var(--radius-md); padding: 22px 20px;
+      border: 1px solid var(--cream-300); box-shadow: var(--shadow-sm);
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .info-card__icon {
+      width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--brown-800), var(--brown-600));
+      display: flex; align-items: center; justify-content: center; color: var(--gold);
+    }
+    .info-card__label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 3px; }
+    .info-card__value { font-size: 14px; font-weight: 600; color: var(--brown-800); }
+    .info-card__value a { color: var(--brown-800); transition: color var(--transition); }
+    .info-card__value a:hover { color: var(--orange); }
+    .info-card__sub { font-size: 12px; color: var(--text-muted); margin-top: 3px; line-height: 1.5; }
+
+    .contact-social { display: flex; gap: 10px; flex-wrap: wrap; }
+    .contact-social-btn {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--cream-200); color: var(--brown-700);
+      font-size: 13px; font-weight: 600; padding: 9px 16px;
+      border-radius: 100px; border: 1px solid var(--cream-300);
+      transition: background var(--transition), color var(--transition);
+    }
+    .contact-social-btn:hover { background: var(--brown-800); color: var(--white); border-color: var(--brown-800); }
+
+    @media (max-width: 860px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+      .contact-info { flex-direction: row; flex-wrap: wrap; }
+      .info-card { flex: 1; min-width: 200px; }
+      .contact-section { padding: 48px 0 64px; }
+    }
+    @media (max-width: 500px) {
+      .contact-form-card { padding: 28px 20px; }
+      .contact-info { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shipping bar -->
+  <div class="shipping-bar">
+    <span class="shipping-bar__dot"></span>
+    Free shipping on orders over $25 &nbsp;·&nbsp; Shop Pay available at checkout
+    <span class="shipping-bar__dot"></span>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">
+          <img src="https://www.rightchewsfoods.com/gallery/logo%20RC.png" alt="Right Chews Foods" />
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="shop.html" class="nav__link">Shop</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="wholesale.html" class="nav__link">Wholesale</a></li>
+          <li><a href="contact.html" class="nav__link active">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+          <a href="shop.html" class="nav__cart-btn" aria-label="View cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span class="nav__cart-badge" id="cartBadge">0</span>
+          </a>
+          <button class="nav__hamburger" id="hamburger" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="shop.html" class="nav__link">Shop</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="wholesale.html" class="nav__link">Wholesale</a>
+      <a href="contact.html" class="nav__link active">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <div class="page-header">
+    <div class="page-header__label">Reach Out</div>
+    <h1 class="page-header__title">Contact Us</h1>
+    <p class="page-header__sub">Questions, wholesale inquiries, or just saying hi — we'd love to hear from you.</p>
+  </div>
+
+  <!-- Contact section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Form -->
+        <div class="contact-form-card animate-in">
+          <h2 class="contact-form-card__title">Send a Message</h2>
+          <p class="contact-form-card__sub">We typically respond within one business day.</p>
+
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cfName">Your Name <span class="req">*</span></label>
+                <input class="form-input" type="text" id="cfName" placeholder="First &amp; Last" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cfEmail">Email <span class="req">*</span></label>
+                <input class="form-input" type="email" id="cfEmail" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cfSubject">Subject <span class="req">*</span></label>
+              <select class="form-select" id="cfSubject" required>
+                <option value="">What's this about?</option>
+                <option>Order Question</option>
+                <option>Wholesale / B2B</option>
+                <option>Media / Press</option>
+                <option>Nutrition / Ingredients</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cfMessage">Message <span class="req">*</span></label>
+              <textarea class="form-textarea" id="cfMessage" placeholder="Write your message here…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary contact-submit">
+              Send Message
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+
+          <div class="contact-success" id="cfSuccess">
+            <div class="contact-success__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="contact-success__title">Message Sent!</div>
+            <p class="contact-success__sub">Thanks for reaching out. We'll get back to you within one business day.</p>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="contact-info animate-in" style="transition-delay:80ms;">
+
+          <div class="info-card">
+            <div class="info-card__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="info-card__label">Email</div>
+              <div class="info-card__value"><a href="mailto:info@rightchewsfoods.com">info@rightchewsfoods.com</a></div>
+              <div class="info-card__sub">General inquiries &amp; support</div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <div>
+              <div class="info-card__label">Wholesale</div>
+              <div class="info-card__value"><a href="wholesale.html">Apply for an account →</a></div>
+              <div class="info-card__sub">Gyms, shops, and retailers</div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="info-card__label">Based In</div>
+              <div class="info-card__value">Orlando, FL</div>
+              <div class="info-card__sub">Shipping across the USA</div>
+            </div>
+          </div>
+
+          <div class="info-card" style="flex-direction:column;gap:14px;">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <div class="info-card__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </div>
+              <div>
+                <div class="info-card__label">Social</div>
+                <div class="info-card__value">Follow Along</div>
+              </div>
+            </div>
+            <div class="contact-social">
+              <a href="#" class="contact-social-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+                Instagram
+              </a>
+              <a href="#" class="contact-social-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.81 1.55V6.79a4.85 4.85 0 01-1.04-.1z"/></svg>
+                TikTok
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="rc-footer">
+    <div class="container">
+      <div class="rc-footer__grid">
+        <div>
+          <div class="rc-footer__brand-name">Right<span>Chews</span> Foods</div>
+          <p class="rc-footer__tagline">Protein that actually tastes like a treat. Three flavors. One standard — premium.</p>
+          <div class="rc-footer__social">
+            <a href="#" class="rc-footer__social-btn" aria-label="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" class="rc-footer__social-btn" aria-label="TikTok">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.81 1.55V6.79a4.85 4.85 0 01-1.04-.1z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <p class="rc-footer__col-title">Navigate</p>
+          <ul class="rc-footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="wholesale.html">Wholesale</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="rc-footer__col-title">Contact</p>
+          <ul class="rc-footer__links">
+            <li><a href="mailto:info@rightchewsfoods.com">info@rightchewsfoods.com</a></li>
+            <li><a href="wholesale.html">Wholesale Inquiries →</a></li>
+            <li><a href="https://www.rightchewsfoods.com" target="_blank" rel="noopener">rightchewsfoods.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rc-footer__bottom">
+        <span>© 2026 Right Chews Foods. All rights reserved.</span>
+        <div style="display:flex;gap:20px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name    = document.getElementById('cfName').value.trim();
+      const email   = document.getElementById('cfEmail').value.trim();
+      const subject = document.getElementById('cfSubject').value;
+      const message = document.getElementById('cfMessage').value.trim();
+      if (!name || !email || !subject || !message) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      this.style.display = 'none';
+      document.getElementById('cfSuccess').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

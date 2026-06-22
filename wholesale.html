@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wholesale — Right Chews Foods</title>
+  <meta name="description" content="Wholesale pricing for gyms, supplement shops, and retailers. Apply for an account and unlock tiered pricing starting at $1.80/unit." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Pricing tiers ──────────────────────────────────── */
+    .pricing-section { padding: 64px 0 56px; }
+    .pricing-header { text-align: center; margin-bottom: 40px; }
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
+    }
+    .tier-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 28px 22px; border: 2px solid var(--cream-300);
+      box-shadow: var(--shadow-sm); position: relative;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+    .tier-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .tier-card.featured {
+      border-color: var(--orange); background: var(--brown-800); color: var(--white);
+      transform: translateY(-6px); box-shadow: 0 12px 48px rgba(212,98,42,.35);
+    }
+    .tier-badge {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--orange); color: var(--white);
+      font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+      padding: 4px 16px; border-radius: 100px; white-space: nowrap;
+    }
+    .tier-card__name {
+      font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 8px;
+    }
+    .tier-card.featured .tier-card__name { color: rgba(255,255,255,.6); }
+    .tier-card__price {
+      font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900;
+      color: var(--brown-800); line-height: 1; margin-bottom: 4px;
+    }
+    .tier-card.featured .tier-card__price { color: var(--gold); }
+    .tier-card__per { font-size: 12px; color: var(--text-muted); margin-bottom: 16px; }
+    .tier-card.featured .tier-card__per { color: rgba(255,255,255,.5); }
+    .tier-card__cases {
+      font-size: .875rem; font-weight: 600; color: var(--brown-700); margin-bottom: 12px;
+    }
+    .tier-card.featured .tier-card__cases { color: rgba(255,255,255,.85); }
+    .tier-card__divider { height: 1px; background: var(--cream-300); margin: 16px 0; }
+    .tier-card.featured .tier-card__divider { background: rgba(255,255,255,.15); }
+    .tier-card__margin { font-size: 13px; color: var(--text-muted); }
+    .tier-card.featured .tier-card__margin { color: rgba(255,255,255,.6); }
+    .tier-card__margin strong { color: var(--brown-800); }
+    .tier-card.featured .tier-card__margin strong { color: var(--white); }
+
+    /* ── Wholesale form section ─────────────────────────── */
+    .ws-section { padding: 0 0 80px; }
+    .ws-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 56px; align-items: start; }
+    .ws-benefits__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem,2.5vw,2rem); font-weight: 700;
+      color: var(--brown-800); margin-bottom: 8px; line-height: 1.2;
+    }
+    .ws-benefits__sub { font-size: .925rem; color: var(--text-muted); margin-bottom: 28px; line-height: 1.65; }
+    .ws-benefit-list { display: flex; flex-direction: column; gap: 16px; }
+    .ws-benefit {
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .ws-benefit__icon {
+      width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--brown-800), var(--brown-700));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+    }
+    .ws-benefit__text strong { display: block; font-size: 14px; font-weight: 600; color: var(--brown-800); margin-bottom: 2px; }
+    .ws-benefit__text span { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    .ws-cta-note {
+      margin-top: 24px; padding: 16px 20px; border-radius: var(--radius-md);
+      background: rgba(201,168,76,.08); border: 1px solid rgba(201,168,76,.25);
+      font-size: 13px; color: var(--brown-700); line-height: 1.55;
+    }
+    .ws-cta-note strong { color: var(--brown-800); }
+
+    /* Form card */
+    .ws-form-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 36px; border: 1px solid var(--cream-300); box-shadow: var(--shadow-md);
+    }
+    .ws-form-card__title {
+      font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
+      color: var(--brown-800); margin-bottom: 6px;
+    }
+    .ws-form-card__sub { font-size: 13px; color: var(--text-muted); margin-bottom: 28px; line-height: 1.55; }
+    .ws-submit { width: 100%; justify-content: center; padding: 15px; font-size: 15px; margin-top: 4px; }
+    .ws-form-success {
+      display: none; text-align: center; padding: 24px 0;
+    }
+    .ws-form-success__icon {
+      width: 56px; height: 56px; border-radius: 50%; background: #D1FAE5;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px; color: #059669;
+    }
+    .ws-form-success__title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--brown-800); margin-bottom: 8px; }
+    .ws-form-success__sub { font-size: .875rem; color: var(--text-muted); }
+
+    @media (max-width: 1000px) { .pricing-grid { grid-template-columns: repeat(2,1fr); } .tier-card.featured { transform: none; } }
+    @media (max-width: 700px) { .ws-grid { grid-template-columns: 1fr; gap: 40px; } .ws-section { padding: 0 0 56px; } }
+    @media (max-width: 560px) { .pricing-grid { grid-template-columns: 1fr 1fr; } .pricing-section { padding: 48px 0 40px; } }
+  </style>
+</head>
+<body>
+
+  <!-- Shipping bar -->
+  <div class="shipping-bar">
+    <span class="shipping-bar__dot"></span>
+    Free shipping on orders over $25 &nbsp;·&nbsp; Shop Pay available at checkout
+    <span class="shipping-bar__dot"></span>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">
+          <img src="https://www.rightchewsfoods.com/gallery/logo%20RC.png" alt="Right Chews Foods" />
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="shop.html" class="nav__link">Shop</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="wholesale.html" class="nav__link active">Wholesale</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+          <a href="shop.html" class="nav__cart-btn" aria-label="View cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span class="nav__cart-badge" id="cartBadge">0</span>
+          </a>
+          <button class="nav__hamburger" id="hamburger" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="shop.html" class="nav__link">Shop</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="wholesale.html" class="nav__link active">Wholesale</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <div class="page-header">
+    <div class="page-header__label">B2B Program</div>
+    <h1 class="page-header__title">Wholesale Pricing</h1>
+    <p class="page-header__sub">Gyms, supplement shops, and retailers — stock Right Chews and keep your margins strong.</p>
+  </div>
+
+  <!-- Pricing tiers -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="pricing-header animate-in">
+        <span class="section-label">Tiered Pricing</span>
+        <h2 class="heading-lg">The more you order, the more you save.</h2>
+      </div>
+      <div class="pricing-grid">
+
+        <div class="tier-card animate-in" style="transition-delay:0ms;">
+          <div class="tier-card__name">Starter</div>
+          <div class="tier-card__price">$2.25</div>
+          <div class="tier-card__per">per unit</div>
+          <div class="tier-card__cases">1 – 4 Cases</div>
+          <div class="tier-card__divider"></div>
+          <div class="tier-card__margin">Retail $3.99 · <strong>44% margin</strong></div>
+        </div>
+
+        <div class="tier-card animate-in" style="transition-delay:60ms;">
+          <div class="tier-card__name">Standard</div>
+          <div class="tier-card__price">$2.10</div>
+          <div class="tier-card__per">per unit</div>
+          <div class="tier-card__cases">5 – 9 Cases</div>
+          <div class="tier-card__divider"></div>
+          <div class="tier-card__margin">Retail $3.99 · <strong>47% margin</strong></div>
+        </div>
+
+        <div class="tier-card featured animate-in" style="transition-delay:120ms;">
+          <div class="tier-badge">Most Popular</div>
+          <div class="tier-card__name">Volume</div>
+          <div class="tier-card__price">$1.95</div>
+          <div class="tier-card__per">per unit</div>
+          <div class="tier-card__cases">10 – 24 Cases</div>
+          <div class="tier-card__divider"></div>
+          <div class="tier-card__margin">Retail $3.99 · <strong>51% margin</strong></div>
+        </div>
+
+        <div class="tier-card animate-in" style="transition-delay:180ms;">
+          <div class="tier-card__name">Super Volume</div>
+          <div class="tier-card__price">$1.80</div>
+          <div class="tier-card__per">per unit</div>
+          <div class="tier-card__cases">25+ Cases</div>
+          <div class="tier-card__divider"></div>
+          <div class="tier-card__margin">Retail $3.99 · <strong>55% margin</strong></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits + Form -->
+  <section class="ws-section">
+    <div class="container">
+      <div class="ws-grid">
+
+        <!-- Benefits -->
+        <div class="animate-in">
+          <h2 class="ws-benefits__title">Why Stocking Right Chews Makes Sense</h2>
+          <p class="ws-benefits__sub">We make it easy to carry, easy to sell, and easy to reorder.</p>
+          <div class="ws-benefit-list">
+
+            <div class="ws-benefit">
+              <div class="ws-benefit__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+              </div>
+              <div class="ws-benefit__text">
+                <strong>Flexible Minimums</strong>
+                <span>Start with just 1 case to test. Scale up as demand grows — no pressure, no commitment.</span>
+              </div>
+            </div>
+
+            <div class="ws-benefit">
+              <div class="ws-benefit__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="ws-benefit__text">
+                <strong>Fast Fulfillment</strong>
+                <span>Orders ship within 2–3 business days. Restocks are built to keep your shelves full.</span>
+              </div>
+            </div>
+
+            <div class="ws-benefit">
+              <div class="ws-benefit__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              </div>
+              <div class="ws-benefit__text">
+                <strong>Product That Sells Itself</strong>
+                <span>Great taste is the best salesperson. Customers who try one brownie come back for more.</span>
+              </div>
+            </div>
+
+            <div class="ws-benefit">
+              <div class="ws-benefit__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              </div>
+              <div class="ws-benefit__text">
+                <strong>Wholesale Login on Our Site</strong>
+                <span>Tag your account and log in at rightchewsfoods.com to see your pricing automatically.</span>
+              </div>
+            </div>
+
+          </div>
+          <div class="ws-cta-note">
+            <strong>Each case = 12 brownies ($3.99 MSRP each).</strong> We'll set up your account after your first order so future purchases show your tier pricing automatically when you login.
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="ws-form-card animate-in" style="transition-delay:80ms;">
+          <h3 class="ws-form-card__title">Request a Wholesale Account</h3>
+          <p class="ws-form-card__sub">Fill out the form below and we'll follow up within 24 hours to get you set up.</p>
+
+          <form id="wsForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="wsFirstName">First Name <span class="req">*</span></label>
+                <input class="form-input" type="text" id="wsFirstName" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="wsLastName">Last Name <span class="req">*</span></label>
+                <input class="form-input" type="text" id="wsLastName" placeholder="Smith" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="wsBusiness">Business Name <span class="req">*</span></label>
+              <input class="form-input" type="text" id="wsBusiness" placeholder="Fitness First Gym" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="wsEmail">Email <span class="req">*</span></label>
+              <input class="form-input" type="email" id="wsEmail" placeholder="you@yourbusiness.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="wsPhone">Phone</label>
+              <input class="form-input" type="tel" id="wsPhone" placeholder="(555) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="wsType">Business Type <span class="req">*</span></label>
+              <select class="form-select" id="wsType" required>
+                <option value="">Select type…</option>
+                <option>Gym / Fitness Center</option>
+                <option>CrossFit Box</option>
+                <option>Supplement Shop</option>
+                <option>Grocery / Specialty Store</option>
+                <option>Corporate Wellness</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="wsMessage">Tell us about your business</label>
+              <textarea class="form-textarea" id="wsMessage" placeholder="How many members / customers do you serve? What products do you currently carry?" style="min-height:90px;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary ws-submit">
+              Submit Wholesale Request
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+
+          <div class="ws-form-success" id="wsSuccess">
+            <div class="ws-form-success__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="ws-form-success__title">Request Submitted!</div>
+            <p class="ws-form-success__sub">We'll follow up within 24 hours to get your account set up and get you a sample if needed.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="rc-footer">
+    <div class="container">
+      <div class="rc-footer__grid">
+        <div>
+          <div class="rc-footer__brand-name">Right<span>Chews</span> Foods</div>
+          <p class="rc-footer__tagline">Protein that actually tastes like a treat. Three flavors. One standard — premium.</p>
+          <div class="rc-footer__social">
+            <a href="#" class="rc-footer__social-btn" aria-label="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" class="rc-footer__social-btn" aria-label="TikTok">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.81 1.55V6.79a4.85 4.85 0 01-1.04-.1z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <p class="rc-footer__col-title">Navigate</p>
+          <ul class="rc-footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="wholesale.html">Wholesale</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="rc-footer__col-title">Contact</p>
+          <ul class="rc-footer__links">
+            <li><a href="mailto:info@rightchewsfoods.com">info@rightchewsfoods.com</a></li>
+            <li><a href="wholesale.html">Wholesale Inquiries →</a></li>
+            <li><a href="https://www.rightchewsfoods.com" target="_blank" rel="noopener">rightchewsfoods.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rc-footer__bottom">
+        <span>© 2026 Right Chews Foods. All rights reserved.</span>
+        <div style="display:flex;gap:20px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script>
+    document.getElementById('wsForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const first    = document.getElementById('wsFirstName').value.trim();
+      const last     = document.getElementById('wsLastName').value.trim();
+      const business = document.getElementById('wsBusiness').value.trim();
+      const email    = document.getElementById('wsEmail').value.trim();
+      const type     = document.getElementById('wsType').value;
+      if (!first || !last || !business || !email || !type) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      this.style.display = 'none';
+      document.getElementById('wsSuccess').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

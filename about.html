@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Right Chews Foods</title>
+  <meta name="description" content="The story behind Right Chews Foods — premium protein brownies built for real shelves." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── About section ──────────────────────────────────── */
+    .about-section { padding: 72px 0 80px; }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+    }
+    .about-content__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem,3.5vw,2.8rem); font-weight: 700;
+      line-height: 1.15; color: var(--brown-800); margin-bottom: 20px;
+    }
+    .about-content p {
+      font-size: .975rem; line-height: 1.75; color: var(--brown-600); margin-bottom: 16px;
+    }
+    .about-content p:last-of-type { margin-bottom: 28px; }
+    .about-values { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .about-image {
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-lg); aspect-ratio: 4/5; position: relative;
+    }
+    .about-image img { width: 100%; height: 100%; object-fit: cover; }
+    .about-image__overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(26,14,7,.7) 0%, transparent 55%);
+      padding: 28px 24px;
+    }
+    .about-image__quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-style: italic; color: rgba(255,255,255,.9); line-height: 1.5;
+    }
+
+    /* ── Testimonials ───────────────────────────────────── */
+    .testimonials { background: var(--cream-200); padding: 72px 0; border-top: 1px solid var(--cream-300); }
+    .testimonials__header { text-align: center; margin-bottom: 40px; }
+    .testimonials__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .tcard {
+      background: var(--white); border-radius: var(--radius-lg); padding: 28px 24px;
+      box-shadow: var(--shadow-sm); border: 1px solid var(--cream-300);
+    }
+    .tcard__stars { display: flex; gap: 3px; margin-bottom: 14px; }
+    .tcard__stars span { color: var(--gold); font-size: 16px; }
+    .tcard__quote {
+      font-size: .95rem; line-height: 1.7; color: var(--brown-700);
+      font-style: italic; margin-bottom: 20px;
+    }
+    .tcard__author { display: flex; align-items: center; gap: 12px; }
+    .tcard__avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--brown-800), var(--brown-600));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--white);
+      flex-shrink: 0;
+    }
+    .tcard__name { font-size: 14px; font-weight: 600; color: var(--brown-800); }
+    .tcard__role { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-image { max-width: 480px; margin-inline: auto; aspect-ratio: 3/2; }
+      .testimonials__grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+    }
+    @media (max-width: 600px) {
+      .about-section { padding: 48px 0 56px; }
+      .testimonials { padding: 48px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shipping bar -->
+  <div class="shipping-bar">
+    <span class="shipping-bar__dot"></span>
+    Free shipping on orders over $25 &nbsp;·&nbsp; Shop Pay available at checkout
+    <span class="shipping-bar__dot"></span>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">
+          <img src="https://www.rightchewsfoods.com/gallery/logo%20RC.png" alt="Right Chews Foods" />
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="shop.html" class="nav__link">Shop</a></li>
+          <li><a href="about.html" class="nav__link active">About</a></li>
+          <li><a href="wholesale.html" class="nav__link">Wholesale</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+          <a href="shop.html" class="nav__cart-btn" aria-label="View cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span class="nav__cart-badge" id="cartBadge">0</span>
+          </a>
+          <button class="nav__hamburger" id="hamburger" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="shop.html" class="nav__link">Shop</a>
+      <a href="about.html" class="nav__link active">About</a>
+      <a href="wholesale.html" class="nav__link">Wholesale</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <div class="page-header">
+    <div class="page-header__label">Our Story</div>
+    <h1 class="page-header__title">Born From a Simple Belief.</h1>
+    <p class="page-header__sub">Protein shouldn't taste like a compromise.</p>
+  </div>
+
+  <!-- About -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-content animate-in">
+          <span class="section-label">Who We Are</span>
+          <h2 class="about-content__title">We built Right Chews because we couldn't find what we were looking for.</h2>
+          <p>
+            Every protein bar we tried was either packed with artificial flavors and fillers, or tasted like cardboard
+            trying to be a dessert. We knew there had to be a better way — real ingredients, real flavor, real macros.
+          </p>
+          <p>
+            Right Chews was born in Orlando, FL, out of a simple belief: if you're disciplined enough to count your protein,
+            you deserve a snack that actually tastes good. We spent months perfecting three flavors — Chocolate, Red Velvet,
+            and Blondie — until each one hit the mark.
+          </p>
+          <p>
+            Today we're on a mission to get Right Chews into gyms, supplement shops, and homes across the country.
+            Every brownie is 20g of protein, clean label, and made to the same standard we'd hold any product we eat ourselves.
+          </p>
+          <div class="about-values">
+            <span class="value-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg>
+              Founder-Led
+            </span>
+            <span class="value-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+              Made in USA
+            </span>
+            <span class="value-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Clean Label
+            </span>
+            <span class="value-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              Function-First
+            </span>
+          </div>
+        </div>
+
+        <div class="about-image animate-in" style="transition-delay:100ms;">
+          <img src="our-story.png" alt="Right Chews Foods — Our Story" />
+          <div class="about-image__overlay">
+            <p class="about-image__quote">"Protein that actually tastes like a treat."</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonials__header animate-in">
+        <span class="section-label">What People Are Saying</span>
+        <h2 class="heading-lg">From Gyms to Daily Snackers.</h2>
+      </div>
+      <div class="testimonials__grid">
+
+        <div class="tcard animate-in" style="transition-delay:0ms;">
+          <div class="tcard__stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="tcard__quote">"Best protein snack I've ever carried in my gym. My members ask for it by name now — we can't keep them on the shelf."</p>
+          <div class="tcard__author">
+            <div class="tcard__avatar">M</div>
+            <div>
+              <div class="tcard__name">Marcus T.</div>
+              <div class="tcard__role">CrossFit Gym Owner, Orlando FL</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tcard animate-in" style="transition-delay:80ms;">
+          <div class="tcard__stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="tcard__quote">"Finally a protein brownie that actually tastes like a brownie. My clients love it and the macros make it easy to recommend."</p>
+          <div class="tcard__author">
+            <div class="tcard__avatar">S</div>
+            <div>
+              <div class="tcard__name">Sarah K.</div>
+              <div class="tcard__role">Registered Dietitian</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tcard animate-in" style="transition-delay:160ms;">
+          <div class="tcard__stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="tcard__quote">"Put these on our shelves as a test and sold out in two weeks. We've been reordering every month since. Strong margins too."</p>
+          <div class="tcard__author">
+            <div class="tcard__avatar">J</div>
+            <div>
+              <div class="tcard__name">James M.</div>
+              <div class="tcard__role">Supplement Store Owner</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="rc-footer">
+    <div class="container">
+      <div class="rc-footer__grid">
+        <div>
+          <div class="rc-footer__brand-name">Right<span>Chews</span> Foods</div>
+          <p class="rc-footer__tagline">Protein that actually tastes like a treat. Three flavors. One standard — premium.</p>
+          <div class="rc-footer__social">
+            <a href="#" class="rc-footer__social-btn" aria-label="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" class="rc-footer__social-btn" aria-label="TikTok">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.81 1.55V6.79a4.85 4.85 0 01-1.04-.1z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <p class="rc-footer__col-title">Navigate</p>
+          <ul class="rc-footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="wholesale.html">Wholesale</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="rc-footer__col-title">Contact</p>
+          <ul class="rc-footer__links">
+            <li><a href="mailto:info@rightchewsfoods.com">info@rightchewsfoods.com</a></li>
+            <li><a href="wholesale.html">Wholesale Inquiries →</a></li>
+            <li><a href="https://www.rightchewsfoods.com" target="_blank" rel="noopener">rightchewsfoods.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rc-footer__bottom">
+        <span>© 2026 Right Chews Foods. All rights reserved.</span>
+        <div style="display:flex;gap:20px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>
