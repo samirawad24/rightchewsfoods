@@ -49,15 +49,41 @@ const MOCK_PRODUCTS = [
   },
   {
     id: 'gid://shopify/Product/4',
-    handle: 'variety-pack',
-    title: 'Variety Pack — All 3 Flavors',
-    description: "Can't choose? Don't. One Chocolate, one Red Velvet, one Blondie. 20g protein each.",
-    price: '10.99',
+    handle: 'chocolate-protein-brownie-12-pack',
+    title: 'Chocolate 12-Pack',
+    description: 'A full dozen of our bestselling Chocolate Protein Brownies. Stock up and save — 20g protein in every brownie.',
+    price: '39.99',
     image: 'https://www.rightchewsfoods.com/gallery_gen/8d741ae8ad086e38560ef1a16a1217c0_560x674_fit.jpg',
-    badge: 'Save 8%',
-    macros: { protein: '20g ea', calories: '250 avg', sugar: '5g ea', fat: '8g ea' },
+    badge: 'Best Value',
+    macros: { protein: '20g', calories: '250', sugar: '5g', fat: '8g' },
     variants: [
-      { id: 'gid://shopify/ProductVariant/401', title: '3-Pack', price: '10.99' }
+      { id: 'gid://shopify/ProductVariant/401', title: '12-Pack', price: '39.99' }
+    ]
+  },
+  {
+    id: 'gid://shopify/Product/5',
+    handle: 'red-velvet-protein-brownie-12-pack',
+    title: 'Red Velvet 12-Pack',
+    description: 'A full dozen of our Red Velvet Protein Brownies. Silky, rich, and 20g of protein every single time.',
+    price: '39.99',
+    image: 'https://www.rightchewsfoods.com/gallery_gen/0df1c70172b5e6a6af286140e26fc191_560x674_fit.jpg',
+    badge: 'Best Value',
+    macros: { protein: '20g', calories: '245', sugar: '5g', fat: '7g' },
+    variants: [
+      { id: 'gid://shopify/ProductVariant/501', title: '12-Pack', price: '39.99' }
+    ]
+  },
+  {
+    id: 'gid://shopify/Product/6',
+    handle: 'blondie-protein-brownie-12-pack',
+    title: 'Blondie 12-Pack',
+    description: 'A full dozen of our Blondie Protein Brownies. Buttery caramel flavor with 20g of protein per brownie.',
+    price: '39.99',
+    image: 'https://www.rightchewsfoods.com/gallery_gen/bebbc11ca891b54536ab692ac305c4ce_560x674_fit.jpg',
+    badge: 'Best Value',
+    macros: { protein: '20g', calories: '255', sugar: '5g', fat: '8g' },
+    variants: [
+      { id: 'gid://shopify/ProductVariant/601', title: '12-Pack', price: '39.99' }
     ]
   }
 ];
