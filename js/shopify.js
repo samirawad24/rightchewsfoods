@@ -85,6 +85,58 @@ const MOCK_PRODUCTS = [
     variants: [
       { id: 'gid://shopify/ProductVariant/601', title: '12-Pack', price: '39.99' }
     ]
+  },
+  {
+    id: 'gid://shopify/Product/7',
+    handle: 'chocolate-chip-protein-cookie',
+    title: 'Chocolate Chip Protein Cookie',
+    description: 'Classic chocolate chip meets 20g of clean protein. A whole new way to hit your macros.',
+    price: '3.99',
+    image: 'https://www.rightchewsfoods.com/gallery_gen/8d741ae8ad086e38560ef1a16a1217c0_560x674_fit.jpg',
+    comingSoon: true,
+    macros: { protein: '20g', calories: '240', sugar: '6g', fat: '8g' },
+    variants: [
+      { id: 'gid://shopify/ProductVariant/701', title: 'Single', price: '3.99' }
+    ]
+  },
+  {
+    id: 'gid://shopify/Product/8',
+    handle: 'red-velvet-protein-cookie',
+    title: 'Red Velvet Protein Cookie',
+    description: 'The bold red velvet flavor you love, now in a soft-baked cookie with 20g of protein.',
+    price: '3.99',
+    image: 'https://www.rightchewsfoods.com/gallery_gen/0df1c70172b5e6a6af286140e26fc191_560x674_fit.jpg',
+    comingSoon: true,
+    macros: { protein: '20g', calories: '235', sugar: '6g', fat: '7g' },
+    variants: [
+      { id: 'gid://shopify/ProductVariant/801', title: 'Single', price: '3.99' }
+    ]
+  },
+  {
+    id: 'gid://shopify/Product/9',
+    handle: 'blondie-protein-cookie',
+    title: 'Blondie Protein Cookie',
+    description: 'Buttery, caramel-kissed, and loaded with 20g of protein. The cookie your sweet tooth and macros both agree on.',
+    price: '3.99',
+    image: 'https://www.rightchewsfoods.com/gallery_gen/bebbc11ca891b54536ab692ac305c4ce_560x674_fit.jpg',
+    comingSoon: true,
+    macros: { protein: '20g', calories: '245', sugar: '5g', fat: '8g' },
+    variants: [
+      { id: 'gid://shopify/ProductVariant/901', title: 'Single', price: '3.99' }
+    ]
+  },
+  {
+    id: 'gid://shopify/Product/10',
+    handle: 'confetti-protein-cookie',
+    title: 'Confetti Protein Cookie',
+    description: 'Funfetti vibes with serious protein — 20g per cookie. Because high-protein snacks should be fun.',
+    price: '3.99',
+    image: 'https://www.rightchewsfoods.com/gallery_gen/8d741ae8ad086e38560ef1a16a1217c0_560x674_fit.jpg',
+    comingSoon: true,
+    macros: { protein: '20g', calories: '240', sugar: '6g', fat: '7g' },
+    variants: [
+      { id: 'gid://shopify/ProductVariant/1001', title: 'Single', price: '3.99' }
+    ]
   }
 ];
 
