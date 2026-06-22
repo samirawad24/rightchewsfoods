@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rightchewsfoods.com/sitemap.xml
