@@ -11,7 +11,7 @@
   --shadow-sm: 0 2px 8px rgba(44,26,14,.12);
   --shadow-md: 0 8px 32px rgba(44,26,14,.18);
   --shadow-lg: 0 20px 60px rgba(44,26,14,.25);
-  --nav-h: 72px; --transition: 220ms ease;
+  --nav-h: 88px; --transition: 220ms ease;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -92,7 +92,7 @@ ul, ol { list-style: none; }
 }
 .nav.scrolled { box-shadow: 0 4px 28px rgba(44,26,14,.15); }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 100%; position: relative; }
-.nav__logo img { height: 62px; width: auto; }
+.nav__logo img { height: 74px; width: auto; }
 .nav__links { display: flex; align-items: center; gap: 28px; list-style: none; }
 .nav__link {
   font-size: 14px; font-weight: 500; color: var(--brown-700);
