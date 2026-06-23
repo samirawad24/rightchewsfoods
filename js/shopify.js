@@ -35,7 +35,7 @@ const MOCK_PRODUCTS = [
     description: 'Velvety texture with hints of vanilla and cocoa. Sophistication with 19g of protein per bite.',
     price: '3.99',
     image: 'images/red-velvet-brownie.png',
-    imgPosition: 'center 62%',
+    imgPosition: 'center 75%',
     nutrition: {
       servingSize: '1 pack (70g)', calories: 170,
       totalFat: { amount: '3g', dv: '5%' }, satFat: { amount: '1.5g', dv: '8%' },
@@ -103,8 +103,7 @@ const MOCK_PRODUCTS = [
     title: 'Red Velvet 12-Pack',
     description: 'A full dozen of our Red Velvet Protein Brownies. Silky, rich, and 19g of protein every single time.',
     price: '39.99',
-    image: 'images/red-velvet-brownie.png',
-    imgPosition: 'center 62%',
+    image: 'images/red-velvet-dozen.png',
     nutrition: {
       servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 170,
       totalFat: { amount: '3g', dv: '5%' }, satFat: { amount: '1.5g', dv: '8%' },
