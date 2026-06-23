@@ -527,6 +527,110 @@
     .nf__ingredients { font-size: 10px; line-height: 1.55; margin-top: 10px; border-top: 1px solid #000; padding-top: 8px; }
     .nf__allergens { font-size: 10px; font-weight: 700; margin-top: 4px; }
 
+    /* ── Quick-view hint on card image ─────────────────── */
+    .pcard__visual { cursor: pointer; }
+    .pcard__quickview {
+      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+      background: rgba(255,255,255,.92); color: var(--brown-800);
+      font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px; white-space: nowrap;
+      opacity: 0; transition: opacity var(--transition); z-index: 3; pointer-events: none;
+    }
+    .pcard__visual:hover .pcard__quickview { opacity: 1; }
+    .pcard__name { cursor: pointer; }
+    .pcard__name:hover { color: var(--orange); }
+
+    /* ── Product Detail (Quickview) Modal ───────────────── */
+    .pdv-overlay {
+      position: fixed; inset: 0; z-index: 350;
+      background: rgba(26,14,7,.72); backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+      opacity: 0; pointer-events: none; transition: opacity 240ms ease;
+    }
+    .pdv-overlay.open { opacity: 1; pointer-events: auto; }
+    .pdv-modal {
+      background: var(--cream-100); border-radius: var(--radius-lg);
+      width: 100%; max-width: 860px; max-height: 90vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      overflow: hidden; box-shadow: var(--shadow-lg);
+      transform: scale(.94) translateY(16px);
+      transition: transform 280ms cubic-bezier(.34,1.56,.64,1);
+    }
+    .pdv-overlay.open .pdv-modal { transform: scale(1) translateY(0); }
+    .pdv__img-side {
+      position: relative; background: var(--cream-200); min-height: 420px;
+    }
+    .pdv__img-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pdv__close {
+      position: absolute; top: 14px; right: 14px; z-index: 2;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,.88); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; line-height: 1; color: var(--brown-800);
+      transition: background var(--transition); cursor: pointer;
+    }
+    .pdv__close:hover { background: var(--white); }
+    .pdv__info-side {
+      overflow-y: auto; padding: 32px 28px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .pdv__badge {
+      display: inline-block; background: var(--brown-800); color: var(--gold);
+      font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 100px; width: fit-content;
+    }
+    .pdv__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem; font-weight: 700; color: var(--brown-800); line-height: 1.2;
+    }
+    .pdv__price-row { display: flex; align-items: baseline; gap: 8px; }
+    .pdv__price { font-size: 1.45rem; font-weight: 800; color: var(--brown-800); }
+    .pdv__price.ws { color: var(--orange); }
+    .pdv__price-crossed { font-size: 1rem; color: var(--text-muted); text-decoration: line-through; }
+    .pdv__ws-pill {
+      font-size: 11px; font-weight: 700; color: var(--orange);
+      background: rgba(212,98,42,.08); padding: 3px 10px; border-radius: 100px;
+    }
+    .pdv__desc { font-size: .93rem; line-height: 1.72; color: var(--brown-600); }
+    .pdv__macros {
+      display: flex; border: 1px solid var(--cream-300); border-radius: var(--radius-md); overflow: hidden;
+    }
+    .pdv__macro {
+      flex: 1; text-align: center; padding: 12px 6px;
+      border-right: 1px solid var(--cream-300);
+    }
+    .pdv__macro:last-child { border-right: none; }
+    .pdv__macro-val { font-size: 1.05rem; font-weight: 800; color: var(--brown-800); display: block; }
+    .pdv__macro-key { font-size: 9px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--text-muted); }
+    .pdv__controls { display: flex; gap: 12px; align-items: center; }
+    .pdv__qty {
+      display: flex; align-items: center;
+      border: 1.5px solid var(--cream-300); border-radius: var(--radius-sm); overflow: hidden; flex-shrink: 0;
+    }
+    .pdv__qty-btn {
+      width: 40px; height: 44px; display: flex; align-items: center; justify-content: center;
+      color: var(--brown-700); font-size: 20px; transition: background var(--transition);
+    }
+    .pdv__qty-btn:hover { background: var(--cream-200); color: var(--orange); }
+    .pdv__qty-num { width: 40px; text-align: center; font-size: 15px; font-weight: 600; color: var(--brown-800); }
+    .pdv__atc { flex: 1; justify-content: center; height: 44px; font-size: 14px; border-radius: var(--radius-sm); }
+    .pdv__divider { border: none; border-top: 1px solid var(--cream-300); margin: 0; }
+    .pdv__nutr-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 4px 0; cursor: pointer;
+      font-size: 13px; font-weight: 600; color: var(--brown-700); user-select: none;
+    }
+    .pdv__nutr-toggle:hover { color: var(--orange); }
+    .pdv__nutr-chevron { font-size: 10px; transition: transform 220ms ease; display: inline-block; }
+    .pdv__nutr-chevron.open { transform: rotate(180deg); }
+    .pdv__nutr-body { display: none; padding-top: 12px; }
+    .pdv__nutr-body.open { display: block; }
+    @media (max-width: 680px) {
+      .pdv-modal { grid-template-columns: 1fr; max-height: 95vh; }
+      .pdv__img-side { min-height: 240px; max-height: 260px; }
+      .pdv__info-side { padding: 22px 18px; }
+    }
+
     @media (max-width: 1100px) { .shop-products__grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 768px)  { .shop-products__grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 640px) {
@@ -751,6 +855,14 @@
     </div>
   </div>
 
+  <!-- ═══ PRODUCT QUICKVIEW MODAL ═══ -->
+  <div class="pdv-overlay" id="pdvOverlay">
+    <div class="pdv-modal">
+      <div class="pdv__img-side" id="pdvImgSide"></div>
+      <div class="pdv__info-side" id="pdvInfoSide"></div>
+    </div>
+  </div>
+
   <!-- ═══ NUTRITION LABEL MODAL ═══ -->
   <div class="nutr-overlay" id="nutrOverlay">
     <div class="nutr-modal">
@@ -855,16 +967,17 @@
 
         return `
           <div class="pcard${isCS ? ' pcard--coming-soon' : ''}">
-            <div class="pcard__visual">
+            <div class="pcard__visual" onclick="openProductDetail('${p.id}')">
               <img class="pcard__img" src="${p.image}" alt="${p.title}" loading="lazy"${p.imgPosition ? ` style="object-position:${p.imgPosition}"` : ''} />
               <div class="pcard__visual-overlay"></div>
               ${isCS
                 ? `<div class="pcard__coming-badge">Coming Soon</div>`
                 : (p.badge ? `<span class="pcard__badge">${p.badge}</span>` : '')
               }
+              <span class="pcard__quickview">Quick View</span>
             </div>
             <div class="pcard__body">
-              <h2 class="pcard__name">${p.title}</h2>
+              <h2 class="pcard__name" onclick="openProductDetail('${p.id}')">${p.title}</h2>
               <p class="pcard__desc">${p.description}</p>
 
               <div class="pcard__macros">
@@ -1232,9 +1345,146 @@
       if (e.target === document.getElementById('nutrOverlay')) closeNutrModal();
     });
 
+    // ── Product Quickview ───────────────────────────────
+    let pdvQty = 1;
+
+    function openProductDetail(productId) {
+      const p = allProducts.find(x => x.id === productId);
+      if (!p) return;
+      pdvQty = 1;
+
+      const wsTags  = currentUser?.tags || [];
+      const wsPrice = p.comingSoon ? null : calcWholesalePrice(p.price, wsTags);
+
+      // Image side
+      document.getElementById('pdvImgSide').innerHTML = `
+        <button class="pdv__close" onclick="closeProductDetail()">&times;</button>
+        <img src="${p.image}" alt="${p.title}"${p.imgPosition ? ` style="object-position:${p.imgPosition}"` : ''} />
+      `;
+
+      // Price
+      let priceHtml;
+      if (p.comingSoon) {
+        priceHtml = `<span class="pdv__price" style="color:var(--text-muted);">$${p.price}</span>`;
+      } else if (wsPrice) {
+        priceHtml = `<span class="pdv__price ws">$${wsPrice}</span><span class="pdv__price-crossed">$${p.price}</span><span class="pdv__ws-pill">Wholesale</span>`;
+      } else {
+        priceHtml = `<span class="pdv__price">$${p.price}</span>`;
+      }
+
+      // Nutrition accordion
+      let nutrHtml = '';
+      if (p.nutrition) {
+        const n = p.nutrition;
+        nutrHtml = `
+          <hr class="pdv__divider" />
+          <div class="pdv__nutr-toggle" onclick="togglePdvNutr(this)">
+            Nutrition Facts &amp; Ingredients
+            <span class="pdv__nutr-chevron">▼</span>
+          </div>
+          <div class="pdv__nutr-body">
+            <div class="nf">
+              <div class="nf__title">Nutrition Facts</div>
+              <div class="nf__serving-info">${n.servingsPerContainer||1} serving${(n.servingsPerContainer||1)>1?'s':''} per container</div>
+              <div class="nf__servsize"><span>Serving size</span><span>${n.servingSize}</span></div>
+              <hr class="nf__hr nf__hr--thick"/>
+              <div class="nf__cal-row"><span class="nf__cal-label">Calories</span><span class="nf__cal-num">${n.calories}</span></div>
+              <hr class="nf__hr nf__hr--medium"/>
+              <div class="nf__dv-header">% Daily Value*</div>
+              <hr class="nf__hr nf__hr--thin"/>
+              <div class="nf__row"><span><b>Total Fat</b> ${n.totalFat.amount}</span><span><b>${n.totalFat.dv}</b></span></div>
+              <hr class="nf__hr nf__hr--thin"/>
+              <div class="nf__row nf__row--indent"><span>Saturated Fat ${n.satFat.amount}</span><span><b>${n.satFat.dv}</b></span></div>
+              <hr class="nf__hr nf__hr--thin"/>
+              <div class="nf__row nf__row--indent"><span><i>Trans</i> Fat ${n.transFat}</span></div>
+              <hr class="nf__hr nf__hr--thin"/>
+              <div class="nf__row"><span><b>Cholesterol</b> ${n.cholesterol.amount}</span><span><b>${n.cholesterol.dv}</b></span></div>
+              <hr class="nf__hr nf__hr--thin"/>
+              <div class="nf__row"><span><b>Sodium</b> ${n.sodium.amount}</span><span><b>${n.sodium.dv}</b></span></div>
+              <hr class="nf__hr nf__hr--thin"/>
+              <div class="nf__row"><span><b>Total Carbohydrate</b> ${n.totalCarb.amount}</span><span><b>${n.totalCarb.dv}</b></span></div>
+              <hr class="nf__hr nf__hr--thin"/>
+              <div class="nf__row nf__row--indent"><span>Dietary Fiber ${n.fiber.amount}</span><span><b>${n.fiber.dv}</b></span></div>
+              <hr class="nf__hr nf__hr--thin"/>
+              <div class="nf__row nf__row--indent"><span>Total Sugars ${n.sugars}</span></div>
+              <hr class="nf__hr nf__hr--thin"/>
+              <div class="nf__row"><span><b>Protein</b> ${n.protein}</span></div>
+              <hr class="nf__hr nf__hr--medium"/>
+              <div class="nf__footer">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</div>
+              <div class="nf__ingredients"><b>INGREDIENTS:</b> ${n.ingredients}</div>
+              <div class="nf__allergens">CONTAINS: ${n.allergens}</div>
+            </div>
+          </div>`;
+      } else if (p.nutritionVaries) {
+        nutrHtml = `<p style="font-size:13px;color:var(--text-muted);border-top:1px solid var(--cream-300);padding-top:12px;">Nutrition varies by flavor — see individual brownie pages for details.</p>`;
+      }
+
+      // Controls
+      const varId = p.variants[0].id;
+      const ctrlHtml = p.comingSoon
+        ? `<button class="btn btn-primary pdv__atc" disabled style="opacity:.4;cursor:not-allowed;flex:unset;width:100%;">Notify Me When Available</button>`
+        : `<div class="pdv__controls">
+             <div class="pdv__qty">
+               <button class="pdv__qty-btn" onclick="adjustPdvQty(-1)">−</button>
+               <span class="pdv__qty-num" id="pdvQtyNum">1</span>
+               <button class="pdv__qty-btn" onclick="adjustPdvQty(1)">+</button>
+             </div>
+             <button class="btn btn-primary pdv__atc" onclick="doPdvAddToCart('${p.id}','${varId}')">
+               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+               Add to Cart
+             </button>
+           </div>`;
+
+      document.getElementById('pdvInfoSide').innerHTML = `
+        ${p.badge ? `<span class="pdv__badge">${p.badge}</span>` : ''}
+        <h2 class="pdv__title">${p.title}</h2>
+        <div class="pdv__price-row">${priceHtml}</div>
+        <p class="pdv__desc">${p.description}</p>
+        <div class="pdv__macros">
+          <div class="pdv__macro"><span class="pdv__macro-val">${p.macros.protein}</span><span class="pdv__macro-key">Protein</span></div>
+          <div class="pdv__macro"><span class="pdv__macro-val">${p.macros.calories}</span><span class="pdv__macro-key">Calories</span></div>
+          <div class="pdv__macro"><span class="pdv__macro-val">${p.macros.sugar}</span><span class="pdv__macro-key">Sugar</span></div>
+          <div class="pdv__macro"><span class="pdv__macro-val">${p.macros.fat}</span><span class="pdv__macro-key">Fat</span></div>
+        </div>
+        ${ctrlHtml}
+        ${nutrHtml}
+      `;
+
+      document.getElementById('pdvOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProductDetail() {
+      document.getElementById('pdvOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function adjustPdvQty(delta) {
+      pdvQty = Math.max(1, pdvQty + delta);
+      const el = document.getElementById('pdvQtyNum');
+      if (el) el.textContent = pdvQty;
+    }
+
+    function doPdvAddToCart(productId, variantId) {
+      const product = allProducts.find(p => p.id === productId);
+      if (!product) return;
+      const wsPrice = calcWholesalePrice(product.price, currentUser?.tags || []);
+      addToCart(product, variantId, pdvQty, wsPrice);
+      closeProductDetail();
+    }
+
+    function togglePdvNutr(el) {
+      el.querySelector('.pdv__nutr-chevron').classList.toggle('open');
+      el.nextElementSibling.classList.toggle('open');
+    }
+
+    document.getElementById('pdvOverlay').addEventListener('click', e => {
+      if (e.target === document.getElementById('pdvOverlay')) closeProductDetail();
+    });
+
     // ESC closes everything
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') { closeCart(); closeAcctModal(); closeNutrModal(); }
+      if (e.key === 'Escape') { closeCart(); closeAcctModal(); closeNutrModal(); closeProductDetail(); }
     });
   </script>
 
