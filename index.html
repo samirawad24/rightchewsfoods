@@ -89,9 +89,13 @@
       text-align: center; font-size: 11px; font-weight: 800;
       letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.9);
     }
+    .brownie-card { transition: transform 220ms ease, box-shadow 220ms ease; cursor: pointer; }
     .card-choc  { height: 370px; transform: rotate(-4deg) translateY(30px); }
     .card-red   { flex: 1.3; height: 450px; z-index: 2; }
     .card-blond { height: 370px; transform: rotate(4deg) translateY(30px); }
+    .card-choc:hover  { transform: rotate(-4deg) translateY(20px); box-shadow: 0 40px 90px rgba(0,0,0,.7); }
+    .card-red:hover   { transform: translateY(-10px);                box-shadow: 0 40px 90px rgba(0,0,0,.7); }
+    .card-blond:hover { transform: rotate(4deg) translateY(20px);  box-shadow: 0 40px 90px rgba(0,0,0,.7); }
 
     @media (max-width: 900px) {
       .hero__inner { grid-template-columns: 1fr; text-align: center; gap: 44px; padding: 52px 0; }
