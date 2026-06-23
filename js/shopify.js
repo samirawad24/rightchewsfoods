@@ -12,6 +12,7 @@ const MOCK_PRODUCTS = [
     description: 'Deep, rich cocoa meets 20g of clean whey protein. Powerful, indulgent, and impossible to put down.',
     price: '3.99',
     image: 'https://www.rightchewsfoods.com/gallery_gen/8d741ae8ad086e38560ef1a16a1217c0_560x674_fit.jpg',
+    nutritionLabel: 'images/nutrition-chocolate.jpg',
     badge: 'Bestseller',
     macros: { protein: '20g', calories: '250', sugar: '5g', fat: '8g' },
     variants: [
@@ -26,6 +27,7 @@ const MOCK_PRODUCTS = [
     description: 'Velvety texture with hints of vanilla and cocoa. Sophistication with 20g of protein per bite.',
     price: '3.99',
     image: 'https://www.rightchewsfoods.com/gallery_gen/0df1c70172b5e6a6af286140e26fc191_560x674_fit.jpg',
+    nutritionLabel: 'images/nutrition-red-velvet.jpg',
     badge: 'Customer Fav',
     macros: { protein: '20g', calories: '245', sugar: '5g', fat: '7g' },
     variants: [
@@ -40,6 +42,7 @@ const MOCK_PRODUCTS = [
     description: 'Buttery caramel notes, golden texture, and 20g of protein. The one everyone keeps coming back for.',
     price: '3.99',
     image: 'https://www.rightchewsfoods.com/gallery_gen/bebbc11ca891b54536ab692ac305c4ce_560x674_fit.jpg',
+    nutritionLabel: 'images/nutrition-blondie.jpg',
     badge: 'New',
     macros: { protein: '20g', calories: '255', sugar: '5g', fat: '8g' },
     variants: [
