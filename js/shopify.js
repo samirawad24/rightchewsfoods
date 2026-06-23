@@ -80,7 +80,7 @@ const MOCK_PRODUCTS = [
     title: 'Chocolate 12-Pack',
     description: 'A full dozen of our bestselling Chocolate Protein Brownies. Stock up and save — 19g protein in every brownie.',
     price: '39.99',
-    image: 'images/chocolate-brownie.jpg',
+    image: 'images/brownie-dozen.jpg',
     nutrition: {
       servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 150,
       totalFat: { amount: '5g', dv: '8%' }, satFat: { amount: '3g', dv: '13%' },
@@ -138,6 +138,20 @@ const MOCK_PRODUCTS = [
     macros: { protein: '19g', calories: '180', sugar: '3g', fat: '6g' },
     variants: [
       { id: 'gid://shopify/ProductVariant/601', title: '12-Pack', price: '39.99' }
+    ]
+  },
+  {
+    id: 'gid://shopify/Product/11',
+    handle: 'variety-brownie-12-pack',
+    title: 'Variety Brownie 12-Pack',
+    description: 'Can\'t pick a favorite? Get 4 of each — Chocolate, Red Velvet & Blondie — in one box. The best way to try everything Right Chews has to offer.',
+    price: '39.99',
+    image: 'images/variety-brownie.jpg',
+    nutritionVaries: true,
+    badge: 'Try All 3',
+    macros: { protein: '19g', calories: '150–180', sugar: '2.5–3g', fat: '3–6g' },
+    variants: [
+      { id: 'gid://shopify/ProductVariant/1101', title: '12-Pack', price: '39.99' }
     ]
   },
   {
