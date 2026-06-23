@@ -856,7 +856,7 @@
         return `
           <div class="pcard${isCS ? ' pcard--coming-soon' : ''}">
             <div class="pcard__visual">
-              <img class="pcard__img" src="${p.image}" alt="${p.title}" loading="lazy" />
+              <img class="pcard__img" src="${p.image}" alt="${p.title}" loading="lazy"${p.imgPosition ? ` style="object-position:${p.imgPosition}"` : ''} />
               <div class="pcard__visual-overlay"></div>
               ${isCS
                 ? `<div class="pcard__coming-badge">Coming Soon</div>`
