@@ -78,11 +78,20 @@ const MOCK_PRODUCTS = [
     id: 'gid://shopify/Product/4',
     handle: 'chocolate-protein-brownie-12-pack',
     title: 'Chocolate 12-Pack',
-    description: 'A full dozen of our bestselling Chocolate Protein Brownies. Stock up and save — 20g protein in every brownie.',
+    description: 'A full dozen of our bestselling Chocolate Protein Brownies. Stock up and save — 19g protein in every brownie.',
     price: '39.99',
     image: 'https://www.rightchewsfoods.com/gallery_gen/8d741ae8ad086e38560ef1a16a1217c0_560x674_fit.jpg',
+    nutrition: {
+      servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 150,
+      totalFat: { amount: '5g', dv: '8%' }, satFat: { amount: '3g', dv: '13%' },
+      transFat: '0g', cholesterol: { amount: '2mg', dv: '4%' },
+      sodium: { amount: '171mg', dv: '7%' }, totalCarb: { amount: '12g', dv: '5%' },
+      fiber: { amount: '4g', dv: '14%' }, sugars: '2.5g', protein: '19g',
+      ingredients: 'Whole Wheat Flour, Cocoa Powder, Erythritol, Sugarcane, Dried Egg Whites, Whey Protein Powder, Eggs, Coconut Oil, Dark Choco, Choco Chips, CMC, Baking Soda, Vinegar, Water, Vanilla Extract, Salt, Potassium Sorbate, Vitamin E Powder.',
+      allergens: 'Wheat, Egg, Milk.'
+    },
     badge: 'Best Value',
-    macros: { protein: '20g', calories: '250', sugar: '5g', fat: '8g' },
+    macros: { protein: '19g', calories: '150', sugar: '2.5g', fat: '5g' },
     variants: [
       { id: 'gid://shopify/ProductVariant/401', title: '12-Pack', price: '39.99' }
     ]
@@ -91,11 +100,20 @@ const MOCK_PRODUCTS = [
     id: 'gid://shopify/Product/5',
     handle: 'red-velvet-protein-brownie-12-pack',
     title: 'Red Velvet 12-Pack',
-    description: 'A full dozen of our Red Velvet Protein Brownies. Silky, rich, and 20g of protein every single time.',
+    description: 'A full dozen of our Red Velvet Protein Brownies. Silky, rich, and 19g of protein every single time.',
     price: '39.99',
     image: 'https://www.rightchewsfoods.com/gallery_gen/0df1c70172b5e6a6af286140e26fc191_560x674_fit.jpg',
+    nutrition: {
+      servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 170,
+      totalFat: { amount: '3g', dv: '5%' }, satFat: { amount: '1.5g', dv: '8%' },
+      transFat: '0g', cholesterol: { amount: '21mg', dv: '7%' },
+      sodium: { amount: '190mg', dv: '8%' }, totalCarb: { amount: '10g', dv: '4%' },
+      fiber: { amount: '3g', dv: '12%' }, sugars: '2.5g', protein: '19g',
+      ingredients: 'Whole Wheat Flour, Cocoa Powder, Beetroot Powder, Erythritol, Sugarcane, Dried Egg Whites, Whey Protein Powder, Eggs, Coconut Oil, White Choco, White Choco Chips, CMC, Baking Soda, Vinegar, Water, Vanilla Extract, Salt, Potassium Sorbate, Vitamin E Powder.',
+      allergens: 'Wheat, Egg, Milk.'
+    },
     badge: 'Best Value',
-    macros: { protein: '20g', calories: '245', sugar: '5g', fat: '7g' },
+    macros: { protein: '19g', calories: '170', sugar: '2.5g', fat: '3g' },
     variants: [
       { id: 'gid://shopify/ProductVariant/501', title: '12-Pack', price: '39.99' }
     ]
@@ -104,11 +122,20 @@ const MOCK_PRODUCTS = [
     id: 'gid://shopify/Product/6',
     handle: 'blondie-protein-brownie-12-pack',
     title: 'Blondie 12-Pack',
-    description: 'A full dozen of our Blondie Protein Brownies. Buttery caramel flavor with 20g of protein per brownie.',
+    description: 'A full dozen of our Blondie Protein Brownies. Buttery caramel flavor with 19g of protein per brownie.',
     price: '39.99',
     image: 'https://www.rightchewsfoods.com/gallery_gen/bebbc11ca891b54536ab692ac305c4ce_560x674_fit.jpg',
+    nutrition: {
+      servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 180,
+      totalFat: { amount: '6g', dv: '9%' }, satFat: { amount: '3g', dv: '16%' },
+      transFat: '0g', cholesterol: { amount: '6mg', dv: '12%' },
+      sodium: { amount: '160mg', dv: '6%' }, totalCarb: { amount: '15g', dv: '5%' },
+      fiber: { amount: '4g', dv: '16%' }, sugars: '3g', protein: '19g',
+      ingredients: 'Whole Wheat Flour, Erythritol, Sugarcane, Dried Egg Whites, Whey Protein Powder, Eggs, Coconut Oil, Milk Choc, Choc Chips, CMC, Baking Soda, Vinegar, Water, Vanilla Extract, Salt, Potassium Sorbate, Vitamin E Powder.',
+      allergens: 'Wheat, Egg, Milk.'
+    },
     badge: 'Best Value',
-    macros: { protein: '20g', calories: '255', sugar: '5g', fat: '8g' },
+    macros: { protein: '19g', calories: '180', sugar: '3g', fat: '6g' },
     variants: [
       { id: 'gid://shopify/ProductVariant/601', title: '12-Pack', price: '39.99' }
     ]
@@ -120,8 +147,8 @@ const MOCK_PRODUCTS = [
     description: 'Classic chocolate chip meets 20g of clean protein. A whole new way to hit your macros.',
     price: '3.99',
     image: 'https://www.rightchewsfoods.com/gallery_gen/8d741ae8ad086e38560ef1a16a1217c0_560x674_fit.jpg',
-    comingSoon: true,
-    macros: { protein: '20g', calories: '240', sugar: '6g', fat: '8g' },
+    comingSoon: true, nutritionTba: true,
+    macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
       { id: 'gid://shopify/ProductVariant/701', title: 'Single', price: '3.99' }
     ]
@@ -133,8 +160,8 @@ const MOCK_PRODUCTS = [
     description: 'The bold red velvet flavor you love, now in a soft-baked cookie with 20g of protein.',
     price: '3.99',
     image: 'https://www.rightchewsfoods.com/gallery_gen/0df1c70172b5e6a6af286140e26fc191_560x674_fit.jpg',
-    comingSoon: true,
-    macros: { protein: '20g', calories: '235', sugar: '6g', fat: '7g' },
+    comingSoon: true, nutritionTba: true,
+    macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
       { id: 'gid://shopify/ProductVariant/801', title: 'Single', price: '3.99' }
     ]
@@ -146,8 +173,8 @@ const MOCK_PRODUCTS = [
     description: 'Buttery, caramel-kissed, and loaded with 20g of protein. The cookie your sweet tooth and macros both agree on.',
     price: '3.99',
     image: 'https://www.rightchewsfoods.com/gallery_gen/bebbc11ca891b54536ab692ac305c4ce_560x674_fit.jpg',
-    comingSoon: true,
-    macros: { protein: '20g', calories: '245', sugar: '5g', fat: '8g' },
+    comingSoon: true, nutritionTba: true,
+    macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
       { id: 'gid://shopify/ProductVariant/901', title: 'Single', price: '3.99' }
     ]
@@ -159,8 +186,8 @@ const MOCK_PRODUCTS = [
     description: 'Funfetti vibes with serious protein — 20g per cookie. Because high-protein snacks should be fun.',
     price: '3.99',
     image: 'https://www.rightchewsfoods.com/gallery_gen/8d741ae8ad086e38560ef1a16a1217c0_560x674_fit.jpg',
-    comingSoon: true,
-    macros: { protein: '20g', calories: '240', sugar: '6g', fat: '7g' },
+    comingSoon: true, nutritionTba: true,
+    macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
       { id: 'gid://shopify/ProductVariant/1001', title: 'Single', price: '3.99' }
     ]

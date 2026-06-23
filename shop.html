@@ -466,6 +466,11 @@
       margin-top: 4px; transition: color var(--transition);
     }
     .pcard__nutrition-link:hover { color: var(--orange); }
+    .pcard__nutrition-tba {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600; color: var(--text-muted);
+      margin-top: 4px; opacity: .6;
+    }
 
     /* ── Nutrition modal shell ──────────────────────────── */
     .nutr-overlay {
@@ -898,7 +903,11 @@
                 <button class="pcard__nutrition-link" onclick="openNutrModal('${p.id}')">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                   Nutrition Facts
-                </button>` : ''}
+                </button>` : p.nutritionTba ? `
+                <span class="pcard__nutrition-tba">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  Nutrition Facts: TBA
+                </span>` : ''}
 
               ${isCS
                 ? `<button class="btn btn-primary pcard__atc" disabled style="opacity:.4;cursor:not-allowed;margin-top:auto;">
@@ -1174,7 +1183,7 @@
       document.getElementById('nutrBody').innerHTML = `
         <div class="nf">
           <div class="nf__title">Nutrition Facts</div>
-          <div class="nf__serving-info">1 serving per container</div>
+          <div class="nf__serving-info">${n.servingsPerContainer || 1} serving${(n.servingsPerContainer || 1) > 1 ? 's' : ''} per container</div>
           <div class="nf__servsize"><span>Serving size</span><span>${n.servingSize}</span></div>
           <hr class="nf__hr nf__hr--thick" />
           <div class="nf__cal-row">
