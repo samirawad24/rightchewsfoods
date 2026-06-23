@@ -11,7 +11,7 @@ const MOCK_PRODUCTS = [
     title: 'Chocolate Protein Brownie',
     description: 'Deep, rich cocoa meets 19g of clean whey protein. Powerful, indulgent, and impossible to put down.',
     price: '3.99',
-    image: 'images/chocolate-brownie.jpg',
+    image: 'images/chocolate-brownie.png',
     nutrition: {
       servingSize: '1 pack (70g)', calories: 150,
       totalFat: { amount: '5g', dv: '8%' }, satFat: { amount: '3g', dv: '13%' },
@@ -34,7 +34,7 @@ const MOCK_PRODUCTS = [
     title: 'Red Velvet Protein Brownie',
     description: 'Velvety texture with hints of vanilla and cocoa. Sophistication with 19g of protein per bite.',
     price: '3.99',
-    image: 'images/red-velvet-brownie.jpg',
+    image: 'images/red-velvet-brownie.png',
     imgPosition: 'center 62%',
     nutrition: {
       servingSize: '1 pack (70g)', calories: 170,
@@ -58,7 +58,7 @@ const MOCK_PRODUCTS = [
     title: 'Blondie Protein Brownie',
     description: 'Buttery caramel notes, golden texture, and 19g of protein. The one everyone keeps coming back for.',
     price: '3.99',
-    image: 'images/blondie-brownie.jpg',
+    image: 'images/blondie-brownie.png',
     nutrition: {
       servingSize: '1 pack (70g)', calories: 180,
       totalFat: { amount: '6g', dv: '9%' }, satFat: { amount: '3g', dv: '16%' },
@@ -81,7 +81,7 @@ const MOCK_PRODUCTS = [
     title: 'Chocolate 12-Pack',
     description: 'A full dozen of our bestselling Chocolate Protein Brownies. Stock up and save — 19g protein in every brownie.',
     price: '39.99',
-    image: 'images/brownie-dozen.jpg',
+    image: 'images/brownie-dozen.png',
     nutrition: {
       servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 150,
       totalFat: { amount: '5g', dv: '8%' }, satFat: { amount: '3g', dv: '13%' },
@@ -103,7 +103,7 @@ const MOCK_PRODUCTS = [
     title: 'Red Velvet 12-Pack',
     description: 'A full dozen of our Red Velvet Protein Brownies. Silky, rich, and 19g of protein every single time.',
     price: '39.99',
-    image: 'images/red-velvet-brownie.jpg',
+    image: 'images/red-velvet-brownie.png',
     imgPosition: 'center 62%',
     nutrition: {
       servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 170,
@@ -126,7 +126,7 @@ const MOCK_PRODUCTS = [
     title: 'Blondie 12-Pack',
     description: 'A full dozen of our Blondie Protein Brownies. Buttery caramel flavor with 19g of protein per brownie.',
     price: '39.99',
-    image: 'images/blondie-brownie.jpg',
+    image: 'images/blondie-dozen.png',
     nutrition: {
       servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 180,
       totalFat: { amount: '6g', dv: '9%' }, satFat: { amount: '3g', dv: '16%' },
@@ -148,7 +148,7 @@ const MOCK_PRODUCTS = [
     title: 'Variety Brownie 12-Pack',
     description: 'Can\'t pick a favorite? Get 4 of each — Chocolate, Red Velvet & Blondie — in one box. The best way to try everything Right Chews has to offer.',
     price: '39.99',
-    image: 'images/variety-brownie.jpg',
+    image: 'images/variety-brownie.png',
     nutritionVaries: true,
     badge: 'Try All 3',
     macros: { protein: '19g', calories: '150–180', sugar: '2.5–3g', fat: '3–6g' },
@@ -162,7 +162,7 @@ const MOCK_PRODUCTS = [
     title: 'Chocolate Chip Protein Cookie',
     description: 'Classic chocolate chip with clean protein. A whole new way to hit your macros.',
     price: '3.99',
-    image: 'images/chocolate-brownie.jpg',
+    image: 'images/chocolate-brownie.png',
     comingSoon: true, nutritionTba: true,
     macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
@@ -175,7 +175,7 @@ const MOCK_PRODUCTS = [
     title: 'Red Velvet Protein Cookie',
     description: 'The bold red velvet flavor you love, now in a soft-baked cookie packed with clean protein.',
     price: '3.99',
-    image: 'images/red-velvet-brownie.jpg',
+    image: 'images/red-velvet-brownie.png',
     comingSoon: true, nutritionTba: true,
     macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
@@ -188,7 +188,7 @@ const MOCK_PRODUCTS = [
     title: 'Blondie Protein Cookie',
     description: 'Buttery, caramel-kissed, and loaded with clean protein. The cookie your sweet tooth and macros both agree on.',
     price: '3.99',
-    image: 'images/blondie-brownie.jpg',
+    image: 'images/blondie-brownie.png',
     comingSoon: true, nutritionTba: true,
     macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
@@ -201,7 +201,7 @@ const MOCK_PRODUCTS = [
     title: 'Confetti Protein Cookie',
     description: 'Funfetti vibes with serious protein. Because high-protein snacks should be fun.',
     price: '3.99',
-    image: 'images/chocolate-brownie.jpg',
+    image: 'images/chocolate-brownie.png',
     comingSoon: true, nutritionTba: true,
     macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
