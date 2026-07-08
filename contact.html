@@ -23,8 +23,8 @@
   <meta name="twitter:image" content="https://www.rightchewsfoods.com/gallery_gen/8d741ae8ad086e38560ef1a16a1217c0_560x674_fit.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20260707" />
   <style>
     /* ── Contact section ────────────────────────────────── */
     .contact-section { padding: 64px 0 88px; }
@@ -98,7 +98,7 @@
     "@type": "LocalBusiness",
     "name": "Right Chews Foods",
     "url": "https://rightchewsfoods.com",
-    "logo": "https://www.rightchewsfoods.com/gallery/logo%20RC.png",
+    "logo": "images/rc-logo.png",
     "image": "https://rightchewsfoods.com/images/chocolate-brownie.png",
     "description": "Right Chews Foods — family-owned premium protein snack brand based in Coral Springs, FL. Available retail and wholesale.",
     "address": {
@@ -130,34 +130,33 @@
     <div class="container">
       <div class="nav__inner">
         <a href="index.html" class="nav__logo">
-          <img src="https://www.rightchewsfoods.com/gallery/logo%20RC.png" alt="Right Chews Foods" />
+          <img src="images/rc-logo.png" alt="Right Chews Foods" />
         </a>
-        <ul class="nav__links">
-          <li><a href="index.html" class="nav__link">Home</a></li>
-          <li><a href="shop.html" class="nav__link">Shop</a></li>
-          <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="wholesale.html" class="nav__link">Wholesale</a></li>
-          <li><a href="contact.html" class="nav__link active">Contact</a></li>
-        </ul>
         <div class="nav__actions">
           <a href="shop.html" class="nav__cart-btn" aria-label="View cart">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
             <span class="nav__cart-badge" id="cartBadge">0</span>
           </a>
-          <button class="nav__hamburger" id="hamburger" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
         </div>
       </div>
     </div>
-    <div class="nav__mobile" id="mobileMenu">
-      <a href="index.html" class="nav__link">Home</a>
-      <a href="shop.html" class="nav__link">Shop</a>
-      <a href="about.html" class="nav__link">About</a>
-      <a href="wholesale.html" class="nav__link">Wholesale</a>
-      <a href="contact.html" class="nav__link active">Contact</a>
-    </div>
   </nav>
+
+  <!-- ═══ SITE HERO ═══ -->
+  <header class="site-hero">
+    <img class="site-hero__bg" src="images/rc-trio.png" alt="Chocolate, Blondie, and Red Velvet Protein Brownies side by side" loading="eager" />
+    <div class="site-hero__overlay">
+      <img src="images/rc-logo.png" alt="Right Chews Foods logo" />
+      <p class="site-hero__tagline">Time to choose right chews...</p>
+      <nav class="hero-nav">
+        <a href="index.html" class="hero-nav__link">Home</a>
+        <a href="shop.html" class="hero-nav__link">Shop</a>
+        <a href="about.html" class="hero-nav__link">About</a>
+        <a href="wholesale.html" class="hero-nav__link">Wholesale</a>
+        <a href="contact.html" class="hero-nav__link active">Contact</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- Page header -->
   <div class="page-header">

@@ -15,105 +15,84 @@
   <meta property="og:url" content="https://rightchewsfoods.com/" />
   <meta property="og:title" content="Right Chews | Premium Protein Snacks — Brownies, Cookies &amp; More" />
   <meta property="og:description" content="Your one-stop protein snack brand. Brownies now, cookies coming soon — 19g clean protein, zero artificial. Retail &amp; wholesale available. Free shipping over $100." />
-  <meta property="og:image" content="images/chocolate-brownie.png" />
+  <meta property="og:image" content="images/rc-chocolate.jpg" />
   <meta property="og:image:width" content="560" />
   <meta property="og:image:height" content="674" />
   <meta property="og:image:alt" content="Right Chews Chocolate Protein Brownie — 19g Protein" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Right Chews | Premium Protein Snacks — Brownies, Cookies &amp; More" />
   <meta name="twitter:description" content="Your one-stop protein snack brand. Brownies now, cookies coming soon — 19g clean protein, zero artificial. Free shipping over $100." />
-  <meta name="twitter:image" content="images/chocolate-brownie.png" />
-  <link rel="preload" as="image" href="images/chocolate-brownie.png" />
-  <link rel="preload" as="image" href="images/red-velvet-brownie.png" />
-  <link rel="preload" as="image" href="images/blondie-brownie.png" />
+  <meta name="twitter:image" content="images/rc-chocolate.jpg" />
+  <link rel="preload" as="image" href="images/rc-chocolate.jpg" />
+  <link rel="preload" as="image" href="images/rc-red-velvet.jpg" />
+  <link rel="preload" as="image" href="images/rc-blondie.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20260707" />
   <style>
-    /* ── Hero ───────────────────────────────────────────── */
-    .hero {
-      background: linear-gradient(135deg, #1A0E07 0%, #3D2411 55%, #5C3518 100%);
-      min-height: calc(100vh - var(--nav-h) - 38px);
-      display: flex; align-items: center;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,.07) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero__inner {
-      display: grid; grid-template-columns: 1fr 1.3fr;
-      align-items: center; gap: 48px; padding: 72px 0;
-    }
-    .hero__tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(212,98,42,.15); border: 1px solid rgba(212,98,42,.35);
-      color: var(--gold-lt); font-size: 11px; font-weight: 700;
-      letter-spacing: .14em; text-transform: uppercase;
-      padding: 6px 16px; border-radius: 100px; margin-bottom: 22px;
-    }
-    .hero__tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
-    .hero__title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 4.8vw, 4rem);
-      font-weight: 900; line-height: 1.06; color: var(--white);
-      margin-bottom: 20px;
-    }
-    .hero__title em { font-style: normal; color: var(--gold); }
-    .hero__sub {
-      font-size: 1.1rem; line-height: 1.7;
-      color: rgba(255,255,255,.65); max-width: 400px; margin-bottom: 36px;
-    }
-    .hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
-    .hero__stats { display: flex; align-items: center; }
-    .hero__stat { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 0 20px; }
-    .hero__stat:first-child { padding-left: 0; }
-    .hero__stat-val { font-size: 1.35rem; font-weight: 800; color: var(--white); }
-    .hero__stat-key { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.45); }
-    .hero__stat-div { width: 1px; height: 36px; background: rgba(255,255,255,.15); }
+    /* ── Home: light style matching rightchewsfoods.com ── */
+    body.home-og { background: #FFFFFF; font-family: 'Open Sans', system-ui, sans-serif; }
+    body.home-og .nav { background: rgba(255,255,255,.97); border-bottom: 1px solid #EEE; }
 
-    /* ── Brownie cards ──────────────────────────────────── */
-    .hero__showcase { display: flex; justify-content: center; }
-    .brownie-cards { display: flex; align-items: flex-end; gap: 10px; height: 480px; }
-    .brownie-card {
-      flex: 1; border-radius: 20px; overflow: hidden;
-      box-shadow: 0 28px 80px rgba(0,0,0,.6); position: relative;
+    /* Full-width hero: trio image with logo + tagline overlaid */
+    .home-hero { position: relative; overflow: hidden; }
+    .home-hero__bg {
+      width: 100%; height: clamp(380px, 60vh, 560px);
+      object-fit: cover; object-position: center 48%; display: block;
     }
-    .brownie-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .brownie-card__label {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 28px 14px 14px;
-      background: linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 100%);
-      text-align: center; font-size: 11px; font-weight: 800;
-      letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.9);
+    .home-hero__overlay {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+      text-align: center; pointer-events: none;
     }
-    .brownie-card { transition: transform 220ms ease, box-shadow 220ms ease; cursor: pointer; }
-    .card-choc  { height: 370px; transform: rotate(-4deg) translateY(30px); }
-    .card-red   { flex: 1.3; height: 450px; z-index: 2; }
-    .card-blond { height: 370px; transform: rotate(4deg) translateY(30px); }
-    .card-choc:hover  { transform: rotate(-4deg) translateY(20px); box-shadow: 0 40px 90px rgba(0,0,0,.7); }
-    .card-red:hover   { transform: translateY(-10px);                box-shadow: 0 40px 90px rgba(0,0,0,.7); }
-    .card-blond:hover { transform: rotate(4deg) translateY(20px);  box-shadow: 0 40px 90px rgba(0,0,0,.7); }
+    .home-hero__overlay img {
+      width: clamp(120px, 14vw, 190px); height: auto;
+      filter: drop-shadow(0 4px 18px rgba(255,255,255,.9)) drop-shadow(0 2px 8px rgba(0,0,0,.12));
+    }
+    .home-hero__tagline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 800; letter-spacing: .01em;
+      color: #FFF; margin: 0;
+      text-shadow: 0 2px 12px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.6);
+    }
+    @media (max-width: 600px) {
+      .home-hero__bg { height: 340px; object-position: center 58%; }
+    }
+
+    .home-products { background: #FFFFFF; padding: 44px 0 80px; }
+    .home-products__grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 40px; max-width: 1080px; margin: 0 auto;
+    }
+    .home-product { text-align: center; }
+    .home-product img {
+      width: 100%; height: auto; aspect-ratio: 560 / 674; object-fit: cover;
+      margin-bottom: 22px;
+    }
+    .home-product__name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.25rem; font-weight: 600; color: #1A1A1A;
+      margin-bottom: 10px;
+    }
+    .home-product__desc {
+      font-family: 'Open Sans', sans-serif;
+      font-size: .95rem; line-height: 1.6; color: #444;
+      margin-bottom: 22px;
+    }
+    .home-product__btn {
+      display: inline-block; font-family: 'Montserrat', sans-serif;
+      font-size: .85rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      color: #FFF; background: var(--orange);
+      padding: 12px 38px; border-radius: 4px;
+      transition: background 180ms ease, transform 180ms ease;
+    }
+    .home-product__btn:hover { background: var(--orange-lt, #E5763E); transform: translateY(-2px); }
 
     @media (max-width: 900px) {
-      .hero__inner { grid-template-columns: 1fr; text-align: center; gap: 44px; padding: 52px 0; }
-      .hero__sub { margin-inline: auto; }
-      .hero__ctas { justify-content: center; }
-      .hero__stats { justify-content: center; }
-      .hero__stat:first-child { padding-left: 20px; }
-      .brownie-cards { height: 300px; }
-      .card-choc { height: 235px; }
-      .card-red  { height: 300px; }
-      .card-blond { height: 235px; }
-    }
-    @media (max-width: 480px) {
-      .brownie-cards { height: 220px; gap: 6px; }
-      .card-choc { height: 170px; }
-      .card-red  { height: 220px; }
-      .card-blond { height: 170px; }
-      .hero__stat { padding: 0 12px; }
+      .home-products__grid { grid-template-columns: 1fr; gap: 56px; max-width: 420px; }
+      .home-hero__logo img { width: 170px; }
     }
   </style>
   <script type="application/ld+json">
@@ -127,7 +106,7 @@
         "url": "https://rightchewsfoods.com",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.rightchewsfoods.com/gallery/logo%20RC.png"
+          "url": "images/rc-logo.png"
         },
         "description": "Premium protein snacks with 19g of clean protein. Brownies, cookies, and more — real ingredients, zero artificial junk, the high-protein snack that actually tastes like a treat.",
         "keywords": "protein snacks, protein brownies, protein cookies, high protein snacks, gym snacks, fitness snacks, healthy snacks, post workout snacks, healthy brownies, whey protein brownies, clean protein snacks, gym food, protein desserts, macro friendly snacks, protein treats, fitness food",
@@ -155,7 +134,7 @@
   }
   </script>
 </head>
-<body>
+<body class="home-og">
 
   <!-- Shipping bar -->
   <div class="shipping-bar">
@@ -169,123 +148,59 @@
     <div class="container">
       <div class="nav__inner">
         <a href="index.html" class="nav__logo">
-          <img src="https://www.rightchewsfoods.com/gallery/logo%20RC.png" alt="Right Chews Foods" />
+          <img src="images/rc-logo.png" alt="Right Chews Foods" />
         </a>
-        <ul class="nav__links">
-          <li><a href="index.html" class="nav__link active">Home</a></li>
-          <li><a href="shop.html" class="nav__link">Shop</a></li>
-          <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="wholesale.html" class="nav__link">Wholesale</a></li>
-          <li><a href="contact.html" class="nav__link">Contact</a></li>
-        </ul>
         <div class="nav__actions">
           <a href="shop.html" class="nav__cart-btn" aria-label="View cart">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
             <span class="nav__cart-badge" id="cartBadge">0</span>
           </a>
-          <button class="nav__hamburger" id="hamburger" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
         </div>
       </div>
-    </div>
-    <div class="nav__mobile" id="mobileMenu">
-      <a href="index.html" class="nav__link active">Home</a>
-      <a href="shop.html" class="nav__link">Shop</a>
-      <a href="about.html" class="nav__link">About</a>
-      <a href="wholesale.html" class="nav__link">Wholesale</a>
-      <a href="contact.html" class="nav__link">Contact</a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero__inner">
-
-        <!-- Text -->
-        <div class="hero__content animate-in">
-          <div class="hero__tag">
-            <span class="hero__tag-dot"></span>
-            Protein Snacks · Retail &amp; Wholesale
-          </div>
-          <h1 class="hero__title">Real Protein.<br /><em>Real Flavor.</em><br />Right Chews.</h1>
-          <p class="hero__sub">Brownies today. Cookies coming soon. Your one-stop premium protein snack brand — 19g clean protein per serving, zero artificial junk, flavors that actually taste like a treat.</p>
-          <div class="hero__ctas">
-            <a href="shop.html" class="btn btn-primary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-              Shop Now
-            </a>
-            <a href="wholesale.html" class="btn btn-ghost">Apply for Wholesale →</a>
-          </div>
-          <div class="hero__stats">
-            <div class="hero__stat">
-              <span class="hero__stat-val">19g</span>
-              <span class="hero__stat-key">Protein</span>
-            </div>
-            <div class="hero__stat-div"></div>
-            <div class="hero__stat">
-              <span class="hero__stat-val">4+</span>
-              <span class="hero__stat-key">Flavors</span>
-            </div>
-            <div class="hero__stat-div"></div>
-            <div class="hero__stat">
-              <span class="hero__stat-val">0</span>
-              <span class="hero__stat-key">Artificial</span>
-            </div>
-            <div class="hero__stat-div"></div>
-            <div class="hero__stat">
-              <span class="hero__stat-val">USA</span>
-              <span class="hero__stat-key">Made</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Brownie cards -->
-        <div class="hero__showcase animate-in" style="transition-delay:120ms;">
-          <div class="brownie-cards">
-            <div class="brownie-card card-choc">
-              <img src="images/chocolate-brownie.png" alt="Chocolate Protein Brownie" loading="eager" />
-              <div class="brownie-card__label">Chocolate</div>
-            </div>
-            <div class="brownie-card card-red">
-              <img src="images/red-velvet-brownie.png" alt="Red Velvet Protein Brownie" loading="eager" />
-              <div class="brownie-card__label">Red Velvet</div>
-            </div>
-            <div class="brownie-card card-blond">
-              <img src="images/blondie-brownie.png" alt="Blondie Protein Brownie" loading="eager" />
-              <div class="brownie-card__label">Blondie</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
+  <!-- Hero: full-width trio image with logo + tagline overlaid -->
+  <section class="home-hero">
+    <img class="home-hero__bg" src="images/rc-trio.png" alt="Chocolate, Blondie, and Red Velvet Protein Brownies side by side" loading="eager" />
+    <div class="home-hero__overlay animate-in">
+      <img src="images/rc-logo.png" alt="Right Chews Foods" loading="eager" />
+      <h1 class="home-hero__tagline">Time to choose right chews...</h1>
+      <nav class="hero-nav">
+        <a href="index.html" class="hero-nav__link active">Home</a>
+        <a href="shop.html" class="hero-nav__link">Shop</a>
+        <a href="about.html" class="hero-nav__link">About</a>
+        <a href="wholesale.html" class="hero-nav__link">Wholesale</a>
+        <a href="contact.html" class="hero-nav__link">Contact</a>
+      </nav>
     </div>
   </section>
 
-  <!-- Marquee -->
-  <div class="marquee-section">
-    <div class="marquee-track">
-      <span class="marquee-item"><span class="marquee-dot"></span>Premium Protein Snacks</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Protein Brownies Available Now</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Protein Cookies Coming Soon</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>19g Protein Per Serving</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Zero Artificial Ingredients</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Shop Pay Accepted</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Retail &amp; Wholesale</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Made in USA</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Right Chews Foods</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Premium Protein Snacks</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Protein Brownies Available Now</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Protein Cookies Coming Soon</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>19g Protein Per Serving</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Zero Artificial Ingredients</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Shop Pay Accepted</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Retail &amp; Wholesale</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Made in USA</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Right Chews Foods</span>
+  <!-- Products (matches rightchewsfoods.com) -->
+  <section class="home-products">
+    <div class="container">
+      <div class="home-products__grid">
+        <div class="home-product animate-in">
+          <img src="images/rc-chocolate.jpg" alt="Chocolate Protein Brownie" loading="eager" />
+          <h3 class="home-product__name">Chocolate Protein Brownie</h3>
+          <p class="home-product__desc">Powerful, rich, and functional.</p>
+          <a href="shop.html" class="home-product__btn">Order</a>
+        </div>
+        <div class="home-product animate-in" style="transition-delay:120ms;">
+          <img src="images/rc-red-velvet.jpg" alt="Red Velvet Protein Brownie" loading="eager" />
+          <h3 class="home-product__name">Red Velvet Protein Brownie</h3>
+          <p class="home-product__desc">Sophistication with purpose.</p>
+          <a href="shop.html" class="home-product__btn">Order</a>
+        </div>
+        <div class="home-product animate-in" style="transition-delay:240ms;">
+          <img src="images/rc-blondie.jpg" alt="Blondie Protein Brownie" loading="eager" />
+          <h3 class="home-product__name">Blondie Protein Brownie</h3>
+          <p class="home-product__desc">Soft, golden, and functional.</p>
+          <a href="shop.html" class="home-product__btn">Order</a>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- Footer -->
   <footer class="rc-footer">

@@ -15,21 +15,21 @@
   <meta property="og:url" content="https://rightchewsfoods.com/shop.html" />
   <meta property="og:title" content="Buy Protein Brownies Online — Right Chews Foods" />
   <meta property="og:description" content="19g protein per brownie. Shop protein brownies, healthy gym snacks &amp; post-workout treats. Chocolate, Red Velvet &amp; Blondie. Free shipping over $100." />
-  <meta property="og:image" content="images/chocolate-brownie.png" />
+  <meta property="og:image" content="images/rc-chocolate.jpg" />
   <meta property="og:image:width" content="560" />
   <meta property="og:image:height" content="674" />
   <meta property="og:image:alt" content="Right Chews Protein Brownies — Chocolate, Red Velvet, Blondie" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Buy Protein Brownies Online — Right Chews Foods" />
   <meta name="twitter:description" content="19g protein per brownie. High-protein gym snacks, healthy brownies &amp; post-workout treats. Chocolate, Red Velvet &amp; Blondie." />
-  <meta name="twitter:image" content="images/chocolate-brownie.png" />
-  <link rel="preload" as="image" href="images/chocolate-brownie.png" />
-  <link rel="preload" as="image" href="images/red-velvet-brownie.png" />
-  <link rel="preload" as="image" href="images/blondie-brownie.png" />
+  <meta name="twitter:image" content="images/rc-chocolate.jpg" />
+  <link rel="preload" as="image" href="images/rc-chocolate.jpg" />
+  <link rel="preload" as="image" href="images/rc-red-velvet.jpg" />
+  <link rel="preload" as="image" href="images/rc-blondie.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
 
   <style>
     /* ── Design Tokens (matches index.html) ─────────────── */
@@ -96,7 +96,7 @@
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: var(--nav-h);
-      background: rgba(253,248,240,.92); backdrop-filter: blur(16px);
+      background: rgba(255,255,255,.97); backdrop-filter: blur(16px);
       border-bottom: 1px solid transparent;
       transition: border-color var(--transition), box-shadow var(--transition);
     }
@@ -181,26 +181,47 @@
       padding: 3px 12px; border-radius: 100px;
     }
 
-    /* ── Shop Header ────────────────────────────────────── */
-    .shop-header {
-      padding-top: calc(var(--nav-h) + 56px);
-      padding-bottom: 48px; text-align: center;
+    /* ── Shop Hero (matches original rightchewsfoods.com) ── */
+    .shop-hero { margin-top: var(--nav-h); position: relative; overflow: hidden; }
+    .shop-hero__bg {
+      width: 100%; height: clamp(380px, 60vh, 560px);
+      object-fit: cover; object-position: center 48%; display: block;
     }
-    .shop-header__eyebrow {
-      display: inline-block; font-size: 11px; font-weight: 700;
-      letter-spacing: .18em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px;
+    .shop-hero__overlay {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+      text-align: center; pointer-events: none;
     }
-    .shop-header__h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: var(--brown-800); line-height: 1.1;
+    .shop-hero__overlay img {
+      width: clamp(120px, 14vw, 190px); height: auto;
+      filter: drop-shadow(0 4px 18px rgba(255,255,255,.9)) drop-shadow(0 2px 8px rgba(0,0,0,.12));
     }
-    .shop-header__sub {
-      font-size: 1.05rem; color: var(--text-muted); margin-top: 10px; line-height: 1.6;
-      max-width: 460px; margin-inline: auto;
+    .shop-hero__h1 {
+      font-family: 'Montserrat', 'Inter', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 800; color: #fff; line-height: 1.15;
+      text-shadow: 0 2px 12px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.6);
     }
+    @media (max-width: 600px) {
+      .shop-hero__bg { height: 300px; object-position: center 58%; }
+    }
+    /* Hero nav tabs (under the tagline, like the original site) */
+    .hero-nav {
+      display: flex; gap: 4px; margin-top: 16px;
+      flex-wrap: wrap; justify-content: center;
+      pointer-events: auto;
+    }
+    .hero-nav__link {
+      font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: .07em; text-transform: uppercase; color: #FFF;
+      padding: 10px 17px; text-decoration: none;
+      text-shadow: 0 1px 6px rgba(0,0,0,.55);
+      transition: background 180ms ease, color 180ms ease;
+    }
+    .hero-nav__link:hover { background: rgba(0,0,0,.28); }
+    .hero-nav__link.active { background: #FFE600; color: #1A1A1A; text-shadow: none; }
 
     /* ── Products Grid ──────────────────────────────────── */
-    .shop-products { padding-bottom: 100px; }
+    .shop-products { padding-top: 48px; padding-bottom: 100px; }
     .shop-products__grid {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
     }
@@ -667,7 +688,7 @@
           "@type": "Product",
           "name": "Chocolate Protein Brownie",
           "description": "Deep, rich cocoa meets 19g of clean whey protein. Powerful, indulgent, and impossible to put down.",
-          "image": "images/chocolate-brownie.png",
+          "image": "images/rc-chocolate.jpg",
           "brand": { "@type": "Brand", "name": "Right Chews Foods" },
           "sku": "RC-CHOC-001",
           "offers": { "@type": "Offer", "price": "3.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://rightchewsfoods.com/shop.html" },
@@ -680,7 +701,7 @@
           "@type": "Product",
           "name": "Red Velvet Protein Brownie",
           "description": "Velvety texture with hints of vanilla and cocoa. 19g of protein per bite.",
-          "image": "images/red-velvet-brownie.png",
+          "image": "images/rc-red-velvet.jpg",
           "brand": { "@type": "Brand", "name": "Right Chews Foods" },
           "sku": "RC-RV-001",
           "offers": { "@type": "Offer", "price": "3.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://rightchewsfoods.com/shop.html" },
@@ -693,7 +714,7 @@
           "@type": "Product",
           "name": "Blondie Protein Brownie",
           "description": "Buttery caramel notes, golden texture, and 19g of protein.",
-          "image": "images/blondie-brownie.png",
+          "image": "images/rc-blondie.jpg",
           "brand": { "@type": "Brand", "name": "Right Chews Foods" },
           "sku": "RC-BLO-001",
           "offers": { "@type": "Offer", "price": "3.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://rightchewsfoods.com/shop.html" },
@@ -706,7 +727,7 @@
           "@type": "Product",
           "name": "Chocolate Protein Brownie 12-Pack",
           "description": "A full dozen of our bestselling Chocolate Protein Brownies. 19g protein each.",
-          "image": "images/chocolate-brownie.png",
+          "image": "images/rc-chocolate.jpg",
           "brand": { "@type": "Brand", "name": "Right Chews Foods" },
           "sku": "RC-CHOC-012",
           "offers": { "@type": "Offer", "price": "39.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://rightchewsfoods.com/shop.html" }
@@ -754,16 +775,9 @@
     <div class="container">
       <div class="nav__inner">
         <a href="index.html">
-          <img src="https://www.rightchewsfoods.com/gallery/logo%20RC.png" alt="Right Chews Foods" style="height:44px;width:auto;" />
+          <img src="images/rc-logo.png" alt="Right Chews Foods" style="height:44px;width:auto;" />
         </a>
 
-        <ul class="nav__links">
-          <li><a href="index.html" class="nav__link">Home</a></li>
-          <li><a href="shop.html" class="nav__link active">Shop</a></li>
-          <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="wholesale.html" class="nav__link">Wholesale</a></li>
-          <li><a href="contact.html" class="nav__link">Contact</a></li>
-        </ul>
 
         <div class="nav__actions">
           <button class="nav__acct-btn" id="acctBtn">Login</button>
@@ -771,19 +785,8 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
             <span class="nav__cart-badge" id="cartBadge">0</span>
           </button>
-          <button class="nav__hamburger" id="hamburger" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
         </div>
       </div>
-    </div>
-    <div class="nav__mobile" id="mobileMenu">
-      <a href="index.html" class="nav__link">Home</a>
-      <a href="shop.html" class="nav__link">Shop</a>
-      <a href="about.html" class="nav__link">About</a>
-      <a href="wholesale.html" class="nav__link">Wholesale</a>
-      <a href="contact.html" class="nav__link">Contact</a>
-      <button class="nav__acct-btn nav__mobile-acct" id="mobileAcctBtn">Login / Wholesale Account</button>
     </div>
   </nav>
 
@@ -793,12 +796,19 @@
     <span class="ws-banner__link" id="wsBannerLink">Login for wholesale pricing →</span>
   </div>
 
-  <!-- ═══ SHOP HEADER ═══ -->
-  <header class="shop-header">
-    <div class="container">
-      <span class="shop-header__eyebrow">Premium Protein</span>
-      <h1 class="shop-header__h1">Right Chews Protein Brownies</h1>
-      <p class="shop-header__sub">19g protein per brownie. Clean ingredients, no artificial junk. The best high-protein gym snack, post-workout treat, or healthy dessert you'll find.</p>
+  <!-- ═══ SHOP HERO ═══ -->
+  <header class="shop-hero">
+    <img class="shop-hero__bg" src="images/rc-trio.png" alt="Chocolate, Blondie, and Red Velvet Protein Brownies side by side" loading="eager" />
+    <div class="shop-hero__overlay">
+      <img src="images/rc-logo.png" alt="Right Chews Foods logo" />
+      <h1 class="shop-hero__h1">Time to choose right chews...</h1>
+      <nav class="hero-nav">
+        <a href="index.html" class="hero-nav__link">Home</a>
+        <a href="shop.html" class="hero-nav__link active">Shop</a>
+        <a href="about.html" class="hero-nav__link">About</a>
+        <a href="wholesale.html" class="hero-nav__link">Wholesale</a>
+        <a href="contact.html" class="hero-nav__link">Contact</a>
+      </nav>
     </div>
   </header>
 
