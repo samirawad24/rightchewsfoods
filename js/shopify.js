@@ -11,7 +11,7 @@ const MOCK_PRODUCTS = [
     title: 'Chocolate Protein Brownie',
     description: 'Powerful, rich, and functional. Our Chocolate Protein Brownie delivers deep cocoa flavor with a soft, satisfying texture. High in protein and low in sugar, made with premium ingredients to support performance and an active lifestyle.',
     price: '3.99',
-    image: 'images/2.0/chocolate-brownie-08-centered.jpg',
+    image: 'images/2.0/chocolate-brownie-stack-centered.jpg',
     imgPosition: 'center 50%',
     nutrition: {
       servingSize: '1 pack (70g)', calories: 150,
@@ -35,7 +35,7 @@ const MOCK_PRODUCTS = [
     title: 'Red Velvet Protein Brownie',
     description: 'Sophistication with purpose. The Red Velvet Protein Brownie offers a delicate texture and balanced flavor profile, high in protein and low in carbohydrates. Designed for those who want premium nutrition without giving up indulgence.',
     price: '3.99',
-    image: 'images/2.0/red-velvet-brownie-04-centered.jpg',
+    image: 'images/2.0/red-velvet-brownie-stack-centered.jpg',
     imgPosition: 'center 50%',
     nutrition: {
       servingSize: '1 pack (70g)', calories: 170,
@@ -59,7 +59,7 @@ const MOCK_PRODUCTS = [
     title: 'Blondie Protein Brownie',
     description: 'Soft, golden, and functional. The Blondie Protein Brownie is a refined alternative to chocolate, high in protein and low in sugar. Ideal as a smart snack to stay fueled, satisfied, and in control.',
     price: '3.99',
-    image: 'images/2.0/blondie-brownie-09-centered.jpg',
+    image: 'images/2.0/blondie-brownie-stack-centered.jpg',
     imgPosition: 'center 50%',
     nutrition: {
       servingSize: '1 pack (70g)', calories: 180,
@@ -83,7 +83,8 @@ const MOCK_PRODUCTS = [
     title: 'Chocolate 12-Pack',
     description: 'A full dozen of our bestselling Chocolate Protein Brownies. Stock up and save — 19g protein in every brownie.',
     price: '39.99',
-    image: 'images/brownie-dozen.png',
+    image: 'images/2.0/chocolate-brownie-12pack-centered.jpg',
+    imgPosition: 'center 50%',
     nutrition: {
       servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 150,
       totalFat: { amount: '5g', dv: '8%' }, satFat: { amount: '3g', dv: '13%' },
@@ -105,7 +106,8 @@ const MOCK_PRODUCTS = [
     title: 'Red Velvet 12-Pack',
     description: 'A full dozen of our Red Velvet Protein Brownies. Silky, rich, and 19g of protein every single time.',
     price: '39.99',
-    image: 'images/red-velvet-dozen.png',
+    image: 'images/2.0/red-velvet-brownie-12pack-centered.jpg',
+    imgPosition: 'center 50%',
     nutrition: {
       servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 170,
       totalFat: { amount: '3g', dv: '5%' }, satFat: { amount: '1.5g', dv: '8%' },
@@ -127,7 +129,8 @@ const MOCK_PRODUCTS = [
     title: 'Blondie 12-Pack',
     description: 'A full dozen of our Blondie Protein Brownies. Buttery caramel flavor with 19g of protein per brownie.',
     price: '39.99',
-    image: 'images/blondie-dozen.png',
+    image: 'images/2.0/blondie-brownie-12pack-centered.jpg',
+    imgPosition: 'center 50%',
     nutrition: {
       servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 180,
       totalFat: { amount: '6g', dv: '9%' }, satFat: { amount: '3g', dv: '16%' },
@@ -165,8 +168,8 @@ const MOCK_PRODUCTS = [
     imgPosition: 'center 50%',
     description: 'Classic chocolate chip with clean protein. A whole new way to hit your macros.',
     price: '3.99',
-    image: 'images/2.0/choc-chip-cookie-01-centered.jpg',
-    comingSoon: true, nutritionTba: true,
+    image: 'images/2.0/choc-chip-cookie-real-centered.jpg',
+    nutritionTba: true,
     macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
       { id: 'gid://shopify/ProductVariant/701', title: 'Single', price: '3.99' }
@@ -178,9 +181,9 @@ const MOCK_PRODUCTS = [
     title: 'Double Chocolate Protein Cookie',
     description: 'Rich cocoa cookie loaded with chocolate chips. Twice the chocolate, all the protein.',
     price: '3.99',
-    image: 'images/2.0/double-chocolate-cookie-02-centered.jpg',
+    image: 'images/2.0/double-chocolate-cookie-real-centered.jpg',
     imgPosition: 'center 50%',
-    comingSoon: true, nutritionTba: true,
+    nutritionTba: true,
     macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
       { id: 'gid://shopify/ProductVariant/801', title: 'Single', price: '3.99' }
@@ -188,12 +191,13 @@ const MOCK_PRODUCTS = [
   },
   {
     id: 'gid://shopify/Product/9',
-    handle: 'blondie-protein-cookie',
-    title: 'Blondie Protein Cookie',
-    description: 'Buttery, caramel-kissed, and loaded with clean protein. The cookie your sweet tooth and macros both agree on.',
+    handle: 'churro-protein-cookie',
+    title: 'Churro Protein Cookie',
+    description: 'Rolled in cinnamon sugar, soft in the middle. A churro that loves your macros back.',
     price: '3.99',
-    image: 'images/blondie-brownie.png',
-    comingSoon: true, nutritionTba: true,
+    image: 'images/2.0/churro-cookie-real-centered.jpg',
+    imgPosition: 'center 50%',
+    nutritionTba: true,
     macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
       { id: 'gid://shopify/ProductVariant/901', title: 'Single', price: '3.99' }
@@ -201,13 +205,13 @@ const MOCK_PRODUCTS = [
   },
   {
     id: 'gid://shopify/Product/10',
-    handle: 'confetti-protein-cookie',
-    title: 'Confetti Protein Cookie',
-    description: 'Funfetti vibes with serious protein. Because high-protein snacks should be fun.',
+    handle: 'red-velvet-protein-cookie',
+    title: 'Red Velvet Protein Cookie',
+    description: 'Soft, cocoa-kissed red velvet with clean protein. Rich, not too sweet.',
     price: '3.99',
-    image: 'images/2.0/confetti-brownie-13-centered.jpg',
+    image: 'images/2.0/red-velvet-cookie-real-centered.jpg',
     imgPosition: 'center 50%',
-    comingSoon: true, nutritionTba: true,
+    nutritionTba: true,
     macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
       { id: 'gid://shopify/ProductVariant/1001', title: 'Single', price: '3.99' }
