@@ -22,6 +22,25 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* --------------------------------------------------------- cookie cursor */
+/* Native `cursor` rather than a JS follower: no lag, and clicks still land
+   exactly where the pointer is. Hotspot is centred on the cookie. Phones have
+   no cursor, so this is a desktop-only flourish and costs mobile nothing. */
+/* !important because the page-level stylesheets set `cursor: pointer` with
+   class selectors, which outrank these element selectors. */
+body {
+  cursor: url('../images/cursor-cookie.png') 22 19, auto !important;
+}
+a, button, summary, select, label,
+input[type="submit"], input[type="button"], input[type="checkbox"], input[type="radio"] {
+  cursor: url('../images/cursor-cookie-bite.png') 22 19, pointer !important;
+}
+/* Typing needs a real caret -- a cookie over a text field hides where you are */
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"],
+input[type="search"], input[type="password"], input:not([type]), textarea {
+  cursor: text !important;
+}
+
 /* --------------------------------------------------------------- shipping */
 
 .shipping-bar {
