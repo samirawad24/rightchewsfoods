@@ -16,12 +16,13 @@
     'brownie-chocolate.webp',
     'brownie-red-velvet.webp',
     'brownie-blondie.webp',
-    'brownie-dumbbell.webp',
     'cookie-choc-chip.webp',
     'cookie-double-chocolate.webp',
     'cookie-churro.webp',
     'cookie-red-velvet.webp'
   ];
+  var LOGO = 'rc-logo.webp';
+  var LOGO_EVERY = 7;   // a sprinkle of logos, not a downpour
   var DROP_COUNT = 22;
   var RAIN_MS = 2600;
 
@@ -108,11 +109,15 @@
     layer.className = 'rc-rain';
     layer.setAttribute('aria-hidden', 'true');
 
-    for (var i = 0; i < DROP_COUNT; i++) {
+    for (var i = 0, food = 0; i < DROP_COUNT; i++) {
+      var isLogo = i % LOGO_EVERY === 3;
       var img = document.createElement('img');
-      img.src = SPRITE_DIR + SPRITES[i % SPRITES.length];
+      // `food` advances only on food drops. Indexing by `i` instead would make
+      // the logo always displace the same flavour, hiding it completely.
+      img.src = SPRITE_DIR + (isLogo ? LOGO : SPRITES[food++ % SPRITES.length]);
       img.alt = '';
-      var size = 26 + Math.random() * 40;          // px tall
+      // Logos read smaller than the food at the same height, so nudge them up.
+      var size = isLogo ? 34 + Math.random() * 26 : 26 + Math.random() * 40;
       var dur = 2.5 + Math.random() * 2.2;         // seconds
       var delay = Math.random() * 1.1;
       var spin = (Math.random() * 640 - 320).toFixed(0);
