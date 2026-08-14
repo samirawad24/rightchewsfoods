@@ -4,137 +4,319 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Right Chews | Premium Protein Snacks — Brownies, Cookies &amp; More</title>
-  <meta name="description" content="Right Chews is your one-stop premium protein snack brand. Brownies now, cookies coming soon — 19g clean protein per serving, zero artificial. Retail &amp; wholesale. Free shipping over $100." />
+  <meta name="description" content="Right Chews is your one-stop premium protein snack brand. 19g clean protein per serving, zero artificial. Retail &amp; wholesale. Free shipping over $100." />
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="Right Chews Foods" />
   <meta name="theme-color" content="#2C1A0E" />
-  <meta name="keywords" content="protein brownies, protein brownie, high protein snacks, gym snacks, fitness snacks, healthy snacks, protein desserts, post workout snacks, healthy brownies, whey protein brownies, clean protein snacks, gym food, macro friendly snacks, protein treats, fitness food, protein snack, high protein desserts, buy protein brownies, protein gym snack" />
-  <link rel="canonical" href="https://rightchewsfoods.com/" />
-  <meta property="og:site_name" content="Right Chews Foods" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://rightchewsfoods.com/" />
-  <meta property="og:title" content="Right Chews | Premium Protein Snacks — Brownies, Cookies &amp; More" />
-  <meta property="og:description" content="Your one-stop protein snack brand. Brownies now, cookies coming soon — 19g clean protein, zero artificial. Retail &amp; wholesale available. Free shipping over $100." />
-  <meta property="og:image" content="images/rc-chocolate.jpg" />
-  <meta property="og:image:width" content="560" />
-  <meta property="og:image:height" content="674" />
-  <meta property="og:image:alt" content="Right Chews Chocolate Protein Brownie — 19g Protein" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Right Chews | Premium Protein Snacks — Brownies, Cookies &amp; More" />
-  <meta name="twitter:description" content="Your one-stop protein snack brand. Brownies now, cookies coming soon — 19g clean protein, zero artificial. Free shipping over $100." />
-  <meta name="twitter:image" content="images/rc-chocolate.jpg" />
-  <link rel="preload" as="image" href="images/2.0/chocolate-brownie-stack-centered.jpg" />
-  <link rel="preload" as="image" href="images/2.0/red-velvet-brownie-stack-centered.jpg" />
-  <link rel="preload" as="image" href="images/2.0/blondie-brownie-stack-centered.jpg" />
+  <link rel="preload" as="image" href="images/3.0/hero-trio.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=20260707" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
-    /* ── Home: light style matching rightchewsfoods.com ── */
-    body.home-og { background: #FFFFFF; font-family: 'Open Sans', system-ui, sans-serif; }
-    body.home-og .nav { background: rgba(255,255,255,.97); border-bottom: 1px solid #EEE; }
-
-    /* Full-width hero: trio image with logo + tagline overlaid */
-    .home-hero { position: relative; overflow: hidden; }
-    .home-hero__bg {
-      width: 100%; height: clamp(380px, 60vh, 560px);
-      object-fit: cover; object-position: center 48%; display: block;
-    }
-    .home-hero__overlay {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
-      text-align: center; pointer-events: none;
-    }
-    .home-hero__overlay img {
-      width: clamp(120px, 14vw, 190px); height: auto;
-      filter: drop-shadow(0 4px 18px rgba(255,255,255,.9)) drop-shadow(0 2px 8px rgba(0,0,0,.12));
-    }
-    .home-hero__tagline {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1.4rem, 3vw, 2.2rem);
-      font-weight: 800; letter-spacing: .01em;
-      color: #FFF; margin: 0;
-      text-shadow: 0 2px 12px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.6);
-    }
-    @media (max-width: 600px) {
-      .home-hero__bg { height: 340px; object-position: center 58%; }
+    :root {
+      --orange: #E8621B;
+      --orange-lt: #F07A38;
+      --gold: #FFC93C;
+      --ink: #1A1A1A;
+      --cocoa: #2C1A0E;
+      --muted: #555;
+      --line: #ECECEC;
     }
 
-    .home-products { background: #FFFFFF; padding: 44px 0 80px; }
-    .home-products__grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 40px; max-width: 1080px; margin: 0 auto;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #FFFFFF;
+      font-family: 'Open Sans', system-ui, sans-serif;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
     }
-    .home-product { text-align: center; }
-    .home-product img {
-      width: 100%; height: auto; aspect-ratio: 560 / 674; object-fit: cover;
-      margin-bottom: 22px;
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    .container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+
+    /* ── Shipping bar ── */
+    .shipping-bar {
+      background: #171310; color: #EDE7E1;
+      font-size: .78rem; letter-spacing: .02em;
+      text-align: center; padding: 9px 16px;
+      display: flex; align-items: center; justify-content: center; gap: 14px;
     }
-    .home-product__name {
+    .shipping-bar__dot { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); flex: none; }
+
+    /* ── Nav ── */
+    .nav {
+      background: #FFF;
+      position: sticky; top: 0; z-index: 60;
+      border-bottom: 1px solid transparent;
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+    .nav.is-stuck { border-bottom-color: var(--line); box-shadow: 0 2px 18px rgba(0,0,0,.05); }
+    .nav__inner {
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center; gap: 24px; padding: 14px 0;
+    }
+    .nav__logo img { width: 128px; height: auto; }
+    .nav__links { display: flex; align-items: center; gap: 34px; justify-self: center; }
+    .nav__link {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.25rem; font-weight: 600; color: #1A1A1A;
-      margin-bottom: 10px;
+      font-size: 1.02rem; font-weight: 500; letter-spacing: .045em;
+      text-transform: uppercase; color: #23180F;
+      position: relative; padding: 4px 0;
     }
-    .home-product__desc {
-      font-family: 'Open Sans', sans-serif;
-      font-size: .95rem; line-height: 1.6; color: #444;
-      margin-bottom: 22px;
+    .nav__link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 100%; height: 2px; background: var(--orange);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 220ms ease;
     }
-    .home-product__btn {
+    .nav__link:hover::after, .nav__link.active::after { transform: scaleX(1); }
+    .nav__actions {
+      justify-self: end;
+      display: flex; align-items: center; gap: 14px;
+      background: #F5F5F5; border-radius: 6px; padding: 10px 18px;
+    }
+    .nav__login {
+      font-family: 'Montserrat', sans-serif; font-size: .92rem; font-weight: 500;
+      color: #23180F; border: 1px solid #E2C7A8; border-radius: 999px;
+      padding: 8px 26px; background: #FFF;
+      transition: border-color 180ms ease, color 180ms ease;
+    }
+    .nav__login:hover { border-color: var(--orange); color: var(--orange); }
+    .nav__cart { position: relative; color: #3A2A1C; display: flex; }
+    .nav__cart-badge {
+      position: absolute; top: -6px; right: -8px;
+      min-width: 17px; height: 17px; padding: 0 4px;
+      background: var(--orange); color: #FFF;
+      font-family: 'Montserrat', sans-serif; font-size: .65rem; font-weight: 700;
+      border-radius: 999px; display: flex; align-items: center; justify-content: center;
+    }
+    .nav__toggle { display: none; background: none; border: 0; cursor: pointer; padding: 6px; color: #23180F; }
+
+    /* ── Reviews badge ── */
+    .reviews { display: flex; justify-content: center; padding: 26px 0 4px; }
+    .reviews__pill {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: #171310; border-radius: 7px; padding: 7px 15px;
+    }
+    .reviews__g { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.05rem; line-height: 1; }
+    .reviews__stars { color: #FFB400; font-size: .95rem; letter-spacing: 1px; line-height: 1; }
+    .reviews__count {
+      font-family: 'Montserrat', sans-serif; font-size: .82rem; font-weight: 700;
+      color: #FFF; letter-spacing: .01em;
+    }
+
+    /* ── Hero ── */
+    .hero { position: relative; padding: 26px 28px 10px; overflow: hidden; }
+    .hero__stage { position: relative; max-width: 1080px; margin: 0 auto; }
+    .hero__img {
+      width: 78%; max-width: 900px; height: auto; margin: 0 auto;
+      filter: drop-shadow(0 22px 18px rgba(60, 30, 8, .30));
+    }
+
+    /* Slogan artwork sitting above the brownies */
+    .hero__slogan {
+      position: relative; z-index: 2;
+      margin: 0 0 14px; font-size: 0; text-align: center;
+    }
+    .hero__slogan img {
+      width: 74%; max-width: 820px; height: auto; margin: 0 auto;
+      filter: drop-shadow(0 8px 7px rgba(60, 30, 8, .22));
+    }
+
+    .hero__badge {
+      position: absolute; right: 4%; top: 6px; z-index: 3;
+      text-align: center; line-height: 1; color: var(--orange);
+      font-family: 'Fredoka', 'Montserrat', sans-serif; font-weight: 600;
+      pointer-events: none;
+    }
+    .hero__badge-num {
+      display: block; font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+      letter-spacing: -.01em;
+    }
+    .hero__badge-word {
+      display: block; margin-top: 2px;
+      font-size: clamp(.72rem, 1.25vw, 1.05rem); letter-spacing: .01em;
+    }
+    .hero__cta-wrap { position: relative; z-index: 2; text-align: center; margin-top: 6px; }
+    .btn-order {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.75rem);
+      font-weight: 600; letter-spacing: .05em;
+      color: var(--gold); background: #22150C;
+      border: 3px solid var(--orange); border-radius: 12px;
+      padding: 14px 46px;
+      box-shadow: 0 6px 22px rgba(232,98,27,.22);
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+    .btn-order:hover {
+      transform: translateY(-2px);
+      background: #2E1C10;
+      box-shadow: 0 10px 28px rgba(232,98,27,.32);
+    }
+
+    /* ── Section headings ── */
+    .sec { padding: 74px 0; }
+    .sec--tight { padding: 54px 0 74px; }
+    .sec__head { text-align: center; margin-bottom: 46px; }
+    .sec__title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800;
+      letter-spacing: -.01em; color: #23180F;
+    }
+    .sec__title em { font-style: normal; color: var(--orange); }
+    .sec__sub {
+      margin-top: 12px; font-size: 1rem; color: var(--muted);
+      max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.65;
+    }
+
+    /* ── Product grid ── */
+    .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px; }
+    .product { text-align: center; }
+    .product__media {
+      display: flex; align-items: flex-end; justify-content: center;
+      height: 300px; margin-bottom: 18px;
+    }
+    .product__media img {
+      max-height: 100%; width: auto;
+      filter: drop-shadow(0 18px 15px rgba(60, 30, 8, .30));
+      transition: transform 320ms cubic-bezier(.2,.7,.3,1), filter 320ms ease;
+    }
+    .product:hover .product__media img { filter: drop-shadow(0 26px 20px rgba(60, 30, 8, .34)); }
+    .product:hover .product__media img { transform: translateY(-8px) scale(1.03); }
+    .product__name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.22rem; font-weight: 600; color: #1A1A1A; margin-bottom: 9px;
+    }
+    .product__desc { font-size: .94rem; line-height: 1.6; color: #4A4A4A; margin-bottom: 20px; }
+    .product__btn {
       display: inline-block; font-family: 'Montserrat', sans-serif;
-      font-size: .85rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      font-size: .82rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase;
       color: #FFF; background: var(--orange);
       padding: 12px 38px; border-radius: 4px;
       transition: background 180ms ease, transform 180ms ease;
     }
-    .home-product__btn:hover { background: var(--orange-lt, #E5763E); transform: translateY(-2px); }
+    .product__btn:hover { background: var(--orange-lt); transform: translateY(-2px); }
 
-    @media (max-width: 900px) {
-      .home-products__grid { grid-template-columns: 1fr; gap: 56px; max-width: 420px; }
-      .home-hero__logo img { width: 170px; }
+    /* ── Cookies ── */
+    .cookies { background: #FAF7F3; }
+    .cookies__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+    .cookie { text-align: center; }
+    .cookie__media {
+      display: flex; align-items: center; justify-content: center;
+      height: 190px; margin-bottom: 14px;
+    }
+    .cookie__media img {
+      max-height: 100%; width: auto;
+      filter: drop-shadow(0 14px 12px rgba(60, 30, 8, .28));
+      transition: transform 320ms cubic-bezier(.2,.7,.3,1), filter 320ms ease;
+    }
+    .cookie:hover .cookie__media img { filter: drop-shadow(0 20px 16px rgba(60, 30, 8, .32)); }
+    .cookie:hover .cookie__media img { transform: translateY(-6px) scale(1.04); }
+    .cookie__name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.02rem; font-weight: 600; color: #23180F; margin-bottom: 6px;
+    }
+    .cookie__desc { font-size: .87rem; color: #6A6A6A; line-height: 1.55; }
+
+    /* ── Value strip ── */
+    .values { background: #22150C; padding: 40px 0; }
+    .values__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .value { text-align: center; color: #F3EBE3; }
+    .value__big {
+      font-family: 'Montserrat', sans-serif; font-size: 1.7rem; font-weight: 800;
+      color: var(--gold); line-height: 1;
+      height: 30px; display: flex; align-items: center; justify-content: center;
+    }
+    .value__icon { color: var(--gold); display: flex; justify-content: center; height: 30px; align-items: center; }
+    .value__label {
+      margin-top: 10px; font-family: 'Montserrat', sans-serif;
+      font-size: .8rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase;
+      color: #CBBBAC; line-height: 1.5;
+    }
+
+    /* ── Split band ── */
+    .band { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; }
+    .band__copy h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem); font-weight: 800;
+      color: #23180F; line-height: 1.18; margin-bottom: 16px;
+    }
+    .band__copy h2 em { font-style: normal; color: var(--orange); }
+    .band__copy p { color: var(--muted); line-height: 1.75; margin-bottom: 26px; font-size: 1rem; }
+    .band__media { display: flex; justify-content: center; }
+    .band__media img { max-width: 380px; filter: drop-shadow(0 20px 16px rgba(60, 30, 8, .30)); }
+
+    /* ── Footer ── */
+    .rc-footer { background: #171310; color: #BEB2A6; padding: 56px 0 26px; font-size: .9rem; }
+    .rc-footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 44px; margin-bottom: 38px; }
+    .rc-footer__brand-name {
+      font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800; color: #FFF; margin-bottom: 12px;
+    }
+    .rc-footer__brand-name span { color: var(--orange); }
+    .rc-footer__tagline { line-height: 1.7; max-width: 340px; margin-bottom: 20px; }
+    .rc-footer__social-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border: 1px solid #3A322B; border-radius: 50%;
+      color: #BEB2A6; transition: border-color 180ms ease, color 180ms ease;
+    }
+    .rc-footer__social-btn:hover { border-color: var(--orange); color: var(--orange); }
+    .rc-footer__col-title {
+      font-family: 'Montserrat', sans-serif; font-size: .78rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; color: #FFF; margin-bottom: 16px;
+    }
+    .rc-footer__links { list-style: none; }
+    .rc-footer__links li { margin-bottom: 10px; }
+    .rc-footer__links a:hover { color: var(--orange); }
+    .rc-footer__bottom {
+      border-top: 1px solid #2A241E; padding-top: 22px;
+      display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+      font-size: .82rem; color: #8B8177;
+    }
+    .rc-footer__bottom a:hover { color: var(--orange); }
+
+    /* ── Reveal ── */
+    .animate-in { opacity: 0; transform: translateY(18px); transition: opacity 600ms ease, transform 600ms ease; }
+    .animate-in.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .animate-in { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1000px) {
+      .nav__inner { grid-template-columns: auto 1fr; }
+      .nav__toggle { display: block; justify-self: end; }
+      .nav__actions { display: none; }
+      .nav__links {
+        display: none; position: absolute; left: 0; right: 0; top: 100%;
+        background: #FFF; border-bottom: 1px solid var(--line);
+        flex-direction: column; gap: 0; padding: 8px 0 16px;
+        box-shadow: 0 12px 24px rgba(0,0,0,.06);
+      }
+      .nav__links.open { display: flex; }
+      .nav__link { padding: 13px 28px; width: 100%; text-align: center; }
+      .nav__link::after { display: none; }
+      .band { grid-template-columns: 1fr; gap: 34px; }
+      .band__media { order: -1; }
+      .cookies__grid { grid-template-columns: repeat(2, 1fr); gap: 26px; }
+    }
+    @media (max-width: 760px) {
+      .container { padding: 0 20px; }
+      .products { grid-template-columns: 1fr; gap: 52px; max-width: 380px; margin: 0 auto; }
+      .product__media { height: 240px; }
+      .hero__tagline { top: 68%; font-size: clamp(1.05rem, 5.4vw, 1.9rem); }
+      .values__grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+      .rc-footer__grid { grid-template-columns: 1fr; gap: 32px; }
+      .sec { padding: 56px 0; }
+    }
+    @media (max-width: 420px) {
+      .hero__tagline { top: 70%; }
+      .btn-order { padding: 12px 30px; }
     }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://rightchewsfoods.com/#organization",
-        "name": "Right Chews Foods",
-        "url": "https://rightchewsfoods.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "images/rc-logo.png"
-        },
-        "description": "Premium protein snacks with 19g of clean protein. Brownies, cookies, and more — real ingredients, zero artificial junk, the high-protein snack that actually tastes like a treat.",
-        "keywords": "protein snacks, protein brownies, protein cookies, high protein snacks, gym snacks, fitness snacks, healthy snacks, post workout snacks, healthy brownies, whey protein brownies, clean protein snacks, gym food, protein desserts, macro friendly snacks, protein treats, fitness food",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Coral Springs",
-          "addressRegion": "FL",
-          "addressCountry": "US"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "email": "rightchewsfoods@gmail.com"
-        }
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://rightchewsfoods.com/#website",
-        "url": "https://rightchewsfoods.com",
-        "name": "Right Chews Foods",
-        "description": "Premium protein brownies — 19g protein, three bold flavors, retail and wholesale.",
-        "publisher": { "@id": "https://rightchewsfoods.com/#organization" }
-      }
-    ]
-  }
-  </script>
 </head>
-<body class="home-og">
+<body>
 
   <!-- Shipping bar -->
   <div class="shipping-bar">
@@ -147,56 +329,166 @@
   <nav class="nav" id="nav">
     <div class="container">
       <div class="nav__inner">
-        <a href="index.html" class="nav__logo">
+        <a href="index.html" class="nav__logo" aria-label="Right Chews Foods home">
           <img src="images/rc-logo.png" alt="Right Chews Foods" />
         </a>
+
+        <div class="nav__links" id="navLinks">
+          <a href="index.html" class="nav__link active">Home</a>
+          <a href="shop.html" class="nav__link">Shop</a>
+          <a href="about.html" class="nav__link">About Us</a>
+          <a href="contact.html" class="nav__link">Contact</a>
+        </div>
+
         <div class="nav__actions">
-          <a href="shop.html" class="nav__cart-btn" aria-label="View cart">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <a href="shop.html" class="nav__login">Login</a>
+          <a href="shop.html" class="nav__cart" aria-label="View cart">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
             <span class="nav__cart-badge" id="cartBadge">0</span>
           </a>
         </div>
+
+        <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        </button>
       </div>
     </div>
   </nav>
 
-  <!-- Hero: full-width trio image with logo + tagline overlaid -->
-  <section class="home-hero">
-    <img class="home-hero__bg" src="images/rc-trio.png" alt="Chocolate, Blondie, and Red Velvet Protein Brownies side by side" loading="eager" />
-    <div class="home-hero__overlay animate-in">
-      <img src="images/rc-logo.png" alt="Right Chews Foods" loading="eager" />
-      <h1 class="home-hero__tagline">Time to choose right chews...</h1>
-      <nav class="hero-nav">
-        <a href="index.html" class="hero-nav__link active">Home</a>
-        <a href="shop.html" class="hero-nav__link">Shop</a>
-        <a href="about.html" class="hero-nav__link">About</a>
-        <a href="wholesale.html" class="hero-nav__link">Wholesale</a>
-        <a href="contact.html" class="hero-nav__link">Contact</a>
-      </nav>
+  <!-- Google reviews badge -->
+  <div class="reviews">
+    <div class="reviews__pill">
+      <span class="reviews__g" aria-hidden="true"><span style="color:#4285F4">G</span></span>
+      <span class="reviews__stars" aria-hidden="true">★★★★★</span>
+      <span class="reviews__count">300+ reviews</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__stage">
+      <p class="hero__badge"><span class="hero__badge-num">19g</span><span class="hero__badge-word">protein</span></p>
+
+      <h1 class="hero__slogan">
+        <img src="images/3.0/slogan-chews-whats-right.webp" alt="Chews what's right" width="2064" height="296" />
+      </h1>
+
+      <img class="hero__img" src="images/3.0/hero-trio-fan.webp"
+           alt="Red Velvet, Chocolate and Blondie protein brownies side by side" width="1421" height="358" />
+
+      <div class="hero__cta-wrap">
+        <a href="shop.html" class="btn-order">ORDER NOW</a>
+      </div>
     </div>
   </section>
 
-  <!-- Products (matches rightchewsfoods.com) -->
-  <section class="home-products">
+  <!-- Brownies -->
+  <section class="sec sec--tight">
     <div class="container">
-      <div class="home-products__grid">
-        <div class="home-product animate-in">
-          <img src="images/2.0/chocolate-brownie-stack-centered.jpg" alt="Chocolate Protein Brownie" loading="eager" style="object-position:center 50%;" />
-          <h3 class="home-product__name">Chocolate Protein Brownie</h3>
-          <p class="home-product__desc">Powerful, rich, and functional.</p>
-          <a href="shop.html" class="home-product__btn">Order</a>
+      <div class="products">
+        <div class="product animate-in">
+          <div class="product__media">
+            <img src="images/3.0/chocolate-brownie-stack-alt.webp" alt="Chocolate Protein Brownie" />
+          </div>
+          <h3 class="product__name">Chocolate Protein Brownie</h3>
+          <p class="product__desc">Powerful, rich, and functional.</p>
+          <a href="shop.html" class="product__btn">Order</a>
         </div>
-        <div class="home-product animate-in" style="transition-delay:120ms;">
-          <img src="images/2.0/red-velvet-brownie-stack-centered.jpg" alt="Red Velvet Protein Brownie" loading="eager" style="object-position:center 50%;" />
-          <h3 class="home-product__name">Red Velvet Protein Brownie</h3>
-          <p class="home-product__desc">Sophistication with purpose.</p>
-          <a href="shop.html" class="home-product__btn">Order</a>
+
+        <div class="product animate-in" style="transition-delay:110ms;">
+          <div class="product__media">
+            <img src="images/3.0/red-velvet-brownie-stack.webp" alt="Red Velvet Protein Brownie" />
+          </div>
+          <h3 class="product__name">Red Velvet Protein Brownie</h3>
+          <p class="product__desc">Sophistication with purpose.</p>
+          <a href="shop.html" class="product__btn">Order</a>
         </div>
-        <div class="home-product animate-in" style="transition-delay:240ms;">
-          <img src="images/2.0/blondie-brownie-stack-centered.jpg" alt="Blondie Protein Brownie" loading="eager" style="object-position:center 50%;" />
-          <h3 class="home-product__name">Blondie Protein Brownie</h3>
-          <p class="home-product__desc">Soft, golden, and functional.</p>
-          <a href="shop.html" class="home-product__btn">Order</a>
+
+        <div class="product animate-in" style="transition-delay:220ms;">
+          <div class="product__media">
+            <img src="images/3.0/blondie-brownie-stack.webp" alt="Blondie Protein Brownie" />
+          </div>
+          <h3 class="product__name">Blondie Protein Brownie</h3>
+          <p class="product__desc">Soft, golden, and functional.</p>
+          <a href="shop.html" class="product__btn">Order</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value strip -->
+  <section class="values">
+    <div class="container">
+      <div class="values__grid">
+        <div class="value">
+          <div class="value__big">19g</div>
+          <div class="value__label">Protein</div>
+        </div>
+        <div class="value">
+          <div class="value__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          </div>
+          <div class="value__label">All Natural<br />Ingredients</div>
+        </div>
+        <div class="value">
+          <div class="value__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="5.6" y1="5.6" x2="18.4" y2="18.4"/></svg>
+          </div>
+          <div class="value__label">No<br />Preservatives</div>
+        </div>
+        <div class="value">
+          <div class="value__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 10-7.8 7.8l1.1 1L12 21l7.7-7.6 1.1-1a5.5 5.5 0 000-7.8z"/></svg>
+          </div>
+          <div class="value__label">Guilt Free<br />Indulgence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cookies -->
+  <section class="sec cookies">
+    <div class="container">
+      <div class="sec__head animate-in">
+        <h2 class="sec__title">Now baking: <em>protein cookies</em></h2>
+        <p class="sec__sub">Same 19g standard, new shape. Four flavors, soft-baked, no chalky aftertaste.</p>
+      </div>
+      <div class="cookies__grid">
+        <div class="cookie animate-in">
+          <div class="cookie__media"><img src="images/3.0/choc-chip-cookie.webp" alt="Chocolate Chip Protein Cookie" /></div>
+          <h3 class="cookie__name">Chocolate Chip</h3>
+          <p class="cookie__desc">The classic, rebuilt.</p>
+        </div>
+        <div class="cookie animate-in" style="transition-delay:90ms;">
+          <div class="cookie__media"><img src="images/3.0/double-chocolate-cookie.webp" alt="Double Chocolate Protein Cookie" /></div>
+          <h3 class="cookie__name">Double Chocolate</h3>
+          <p class="cookie__desc">Dark cocoa, chips throughout.</p>
+        </div>
+        <div class="cookie animate-in" style="transition-delay:180ms;">
+          <div class="cookie__media"><img src="images/3.0/churro-cookie.webp" alt="Churro Protein Cookie" /></div>
+          <h3 class="cookie__name">Churro</h3>
+          <p class="cookie__desc">Cinnamon sugar, all over.</p>
+        </div>
+        <div class="cookie animate-in" style="transition-delay:270ms;">
+          <div class="cookie__media"><img src="images/3.0/red-velvet-cookie.webp" alt="Red Velvet Protein Cookie" /></div>
+          <h3 class="cookie__name">Red Velvet</h3>
+          <p class="cookie__desc">Deep red, white chip bites.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Split band -->
+  <section class="sec">
+    <div class="container">
+      <div class="band">
+        <div class="band__copy animate-in">
+          <h2>Built like a <em>supplement</em>.<br />Eats like a treat.</h2>
+          <p>Every batch is made in small runs by our family in Coral Springs, Florida. Real ingredients, 19g of protein, and nothing on the label you need to look up.</p>
+          <a href="shop.html" class="btn-order" style="font-size:1.05rem;padding:12px 34px;">SHOP ALL</a>
+        </div>
+        <div class="band__media animate-in" style="transition-delay:120ms;">
+          <img src="images/3.0/brownie-dumbbell-bite.webp" alt="Dumbbell-shaped protein brownie with a bite taken out" />
         </div>
       </div>
     </div>
@@ -208,7 +500,7 @@
       <div class="rc-footer__grid">
         <div>
           <div class="rc-footer__brand-name">Right<span>Chews</span> Foods</div>
-          <p class="rc-footer__tagline">Protein that actually tastes like a treat. Three flavors. One standard — premium.</p>
+          <p class="rc-footer__tagline">Protein that actually tastes like a treat. Brownies, cookies, one standard — premium.</p>
           <div class="rc-footer__social">
             <a href="#" class="rc-footer__social-btn" aria-label="Instagram">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
@@ -244,6 +536,44 @@
     </div>
   </footer>
 
-  <script src="js/nav.js"></script>
+  <script src="js/welcome-rain.js?v=20260813"></script>
+  <script>
+    // Sticky nav shadow
+    var nav = document.getElementById('nav');
+    function onScroll() { nav.classList.toggle('is-stuck', window.scrollY > 4); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile menu
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+
+    // Cart badge from existing localStorage cart
+    try {
+      var cart = JSON.parse(localStorage.getItem('rc_cart') || '[]');
+      var count = cart.reduce(function (n, i) { return n + (i.qty || i.quantity || 1); }, 0);
+      var badge = document.getElementById('cartBadge');
+      if (badge) badge.textContent = count;
+    } catch (e) {}
+
+    // Scroll reveal
+    var els = document.querySelectorAll('.animate-in');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    } else {
+      els.forEach(function (el) { el.classList.add('in'); });
+    }
+  </script>
 </body>
 </html>

@@ -235,14 +235,18 @@
     }
     .pcard:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 
-    .pcard__visual { position: relative; height: 200px; overflow: hidden; background: var(--cream-200); }
-    .pcard__img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; transition: transform 500ms ease; }
-    .pcard:hover .pcard__img { transform: scale(1.06); }
-    .pcard__visual-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,.38) 0%, transparent 55%);
-      pointer-events: none;
+    .pcard__visual { position: relative; height: 200px; overflow: hidden; background: #FFF; }
+    .pcard__img {
+      width: 100%; height: 100%; box-sizing: border-box; padding: 16px 16px 20px;
+      object-fit: contain; object-position: center 50%;
+      filter: drop-shadow(0 14px 12px rgba(60, 30, 8, .30));
+      transition: transform 500ms ease, filter 500ms ease;
     }
+    .pcard:hover .pcard__img { transform: scale(1.06); filter: drop-shadow(0 20px 16px rgba(60, 30, 8, .34)); }
+    /* Legacy JPG shots carry their own background — fill the frame, no cutout shadow */
+    .pcard__img[src$=".jpg"] { padding: 0; object-fit: cover; object-position: center 40%; filter: none; }
+    .pcard:hover .pcard__img[src$=".jpg"] { filter: none; }
+    .pcard__visual-overlay { position: absolute; inset: 0; background: none; pointer-events: none; }
     .pcard__badge {
       position: absolute; top: 10px; left: 10px; z-index: 2;
       background: var(--brown-800); color: var(--gold);
@@ -361,7 +365,7 @@
       display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--cream-300);
     }
     .cart-item:last-child { border-bottom: none; }
-    .cart-item__img { width: 72px; height: 88px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+    .cart-item__img { width: 72px; height: 88px; border-radius: 10px; object-fit: contain; background: #FFF; padding: 4px; flex-shrink: 0; }
     .cart-item__info { flex: 1; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
     .cart-item__name { font-size: 14px; font-weight: 600; color: var(--brown-800); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .cart-item__variant { font-size: 12px; color: var(--text-muted); }
@@ -579,9 +583,14 @@
     }
     .pdv-overlay.open .pdv-modal { transform: scale(1) translateY(0); }
     .pdv__img-side {
-      position: relative; background: var(--cream-200); min-height: 420px;
+      position: relative; background: #FFF; min-height: 420px;
     }
-    .pdv__img-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pdv__img-side img {
+      width: 100%; height: 100%; box-sizing: border-box; padding: 28px;
+      object-fit: contain; display: block;
+      filter: drop-shadow(0 20px 16px rgba(60, 30, 8, .30));
+    }
+    .pdv__img-side img[src$=".jpg"] { padding: 0; object-fit: cover; filter: none; }
     .pdv__close {
       position: absolute; top: 14px; right: 14px; z-index: 2;
       width: 36px; height: 36px; border-radius: 50%;
@@ -675,6 +684,31 @@
       .shop-products__grid { grid-template-columns: 1fr; }
     }
   </style>
+
+  <!-- Site chrome: loaded after the inline block so it wins the cascade -->
+  <link rel="stylesheet" href="css/site.css?v=20260813b" />
+  <style>
+    /* Undo the old fixed-height bar so the shared sticky nav can breathe */
+    .nav { position: sticky; height: auto; backdrop-filter: none; background: #FFF; }
+    .nav__inner { height: auto; }
+    .nav__logo { padding: 0; }
+    .nav__logo img { height: auto; width: 128px; }
+    .shop-hero { display: none !important; }
+    .shop-products { padding-top: 8px; }
+    /* The account + cart controls are <button>s here, not links */
+    .nav__acct-btn {
+      font-family: 'Montserrat', sans-serif; font-size: .92rem; font-weight: 500;
+      color: #23180F; border: 1px solid #E2C7A8; border-radius: 999px;
+      padding: 8px 26px; background: #FFF; cursor: pointer;
+      transition: border-color 180ms ease, color 180ms ease;
+    }
+    .nav__acct-btn:hover { border-color: var(--rc-orange); color: var(--rc-orange); background: #FFF; }
+    .nav__cart-btn {
+      position: relative; display: flex; align-items: center; justify-content: center;
+      background: none; border: 0; cursor: pointer; color: #3A2A1C; padding: 0;
+    }
+    .nav__cart-btn:hover { background: none; color: var(--rc-orange); }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -727,7 +761,7 @@
           "@type": "Product",
           "name": "Chocolate Protein Brownie 12-Pack",
           "description": "A full dozen of our bestselling Chocolate Protein Brownies. 19g protein each.",
-          "image": "images/2.0/chocolate-brownie-12pack-centered.jpg",
+          "image": "images/3.0/chocolate-12pack.webp",
           "brand": { "@type": "Brand", "name": "Right Chews Foods" },
           "sku": "RC-CHOC-012",
           "offers": { "@type": "Offer", "price": "39.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://rightchewsfoods.com/shop.html" }
@@ -739,7 +773,7 @@
           "@type": "Product",
           "name": "Red Velvet Protein Brownie 12-Pack",
           "description": "A full dozen of our Red Velvet Protein Brownies. 19g protein each.",
-          "image": "images/2.0/red-velvet-brownie-12pack-centered.jpg",
+          "image": "images/3.0/red-velvet-12pack.webp",
           "brand": { "@type": "Brand", "name": "Right Chews Foods" },
           "sku": "RC-RV-012",
           "offers": { "@type": "Offer", "price": "39.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://rightchewsfoods.com/shop.html" }
@@ -751,7 +785,7 @@
           "@type": "Product",
           "name": "Blondie Protein Brownie 12-Pack",
           "description": "A full dozen of our Blondie Protein Brownies. 19g protein each.",
-          "image": "images/2.0/blondie-brownie-12pack-centered.jpg",
+          "image": "images/3.0/blondie-12pack.webp",
           "brand": { "@type": "Brand", "name": "Right Chews Foods" },
           "sku": "RC-BLO-012",
           "offers": { "@type": "Offer", "price": "39.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://rightchewsfoods.com/shop.html" }
@@ -774,18 +808,28 @@
   <nav class="nav" id="nav">
     <div class="container">
       <div class="nav__inner">
-        <a href="index.html">
-          <img src="images/rc-logo.png" alt="Right Chews Foods" style="height:44px;width:auto;" />
+        <a href="index.html" class="nav__logo" aria-label="Right Chews Foods home">
+          <img src="images/rc-logo.png" alt="Right Chews Foods" />
         </a>
 
+        <div class="nav__links" id="navLinks">
+          <a href="index.html" class="nav__link">Home</a>
+          <a href="shop.html" class="nav__link active">Shop</a>
+          <a href="about.html" class="nav__link">About Us</a>
+          <a href="contact.html" class="nav__link">Contact</a>
+        </div>
 
         <div class="nav__actions">
           <button class="nav__acct-btn" id="acctBtn">Login</button>
           <button class="nav__cart-btn" id="cartBtn" aria-label="Open cart">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
             <span class="nav__cart-badge" id="cartBadge">0</span>
           </button>
         </div>
+
+        <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        </button>
       </div>
     </div>
   </nav>
@@ -796,21 +840,12 @@
     <span class="ws-banner__link" id="wsBannerLink">Login for wholesale pricing →</span>
   </div>
 
-  <!-- ═══ SHOP HERO ═══ -->
-  <header class="shop-hero">
-    <img class="shop-hero__bg" src="images/rc-trio.png" alt="Chocolate, Blondie, and Red Velvet Protein Brownies side by side" loading="eager" />
-    <div class="shop-hero__overlay">
-      <img src="images/rc-logo.png" alt="Right Chews Foods logo" />
-      <h1 class="shop-hero__h1">Time to choose right chews...</h1>
-      <nav class="hero-nav">
-        <a href="index.html" class="hero-nav__link">Home</a>
-        <a href="shop.html" class="hero-nav__link active">Shop</a>
-        <a href="about.html" class="hero-nav__link">About</a>
-        <a href="wholesale.html" class="hero-nav__link">Wholesale</a>
-        <a href="contact.html" class="hero-nav__link">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <!-- ═══ SHOP HEADER ═══ -->
+  <div class="page-header">
+    <div class="page-header__label">Right Chews Foods</div>
+    <h1 class="page-header__title">Shop</h1>
+    <p class="page-header__sub">Brownies, 12-packs and cookies. 19g of protein in every one.</p>
+  </div>
 
   <!-- ═══ PRODUCTS ═══ -->
   <section class="shop-products">
@@ -935,9 +970,12 @@
   </div>
 
   <!-- ═══ Scripts ═══ -->
-  <script src="js/config.js"></script>
-  <script src="js/shopify.js"></script>
-  <script src="js/cart.js"></script>
+  <script>window.RC_CART_OWNER = true; /* shop.html renders its own cart badge */</script>
+  <script src="js/site-nav.js?v=20260813b"></script>
+  <script src="js/config.js?v=20260813"></script>
+  <script src="js/shopify.js?v=20260813"></script>
+  <script src="js/cart.js?v=20260813"></script>
+  <script src="js/welcome-rain.js?v=20260813"></script>
   <script>
     // ── State ───────────────────────────────────────────
     let allProducts  = [];
