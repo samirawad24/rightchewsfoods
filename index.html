@@ -130,7 +130,7 @@
          keeps it a true circle at every width instead of an oval. */
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      width: clamp(88px, 10.5vw, 130px); aspect-ratio: 1;
+      width: clamp(74px, 9vw, 112px); aspect-ratio: 1;
       border-radius: 50%;
       background: var(--sticker); color: var(--sticker-ink);
       box-shadow: 0 8px 18px rgba(60, 30, 8, .18);
@@ -314,22 +314,15 @@
     }
     @media (max-width: 760px) {
       .container { padding: 0 20px; }
-      /* The slogan runs nearly edge to edge on a phone, so the sticker moves
-         up into the hero's top padding instead of sitting on top of it. */
-      .hero { padding-top: 78px; }
-      .hero__badge { width: 72px; top: -66px; right: 0; }
+      /* The slogan runs nearly edge to edge here, so the sticker drops out of
+         its way and sits beside the brownies, where the packaging wears it. */
+      .hero__badge { width: 66px; top: 34%; right: 0; }
       .products { grid-template-columns: 1fr; gap: 52px; max-width: 380px; margin: 0 auto; }
       .product__media { height: 240px; }
       .hero__tagline { top: 68%; font-size: clamp(1.05rem, 5.4vw, 1.9rem); }
       .values__grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
       .rc-footer__grid { grid-template-columns: 1fr; gap: 32px; }
       .sec { padding: 56px 0; }
-    }
-    /* Below this the slogan fills the stage and there is no gap left to float
-       the sticker into, so it stops overlapping and takes its own line. */
-    @media (max-width: 520px) {
-      .hero { padding-top: 34px; }
-      .hero__badge { position: static; width: 76px; margin: 0 0 12px auto; }
     }
     @media (max-width: 420px) {
       .hero__tagline { top: 70%; }
