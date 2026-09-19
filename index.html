@@ -20,6 +20,9 @@
       --cocoa: #2C1A0E;
       --muted: #555;
       --line: #ECECEC;
+      /* Sampled from the printed sticker on the box */
+      --sticker: #754024;
+      --sticker-ink: #FAF2E0;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -123,17 +126,27 @@
 
     .hero__badge {
       position: absolute; right: 4%; top: 6px; z-index: 3;
-      text-align: center; line-height: 1; color: var(--orange);
+      /* A round sticker, matching the one printed on the box. aspect-ratio
+         keeps it a true circle at every width instead of an oval. */
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      width: clamp(88px, 10.5vw, 130px); aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--sticker); color: var(--sticker-ink);
+      box-shadow: 0 8px 18px rgba(60, 30, 8, .18);
+      text-align: center; line-height: 1;
       font-family: 'Fredoka', 'Montserrat', sans-serif; font-weight: 600;
       pointer-events: none;
     }
     .hero__badge-num {
-      display: block; font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+      display: block; font-size: clamp(1.4rem, 2.7vw, 2.15rem);
       letter-spacing: -.01em;
     }
+    /* The small word needs the heavier cut to hold its weight against the
+       numeral above it, the way it reads on the packaging. */
     .hero__badge-word {
-      display: block; margin-top: 2px;
-      font-size: clamp(.72rem, 1.25vw, 1.05rem); letter-spacing: .01em;
+      display: block; margin-top: 4px; font-weight: 700;
+      font-size: clamp(.66rem, 1.05vw, .95rem); letter-spacing: .005em;
     }
     .hero__cta-wrap { position: relative; z-index: 2; text-align: center; margin-top: 6px; }
     .btn-order {
@@ -142,8 +155,8 @@
       font-size: clamp(1.15rem, 2.2vw, 1.75rem);
       font-weight: 600; letter-spacing: .05em;
       color: var(--gold); background: #22150C;
-      border: 3px solid var(--orange); border-radius: 12px;
-      padding: 14px 46px;
+      border-radius: 12px;
+      padding: 17px 49px;
       box-shadow: 0 6px 22px rgba(232,98,27,.22);
       transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
     }
@@ -301,6 +314,10 @@
     }
     @media (max-width: 760px) {
       .container { padding: 0 20px; }
+      /* The slogan runs nearly edge to edge on a phone, so the sticker moves
+         up into the hero's top padding instead of sitting on top of it. */
+      .hero { padding-top: 78px; }
+      .hero__badge { width: 72px; top: -66px; right: 0; }
       .products { grid-template-columns: 1fr; gap: 52px; max-width: 380px; margin: 0 auto; }
       .product__media { height: 240px; }
       .hero__tagline { top: 68%; font-size: clamp(1.05rem, 5.4vw, 1.9rem); }
@@ -308,9 +325,15 @@
       .rc-footer__grid { grid-template-columns: 1fr; gap: 32px; }
       .sec { padding: 56px 0; }
     }
+    /* Below this the slogan fills the stage and there is no gap left to float
+       the sticker into, so it stops overlapping and takes its own line. */
+    @media (max-width: 520px) {
+      .hero { padding-top: 34px; }
+      .hero__badge { position: static; width: 76px; margin: 0 0 12px auto; }
+    }
     @media (max-width: 420px) {
       .hero__tagline { top: 70%; }
-      .btn-order { padding: 12px 30px; }
+      .btn-order { padding: 15px 33px; }
     }
   </style>
 </head>
@@ -474,7 +497,7 @@
         <div class="band__copy animate-in">
           <h2>Built like a <em>supplement</em>.<br />Eats like a treat.</h2>
           <p>Every batch is made in small runs by our family in Coral Springs, Florida. Real ingredients, 19g of protein, and nothing on the label you need to look up.</p>
-          <a href="shop.html" class="btn-order" style="font-size:1.05rem;padding:12px 34px;">SHOP ALL</a>
+          <a href="shop.html" class="btn-order" style="font-size:1.05rem;padding:15px 37px;">SHOP ALL</a>
         </div>
         <div class="band__media animate-in" style="transition-delay:120ms;">
           <img src="images/3.0/brownie-dumbbell-bite.webp" alt="Dumbbell-shaped protein brownie with a bite taken out" />
