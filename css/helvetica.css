@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Right Chews -- Helvetica preview layer.
+   Inert until js/font-compare.js puts `rc-helvetica` on <html>, so the
+   "before" is exactly the site as it shipped and the "after" is this file.
+   Swaps the informational type (page copy, headings, nav, forms, footer,
+   legal pages) and deliberately leaves the brand display marks alone.
+   ========================================================================== */
+
+:root {
+  /* Helvetica proper on Mac, Arial as the metric-compatible stand-in on
+     Windows/Android where Helvetica is not installed. */
+  --rc-helvetica: 'Helvetica Neue', Helvetica, Arial, 'Liberation Sans', sans-serif;
+}
+
+/* --------------------------------------------------------------- the swap */
+/* One broad rule beats chasing ~45 font-family declarations spread over the
+   two stylesheets, seven inline <style> blocks, and the JS-injected markup
+   in cart.js / welcome-rain.js. `!important` is what lets it win against the
+   inline styles cart.js writes. */
+html.rc-helvetica body,
+html.rc-helvetica body * {
+  font-family: var(--rc-helvetica) !important;
+}
+
+/* ------------------------------------------------------- what stays as-is */
+/* Brand display marks are logo, not copy -- swapping them is a rebrand, not
+   a font change. Two class names outrank the rule above, so these win. */
+html.rc-helvetica .hero__badge,
+html.rc-helvetica .hero__badge * {
+  font-family: 'Fredoka', 'Montserrat', sans-serif !important;
+}
+html.rc-helvetica .rc-footer__brand-name,
+html.rc-helvetica .rc-footer__brand-name * {
+  font-family: 'Montserrat', sans-serif !important;
+}
+html.rc-helvetica .shop-footer__brand,
+html.rc-helvetica .shop-footer__brand * {
+  font-family: 'Playfair Display', serif !important;
+}
+
+/* Helvetica sits a touch wider than Open Sans/Inter at the same size, so the
+   tightly-tracked uppercase labels need their letter-spacing eased back or
+   they wrap. */
+html.rc-helvetica .section-label,
+html.rc-helvetica .page-header__label,
+html.rc-helvetica .rc-footer__col-title,
+html.rc-helvetica .marquee-item {
+  letter-spacing: .12em;
+}
+
+/* ===================================================== the compare control */
+
+.rc-fc {
+  position: fixed; right: 18px; bottom: 18px; z-index: 9999;
+  display: flex; align-items: center; gap: 10px;
+  background: #FFF; color: #1A1A1A;
+  border: 1px solid #E4DAD0; border-radius: 999px;
+  padding: 8px 10px 8px 16px;
+  box-shadow: 0 10px 30px rgba(34, 21, 12, .16);
+  font: 500 13px/1.2 'Montserrat', system-ui, sans-serif;
+  user-select: none;
+}
+/* Pinned to Montserrat in both states -- a control that restyles itself
+   while you toggle is a second variable you did not ask for. */
+html.rc-helvetica .rc-fc,
+html.rc-helvetica .rc-fc * {
+  font-family: 'Montserrat', system-ui, sans-serif !important;
+}
+
+.rc-fc__label { white-space: nowrap; letter-spacing: .02em; }
+.rc-fc__state { color: #8A7060; font-weight: 400; }
+html.rc-helvetica .rc-fc__state { color: #E8621B; font-weight: 600; }
+
+.rc-fc__btn {
+  border: 0; border-radius: 999px; padding: 8px 16px;
+  background: #22150C; color: #FFC93C;
+  font: 600 12px/1 'Montserrat', system-ui, sans-serif;
+  letter-spacing: .06em; text-transform: uppercase;
+  transition: background 160ms ease, transform 160ms ease;
+}
+.rc-fc__btn:hover { background: #2E1C10; transform: translateY(-1px); }
+.rc-fc__btn:active { transform: translateY(0); }
+.rc-fc__btn:focus-visible { outline: 2px solid #E8621B; outline-offset: 2px; }
+
+.rc-fc__hint {
+  position: absolute; right: 0; bottom: calc(100% + 8px);
+  white-space: nowrap;
+  background: #22150C; color: #EDE7E1;
+  border-radius: 6px; padding: 7px 11px;
+  font: 400 11px/1.35 'Montserrat', system-ui, sans-serif;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
+}
+.rc-fc:hover .rc-fc__hint, .rc-fc:focus-within .rc-fc__hint {
+  opacity: 1; transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .rc-fc { right: 12px; bottom: 12px; padding: 7px 8px 7px 13px; gap: 8px; font-size: 12px; }
+  .rc-fc__btn { padding: 7px 13px; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rc-fc__btn, .rc-fc__hint { transition: none; }
+}
