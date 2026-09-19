@@ -125,7 +125,7 @@ function showMockCheckoutModal() {
           <path d="M16 10a4 4 0 01-8 0"/>
         </svg>
       </div>
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;
+      <h3 style="font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:1.4rem;
         color:#2C1A0E;margin-bottom:12px;">Almost Ready to Ship!</h3>
       <p style="color:#8A7060;font-size:.95rem;line-height:1.65;margin-bottom:8px;">
         Your cart is ready. Once you connect your Shopify account, this button
