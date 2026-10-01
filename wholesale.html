@@ -138,6 +138,7 @@
         <p class="ws-form-card__sub">All fields marked <span style="color:var(--orange);">*</span> are required.</p>
 
         <form id="wsForm" novalidate>
+          <input type="text" id="wsHoney" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="wsFirstName">First Name <span class="req">*</span></label>
@@ -220,7 +221,7 @@
         <div>
           <p class="rc-footer__col-title">Contact</p>
           <ul class="rc-footer__links">
-            <li><a href="mailto:rightchewsfoods@gmail.com">rightchewsfoods@gmail.com</a></li>
+            <li><a href="mailto:eat@rightchewsfoods.com">eat@rightchewsfoods.com</a></li>
             <li><a href="wholesale.html">Wholesale Inquiries →</a></li>
             <li><a href="https://www.rightchewsfoods.com" target="_blank" rel="noopener">rightchewsfoods.com</a></li>
           </ul>
@@ -250,8 +251,38 @@
         alert('Please fill in all required fields.');
         return;
       }
-      this.style.display = 'none';
-      document.getElementById('wsSuccess').style.display = 'block';
+      var form = this;
+      var payload = {
+        _subject: 'Wholesale application: ' + business,
+        _template: 'table',
+        _captcha: 'false',
+        _replyto: email,
+        'First Name': first,
+        'Last Name': last,
+        'Business Name': business,
+        'Business Email': email,
+        Phone: document.getElementById('wsPhone').value.trim(),
+        'Business Type': type,
+        'About the Business': document.getElementById('wsMessage').value.trim(),
+        _honey: document.getElementById('wsHoney').value
+      };
+      var btn = this.querySelector('button[type="submit"]');
+      var label = btn.innerHTML;
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      fetch('https://formsubmit.co/ajax/eat@rightchewsfoods.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (r) { return r.json(); }).then(function (res) {
+        if (String(res.success) !== 'true') throw new Error(res.message || 'Send failed');
+        form.style.display = 'none';
+        document.getElementById('wsSuccess').style.display = 'block';
+      }).catch(function () {
+        btn.disabled = false;
+        btn.innerHTML = label;
+        alert('Sorry, your message did not go through. Please email us at eat@rightchewsfoods.com.');
+      });
     });
   </script>
 </body>
