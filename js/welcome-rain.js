@@ -45,7 +45,7 @@
     sprite('round',  '#ADC98A', CHIP)   // pistachio cookie
   ];
   var LOGO_EVERY = 7;   // a sprinkle of logos, not a downpour
-  var DROP_COUNT = 22;
+  var DROP_COUNT = 40;
   var RAIN_MS = 2600;
 
   // Gates the newsletter popup only. The rain is not gated.
@@ -141,7 +141,7 @@
       // Logos read smaller than the food at the same height, so nudge them up.
       var size = isLogo ? 34 + Math.random() * 26 : 26 + Math.random() * 40;
       var dur = 2.5 + Math.random() * 2.2;         // seconds
-      var delay = Math.random() * 1.1;
+      var delay = Math.random() * 1.4;
       var spin = (Math.random() * 640 - 320).toFixed(0);
       img.style.height = size.toFixed(0) + 'px';
       img.style.left = (Math.random() * 100).toFixed(2) + '%';

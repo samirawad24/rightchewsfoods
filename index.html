@@ -7,7 +7,7 @@
   <meta name="description" content="Right Chews is your one-stop premium protein snack brand. 19g clean protein per serving, zero artificial. Retail &amp; wholesale. Free shipping over $100." />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#2C1A0E" />
-  <link rel="preload" as="image" href="images/3.0/hero-trio.webp" />
+  <link rel="preload" as="image" href="images/banners/banner-1.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
@@ -231,6 +231,14 @@
       font-size: 1.02rem; font-weight: 600; color: #23180F; margin-bottom: 6px;
     }
     .cookie__desc { font-size: .87rem; color: #6A6A6A; line-height: 1.55; }
+    .cookie__media { position: relative; }
+    .cookie__soon {
+      position: absolute; top: 4px; left: 50%; transform: translateX(-50%); z-index: 1;
+      background: var(--gold); color: #22150C; white-space: nowrap;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: .66rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+      padding: 5px 13px; border-radius: 999px; box-shadow: 0 4px 10px rgba(60, 30, 8, .18);
+    }
 
     /* ── Value strip ── */
     .values { background: #22150C; padding: 40px 0; }
@@ -332,6 +340,45 @@
       .hero__tagline { top: 70%; }
       .btn-order { padding: 15px 33px; }
     }
+
+    /* ── Banner carousel ── */
+    .banners { position: relative; width: 100%; margin: 0 auto; }
+    .banners__track {
+      position: relative; aspect-ratio: 1944 / 809; border-radius: 18px; overflow: hidden;
+      box-shadow: 0 18px 40px rgba(60, 30, 8, .28); background: #22150C;
+    }
+    .banners__slide {
+      position: absolute; inset: 0; opacity: 0; visibility: hidden;
+      transition: opacity 700ms ease, visibility 0s linear 700ms;
+    }
+    .banners__slide.is-active { opacity: 1; visibility: visible; transition: opacity 700ms ease; }
+    .banners__slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .banners__arrow {
+      position: absolute; top: calc(50% - 15px); transform: translateY(-50%); z-index: 2;
+      width: 46px; height: 46px; border-radius: 50%; border: 0; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(34, 21, 14, .55); color: #FFF;
+      opacity: 0; transition: opacity 200ms ease, background 160ms ease;
+    }
+    .banners:hover .banners__arrow, .banners__arrow:focus-visible { opacity: 1; }
+    .banners__arrow:hover { background: var(--orange); }
+    .banners__arrow--prev { left: 14px; }
+    .banners__arrow--next { right: 14px; }
+    /* Dots sit under the banner so they never cover its printed buttons. */
+    .banners__dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+    .banners__dots button {
+      width: 9px; height: 9px; padding: 0; border: 0; border-radius: 999px; cursor: pointer;
+      background: #D9CBBE; transition: width 250ms ease, background 250ms ease;
+    }
+    .banners__dots button[aria-current="true"] { width: 26px; background: var(--orange); }
+    /* Touch screens never hover, so keep the arrows visible there. */
+    @media (hover: none) { .banners__arrow { opacity: 1; width: 36px; height: 36px; } }
+    @media (max-width: 760px) {
+      .banners__track { border-radius: 12px; }
+      .banners__arrow--prev { left: 8px; }
+      .banners__arrow--next { right: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .banners__slide { transition: none; } }
   </style>
 </head>
 <body>
@@ -382,8 +429,24 @@
         <img src="images/3.0/slogan-chews-whats-right-arch.webp" alt="Chews what's right" width="2054" height="376" />
       </h1>
 
-      <img class="hero__img" src="images/3.0/hero-trio-fan.webp"
-           alt="Red Velvet, Chocolate and Blondie protein brownies side by side" width="1421" height="358" />
+      <div class="banners" id="banners" aria-roledescription="carousel" aria-label="Featured">
+        <div class="banners__track">
+          <a class="banners__slide is-active" href="shop.html"><img src="images/banners/banner-1.webp" alt="Pick your chew: Original, Red Velvet and Blondie protein brownies" width="1944" height="809" /></a>
+          <a class="banners__slide" href="shop.html" tabindex="-1"><img src="images/banners/banner-2.webp" alt="What's for dessert? Dessert done the right way" width="1942" height="809" loading="lazy" /></a>
+          <a class="banners__slide" href="shop.html" tabindex="-1"><img src="images/banners/banner-3.webp" alt="Good fuel goes further: 19g protein, real ingredients" width="1944" height="809" loading="lazy" /></a>
+        </div>
+        <button class="banners__arrow banners__arrow--prev" type="button" aria-label="Previous banner">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="banners__arrow banners__arrow--next" type="button" aria-label="Next banner">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="banners__dots" role="group" aria-label="Choose banner">
+          <button type="button" aria-label="Banner 1" aria-current="true"></button>
+          <button type="button" aria-label="Banner 2"></button>
+          <button type="button" aria-label="Banner 3"></button>
+        </div>
+      </div>
 
       <div class="hero__cta-wrap">
         <a href="shop.html" class="btn-order">ORDER NOW</a>
@@ -459,27 +522,27 @@
   <section class="sec cookies">
     <div class="container">
       <div class="sec__head animate-in">
-        <h2 class="sec__title">Now baking: <em>protein cookies</em></h2>
+        <h2 class="sec__title">Coming soon: <em>protein cookies</em></h2>
         <p class="sec__sub">Same 19g standard, new shape. Four flavors, soft-baked, no chalky aftertaste.</p>
       </div>
       <div class="cookies__grid">
         <div class="cookie animate-in">
-          <div class="cookie__media"><img src="images/3.0/choc-chip-cookie.webp" alt="Chocolate Chip Protein Cookie" /></div>
+          <div class="cookie__media"><span class="cookie__soon">Coming Soon</span><img src="images/3.0/choc-chip-cookie.webp" alt="Chocolate Chip Protein Cookie" /></div>
           <h3 class="cookie__name">Chocolate Chip</h3>
           <p class="cookie__desc">The classic, rebuilt.</p>
         </div>
         <div class="cookie animate-in" style="transition-delay:90ms;">
-          <div class="cookie__media"><img src="images/3.0/double-chocolate-cookie.webp" alt="Double Chocolate Protein Cookie" /></div>
+          <div class="cookie__media"><span class="cookie__soon">Coming Soon</span><img src="images/3.0/double-chocolate-cookie.webp" alt="Double Chocolate Protein Cookie" /></div>
           <h3 class="cookie__name">Double Chocolate</h3>
           <p class="cookie__desc">Dark cocoa, chips throughout.</p>
         </div>
         <div class="cookie animate-in" style="transition-delay:180ms;">
-          <div class="cookie__media"><img src="images/3.0/churro-cookie.webp" alt="Churro Protein Cookie" /></div>
+          <div class="cookie__media"><span class="cookie__soon">Coming Soon</span><img src="images/3.0/churro-cookie.webp" alt="Churro Protein Cookie" /></div>
           <h3 class="cookie__name">Churro</h3>
           <p class="cookie__desc">Cinnamon sugar, all over.</p>
         </div>
         <div class="cookie animate-in" style="transition-delay:270ms;">
-          <div class="cookie__media"><img src="images/3.0/red-velvet-cookie.webp" alt="Red Velvet Protein Cookie" /></div>
+          <div class="cookie__media"><span class="cookie__soon">Coming Soon</span><img src="images/3.0/red-velvet-cookie.webp" alt="Red Velvet Protein Cookie" /></div>
           <h3 class="cookie__name">Red Velvet</h3>
           <p class="cookie__desc">Deep red, white chip bites.</p>
         </div>
@@ -545,7 +608,7 @@
     </div>
   </footer>
 
-  <script src="js/welcome-rain.js?v=20260930"></script>
+  <script src="js/welcome-rain.js?v=20260930b"></script>
   <script>
     // Sticky nav shadow
     var nav = document.getElementById('nav');
@@ -583,6 +646,55 @@
     } else {
       els.forEach(function (el) { el.classList.add('in'); });
     }
+  </script>
+
+  <script>
+  /* Banner carousel: arrows, dots, swipe, and auto-rotate when left alone. */
+  (function () {
+    var root = document.getElementById('banners');
+    var slides = root.querySelectorAll('.banners__slide');
+    var dots = root.querySelectorAll('.banners__dots button');
+    var ROTATE_MS = 6000;
+    var index = 0, timer = null;
+
+    function show(n) {
+      index = (n + slides.length) % slides.length;
+      slides.forEach(function (s, i) {
+        s.classList.toggle('is-active', i === index);
+        s.tabIndex = i === index ? 0 : -1;
+      });
+      dots.forEach(function (d, i) { d.setAttribute('aria-current', String(i === index)); });
+    }
+    function play() { stop(); timer = setInterval(function () { show(index + 1); }, ROTATE_MS); }
+    function stop() { clearInterval(timer); }
+    // Any manual move restarts the countdown so the next slide doesn't jump in right away.
+    function go(n) { show(n); play(); }
+
+    root.querySelector('.banners__arrow--prev').addEventListener('click', function () { go(index - 1); });
+    root.querySelector('.banners__arrow--next').addEventListener('click', function () { go(index + 1); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', play);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', play);
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') go(index - 1);
+      if (e.key === 'ArrowRight') go(index + 1);
+    });
+
+    var startX = null;
+    root.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; stop(); }, { passive: true });
+    root.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      startX = null;
+      if (Math.abs(dx) > 40) go(dx < 0 ? index + 1 : index - 1); else play();
+    });
+
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : play(); });
+    play();
+  })();
   </script>
 </body>
 </html>

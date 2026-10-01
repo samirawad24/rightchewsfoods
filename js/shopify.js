@@ -169,6 +169,7 @@ const MOCK_PRODUCTS = [
     description: 'Classic chocolate chip with clean protein. A whole new way to hit your macros.',
     price: '3.99',
     image: 'images/3.0/choc-chip-cookie.webp',
+    comingSoon: true,
     nutritionTba: true,
     macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
@@ -183,6 +184,7 @@ const MOCK_PRODUCTS = [
     price: '3.99',
     image: 'images/3.0/double-chocolate-cookie.webp',
     imgPosition: 'center 50%',
+    comingSoon: true,
     nutritionTba: true,
     macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
@@ -197,6 +199,7 @@ const MOCK_PRODUCTS = [
     price: '3.99',
     image: 'images/3.0/churro-cookie.webp',
     imgPosition: 'center 50%',
+    comingSoon: true,
     nutritionTba: true,
     macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
@@ -211,6 +214,7 @@ const MOCK_PRODUCTS = [
     price: '3.99',
     image: 'images/3.0/red-velvet-cookie.webp',
     imgPosition: 'center 50%',
+    comingSoon: true,
     nutritionTba: true,
     macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
     variants: [
