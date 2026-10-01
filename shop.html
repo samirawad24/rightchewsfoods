@@ -29,7 +29,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
 
   <style>
     /* ── Design Tokens (matches index.html) ─────────────── */
@@ -247,6 +247,25 @@
     .pcard__img[src$=".jpg"] { padding: 0; object-fit: cover; object-position: center 40%; filter: none; }
     .pcard:hover .pcard__img[src$=".jpg"] { filter: none; }
     .pcard__visual-overlay { position: absolute; inset: 0; background: none; pointer-events: none; }
+    /* Round product sticker (e.g. "12 PACK"), styled like the 19g sticker
+       on the home page. Text comes from the product's `sticker` field in
+       js/shopify.js; change the look here, the wording there. */
+    .psticker {
+      position: absolute; top: 10px; right: 10px; z-index: 2;
+      width: 54px; aspect-ratio: 1; border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: #754024; color: #FAF2E0;
+      font-family: 'Fredoka', 'Montserrat', sans-serif; font-weight: 600;
+      text-align: center; line-height: 1; text-transform: uppercase;
+      box-shadow: 0 4px 10px rgba(60, 30, 8, .28);
+      pointer-events: none;
+    }
+    .psticker__num { font-size: 1.3rem; letter-spacing: -.01em; }
+    .psticker__word { margin-top: 2px; font-size: .55rem; font-weight: 700; letter-spacing: .04em; }
+    .pdv__img-side .psticker { top: 62px; right: 18px; width: 84px; }
+    .pdv__img-side .psticker__num { font-size: 2rem; }
+    .pdv__img-side .psticker__word { font-size: .82rem; margin-top: 3px; }
+
     .pcard__badge {
       position: absolute; top: 10px; left: 10px; z-index: 2;
       background: var(--brown-800); color: var(--gold);
@@ -973,7 +992,7 @@
   <script>window.RC_CART_OWNER = true; /* shop.html renders its own cart badge */</script>
   <script src="js/site-nav.js?v=20260813b"></script>
   <script src="js/config.js?v=20260813"></script>
-  <script src="js/shopify.js?v=20260930"></script>
+  <script src="js/shopify.js?v=20261001"></script>
   <script src="js/cart.js?v=20260813"></script>
   <script src="js/welcome-rain.js?v=20260930b"></script>
   <script>
@@ -1002,6 +1021,11 @@
     }
 
     // ── Render products ─────────────────────────────────
+    function stickerHtml(p) {
+      if (!p.sticker) return '';
+      return `<span class="psticker"><span class="psticker__num">${p.sticker.num}</span><span class="psticker__word">${p.sticker.word}</span></span>`;
+    }
+
     function renderProducts() {
       const grid   = document.getElementById('productsGrid');
       const wsTags = currentUser?.tags || [];
@@ -1022,6 +1046,7 @@
                 ? `<div class="pcard__coming-badge">Coming Soon</div>`
                 : (p.badge ? `<span class="pcard__badge">${p.badge}</span>` : '')
               }
+              ${isCS ? '' : stickerHtml(p)}
               <span class="pcard__quickview">Quick View</span>
             </div>
             <div class="pcard__body">
@@ -1392,6 +1417,7 @@
       document.getElementById('pdvImgSide').innerHTML = `
         <button class="pdv__close" onclick="closeProductDetail()">&times;</button>
         <img src="${p.image}" alt="${p.title}"${p.imgPosition ? ` style="object-position:${p.imgPosition}"` : ''} />
+        ${p.comingSoon ? '' : stickerHtml(p)}
       `;
 
       // Price

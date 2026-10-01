@@ -11,7 +11,7 @@ const MOCK_PRODUCTS = [
     title: 'Chocolate Protein Brownie',
     description: 'Powerful, rich, and functional. Our Chocolate Protein Brownie delivers deep cocoa flavor with a soft, satisfying texture. High in protein and low in sugar, made with premium ingredients to support performance and an active lifestyle.',
     price: '3.99',
-    image: 'images/3.0/chocolate-brownie-stack-alt.webp',
+    image: 'images/3.0/chocolate-brownie-single.webp',
     imgPosition: 'center 50%',
     nutrition: {
       servingSize: '1 pack (70g)', calories: 150,
@@ -35,7 +35,7 @@ const MOCK_PRODUCTS = [
     title: 'Red Velvet Protein Brownie',
     description: 'Sophistication with purpose. The Red Velvet Protein Brownie offers a delicate texture and balanced flavor profile, high in protein and low in carbohydrates. Designed for those who want premium nutrition without giving up indulgence.',
     price: '3.99',
-    image: 'images/3.0/red-velvet-brownie-stack.webp',
+    image: 'images/3.0/red-velvet-brownie-single.webp',
     imgPosition: 'center 50%',
     nutrition: {
       servingSize: '1 pack (70g)', calories: 170,
@@ -59,7 +59,7 @@ const MOCK_PRODUCTS = [
     title: 'Blondie Protein Brownie',
     description: 'Soft, golden, and functional. The Blondie Protein Brownie is a refined alternative to chocolate, high in protein and low in sugar. Ideal as a smart snack to stay fueled, satisfied, and in control.',
     price: '3.99',
-    image: 'images/3.0/blondie-brownie-stack.webp',
+    image: 'images/3.0/blondie-brownie-single.webp',
     imgPosition: 'center 50%',
     nutrition: {
       servingSize: '1 pack (70g)', calories: 180,
@@ -84,6 +84,7 @@ const MOCK_PRODUCTS = [
     description: 'A full dozen of our bestselling Chocolate Protein Brownies. Stock up and save — 19g protein in every brownie.',
     price: '39.99',
     image: 'images/3.0/chocolate-12pack.webp',
+    sticker: { num: '12', word: 'pack' },
     imgPosition: 'center 50%',
     nutrition: {
       servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 150,
@@ -107,6 +108,7 @@ const MOCK_PRODUCTS = [
     description: 'A full dozen of our Red Velvet Protein Brownies. Silky, rich, and 19g of protein every single time.',
     price: '39.99',
     image: 'images/3.0/red-velvet-12pack.webp',
+    sticker: { num: '12', word: 'pack' },
     imgPosition: 'center 50%',
     nutrition: {
       servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 170,
@@ -130,6 +132,7 @@ const MOCK_PRODUCTS = [
     description: 'A full dozen of our Blondie Protein Brownies. Buttery caramel flavor with 19g of protein per brownie.',
     price: '39.99',
     image: 'images/3.0/blondie-12pack.webp',
+    sticker: { num: '12', word: 'pack' },
     imgPosition: 'center 50%',
     nutrition: {
       servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 180,
