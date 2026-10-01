@@ -285,6 +285,10 @@
       padding: 6px 16px; border-radius: 100px; white-space: nowrap;
     }
     .pcard--coming-soon .pcard__body { opacity: .7; }
+    /* .pcard__atc has flex: 1 so it stretches beside the qty stepper. Alone
+       in the column-direction card body that same rule stretched it
+       vertically, so the button height changed with each card's text. */
+    .pcard--coming-soon .pcard__atc { flex: none; width: 100%; white-space: normal; text-align: center; line-height: 1.2; }
 
     .pcard__body { padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
     .pcard__name { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 1.02rem; font-weight: 700; color: var(--brown-800); line-height: 1.25; }
@@ -697,7 +701,7 @@
       .pcard__qty { width: 100%; justify-content: center; }
       .pcard__qty-btn { width: 40px; height: 36px; }
       .pcard__qty-num { width: 40px; }
-      .pcard__atc { width: 100%; font-size: 12px; padding: 0 8px; white-space: nowrap; }
+      .pcard__atc { flex: none; width: 100%; font-size: 12px; padding: 0 8px; white-space: nowrap; }
     }
     @media (max-width: 400px) {
       .shop-products__grid { grid-template-columns: 1fr; }
