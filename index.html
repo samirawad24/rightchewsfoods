@@ -365,18 +365,30 @@
     .banners__arrow--prev { left: 14px; }
     .banners__arrow--next { right: 14px; }
     /* Dots sit under the banner so they never cover its printed buttons. */
-    .banners__dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+    .banners__dots { display: flex; justify-content: center; gap: 0; margin-top: 4px; }
+    /* The transparent border pads each dot out to a thumb-sized tap target
+       while the painted dot stays small. */
     .banners__dots button {
-      width: 9px; height: 9px; padding: 0; border: 0; border-radius: 999px; cursor: pointer;
-      background: #D9CBBE; transition: width 250ms ease, background 250ms ease;
+      box-sizing: content-box; width: 9px; height: 9px; padding: 0; cursor: pointer;
+      border: 8px solid transparent; border-radius: 999px; background-clip: content-box;
+      background-color: #D9CBBE; transition: width 250ms ease, background-color 250ms ease;
     }
-    .banners__dots button[aria-current="true"] { width: 26px; background: var(--orange); }
+    .banners__dots button[aria-current="true"] { width: 26px; background-color: var(--orange); }
     /* Touch screens never hover, so keep the arrows visible there. */
-    @media (hover: none) { .banners__arrow { opacity: 1; width: 36px; height: 36px; } }
+    @media (hover: none) { .banners__arrow { opacity: 1; } }
+    /* Phones: the banner art carries small print, so give it the full width
+       and lift the 19g sticker up beside the slogan instead of over the art. */
     @media (max-width: 760px) {
-      .banners__track { border-radius: 12px; }
-      .banners__arrow--prev { left: 8px; }
-      .banners__arrow--next { right: 8px; }
+      .hero { padding: 34px 10px 6px; }
+      .hero .hero__slogan img { width: 66%; }
+      .hero .hero__badge { width: 54px; top: -10px; right: 2px; }
+      .hero .hero__badge-num { font-size: 1.28rem; }
+      .hero .hero__badge-word { font-size: .54rem; margin-top: 1px; }
+      .banners__track { border-radius: 12px; box-shadow: 0 10px 24px rgba(60, 30, 8, .24); }
+      .banners__arrow { width: 32px; height: 32px; background: rgba(34, 21, 14, .45); }
+      .banners__arrow svg { width: 18px; height: 18px; }
+      .banners__arrow--prev { left: 6px; }
+      .banners__arrow--next { right: 6px; }
     }
     @media (prefers-reduced-motion: reduce) { .banners__slide { transition: none; } }
   </style>
