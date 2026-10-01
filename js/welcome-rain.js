@@ -11,17 +11,39 @@
 
   var SEEN_KEY = 'rc_welcome_seen';
   var DONE_KEY = 'rc_newsletter_signup';
-  var SPRITE_DIR = 'images/3.0/sprites/';
+  var LOGO = 'images/3.0/sprites/rc-logo.webp';
+
+  // Flat "digital" cookies and brownies (from Galletas.pdf), drawn as inline SVG.
+  var RIM = '#663330';
+  var CHIP = { fill: '#663330', stroke: '#2A1210' };
+  var DOT = { fill: '#FFFF99', stroke: 'none' };
+  // Chip layouts traced from the PDF, in a 260x260 box.
+  var ROUND_CHIPS = [[105,53],[184,75],[49,125],[150,144],[207,131],[91,185],[179,194]];
+  var SQUARE_CHIPS = [[74,58],[160,56],[195,90],[127,104],[54,133],[140,162],[62,215],[208,197]];
+
+  function sprite(shape, body, bits) {
+    var base = shape === 'round'
+      ? '<circle cx="130" cy="130" r="122" fill="' + body + '" stroke="' + RIM + '" stroke-width="8"/>'
+      : '<rect x="10" y="10" width="240" height="240" rx="24" fill="' + body + '" stroke="' + RIM + '" stroke-width="8"/>';
+    var pts = shape === 'round' ? ROUND_CHIPS : SQUARE_CHIPS;
+    var dots = pts.map(function (p) {
+      return '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="10" fill="' + bits.fill +
+             '" stroke="' + bits.stroke + '" stroke-width="1.5"/>';
+    }).join('');
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260">' + base + dots + '</svg>';
+    return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  }
+
   var SPRITES = [
-    'brownie-chocolate.webp',
-    'brownie-red-velvet.webp',
-    'brownie-blondie.webp',
-    'cookie-choc-chip.webp',
-    'cookie-double-chocolate.webp',
-    'cookie-churro.webp',
-    'cookie-red-velvet.webp'
+    sprite('square', '#000000', CHIP),  // chocolate brownie
+    sprite('square', '#C8262C', DOT),   // red velvet brownie
+    sprite('square', '#FFCC99', CHIP),  // blondie brownie
+    sprite('square', '#ADC98A', CHIP),  // pistachio brownie
+    sprite('round',  '#FFCC99', CHIP),  // choc chip cookie
+    sprite('round',  '#000000', CHIP),  // double chocolate cookie
+    sprite('round',  '#C8262C', DOT),   // red velvet cookie
+    sprite('round',  '#ADC98A', CHIP)   // pistachio cookie
   ];
-  var LOGO = 'rc-logo.webp';
   var LOGO_EVERY = 7;   // a sprinkle of logos, not a downpour
   var DROP_COUNT = 22;
   var RAIN_MS = 2600;
@@ -114,7 +136,7 @@
       var img = document.createElement('img');
       // `food` advances only on food drops. Indexing by `i` instead would make
       // the logo always displace the same flavour, hiding it completely.
-      img.src = SPRITE_DIR + (isLogo ? LOGO : SPRITES[food++ % SPRITES.length]);
+      img.src = isLogo ? LOGO : SPRITES[food++ % SPRITES.length];
       img.alt = '';
       // Logos read smaller than the food at the same height, so nudge them up.
       var size = isLogo ? 34 + Math.random() * 26 : 26 + Math.random() * 40;
