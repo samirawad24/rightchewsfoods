@@ -1,6 +1,6 @@
 /**
  * Right Chews welcome moment.
- * On the first click of every visit, brownies and cookies rain down the screen.
+ * On the first click of every visit, brownies rain down the screen.
  * The newsletter offer follows the rain, but only the first time a visitor
  * ever sees it -- the rain replays on every reload, the popup does not.
  *
@@ -13,20 +13,16 @@
   var DONE_KEY = 'rc_newsletter_signup';
   var LOGO = 'images/3.0/sprites/rc-logo.webp';
 
-  // Flat "digital" cookies and brownies (from Galletas.pdf), drawn as inline SVG.
+  // Flat "digital" brownies (from Galletas.pdf), drawn as inline SVG.
   var RIM = '#663330';
   var CHIP = { fill: '#663330', stroke: '#2A1210' };
   var DOT = { fill: '#FFFF99', stroke: 'none' };
   // Chip layouts traced from the PDF, in a 260x260 box.
-  var ROUND_CHIPS = [[105,53],[184,75],[49,125],[150,144],[207,131],[91,185],[179,194]];
   var SQUARE_CHIPS = [[74,58],[160,56],[195,90],[127,104],[54,133],[140,162],[62,215],[208,197]];
 
-  function sprite(shape, body, bits) {
-    var base = shape === 'round'
-      ? '<circle cx="130" cy="130" r="122" fill="' + body + '" stroke="' + RIM + '" stroke-width="8"/>'
-      : '<rect x="10" y="10" width="240" height="240" rx="24" fill="' + body + '" stroke="' + RIM + '" stroke-width="8"/>';
-    var pts = shape === 'round' ? ROUND_CHIPS : SQUARE_CHIPS;
-    var dots = pts.map(function (p) {
+  function sprite(body, bits) {
+    var base = '<rect x="10" y="10" width="240" height="240" rx="24" fill="' + body + '" stroke="' + RIM + '" stroke-width="8"/>';
+    var dots = SQUARE_CHIPS.map(function (p) {
       return '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="10" fill="' + bits.fill +
              '" stroke="' + bits.stroke + '" stroke-width="1.5"/>';
     }).join('');
@@ -35,14 +31,10 @@
   }
 
   var SPRITES = [
-    sprite('square', '#000000', CHIP),  // chocolate brownie
-    sprite('square', '#C8262C', DOT),   // red velvet brownie
-    sprite('square', '#FFCC99', CHIP),  // blondie brownie
-    sprite('square', '#ADC98A', CHIP),  // pistachio brownie
-    sprite('round',  '#FFCC99', CHIP),  // choc chip cookie
-    sprite('round',  '#000000', CHIP),  // double chocolate cookie
-    sprite('round',  '#C8262C', DOT),   // red velvet cookie
-    sprite('round',  '#ADC98A', CHIP)   // pistachio cookie
+    sprite('#000000', CHIP),  // chocolate brownie
+    sprite('#C8262C', DOT),   // red velvet brownie
+    sprite('#FFCC99', CHIP),  // blondie brownie
+    sprite('#ADC98A', CHIP)   // pistachio brownie
   ];
   var LOGO_EVERY = 7;   // a sprinkle of logos, not a downpour
   var DROP_COUNT = 40;
