@@ -163,66 +163,6 @@ const MOCK_PRODUCTS = [
     variants: [
       { id: 'gid://shopify/ProductVariant/1101', title: '12-Pack', price: '39.99' }
     ]
-  },
-  {
-    id: 'gid://shopify/Product/7',
-    handle: 'chocolate-chip-protein-cookie',
-    title: 'Chocolate Chip Protein Cookie',
-    imgPosition: 'center 50%',
-    description: 'Classic chocolate chip with clean protein. A whole new way to hit your macros.',
-    price: '3.99',
-    image: 'images/3.0/choc-chip-cookie.webp',
-    comingSoon: true,
-    nutritionTba: true,
-    macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
-    variants: [
-      { id: 'gid://shopify/ProductVariant/701', title: 'Single', price: '3.99' }
-    ]
-  },
-  {
-    id: 'gid://shopify/Product/8',
-    handle: 'double-chocolate-protein-cookie',
-    title: 'Double Chocolate Protein Cookie',
-    description: 'Rich cocoa cookie loaded with chocolate chips. Twice the chocolate, all the protein.',
-    price: '3.99',
-    image: 'images/3.0/double-chocolate-cookie.webp',
-    imgPosition: 'center 50%',
-    comingSoon: true,
-    nutritionTba: true,
-    macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
-    variants: [
-      { id: 'gid://shopify/ProductVariant/801', title: 'Single', price: '3.99' }
-    ]
-  },
-  {
-    id: 'gid://shopify/Product/9',
-    handle: 'churro-protein-cookie',
-    title: 'Churro Protein Cookie',
-    description: 'Rolled in cinnamon sugar, soft in the middle. A churro that loves your macros back.',
-    price: '3.99',
-    image: 'images/3.0/churro-cookie.webp',
-    imgPosition: 'center 50%',
-    comingSoon: true,
-    nutritionTba: true,
-    macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
-    variants: [
-      { id: 'gid://shopify/ProductVariant/901', title: 'Single', price: '3.99' }
-    ]
-  },
-  {
-    id: 'gid://shopify/Product/10',
-    handle: 'red-velvet-protein-cookie',
-    title: 'Red Velvet Protein Cookie',
-    description: 'Soft, cocoa-kissed red velvet with clean protein. Rich, not too sweet.',
-    price: '3.99',
-    image: 'images/3.0/red-velvet-cookie.webp',
-    imgPosition: 'center 50%',
-    comingSoon: true,
-    nutritionTba: true,
-    macros: { protein: 'TBA', calories: 'TBA', sugar: 'TBA', fat: 'TBA' },
-    variants: [
-      { id: 'gid://shopify/ProductVariant/1001', title: 'Single', price: '3.99' }
-    ]
   }
 ];
 

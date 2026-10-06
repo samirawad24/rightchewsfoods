@@ -32,7 +32,7 @@
 
 ## Products in the Shop
 
-### Live / For Sale (6 items)
+### Live / For Sale (7 items)
 | Product | Price |
 |---------|-------|
 | Chocolate Protein Brownie | $3.99 |
@@ -41,14 +41,9 @@
 | Chocolate 12-Pack | $39.99 |
 | Red Velvet 12-Pack | $39.99 |
 | Blondie 12-Pack | $39.99 |
+| Variety Brownie 12-Pack | $39.99 |
 
-### Coming Soon (4 items — shown in grid with overlay)
-| Product | Price (placeholder) |
-|---------|---------------------|
-| Chocolate Chip Protein Cookie | $3.99 |
-| Red Velvet Protein Cookie | $3.99 |
-| Blondie Protein Cookie | $3.99 |
-| Confetti Protein Cookie | $3.99 |
+Protein cookies were discontinued (Oct 2026), so they're no longer shown on the site.
 
 Grid layout: 4 columns desktop → 3 on laptop → 2 on tablet/mobile
 
@@ -108,10 +103,8 @@ Fonts: Playfair Display (headings) + Inter (body)
 
 ## Pending / Next Steps
 - [ ] Connect real Shopify store credentials in `js/config.js`
-- [ ] Add actual product photos for cookies (currently using brownie images as placeholders)
 - [ ] Set up Google Search Console and submit sitemap
 - [ ] Point custom domain `rightchewsfoods.com` to GitHub Pages (or deploy to Netlify)
-- [ ] Add email capture to "Notify Me When Available" button on coming soon cookies
 - [ ] Privacy Policy + Terms pages (linked in footer but not built yet)
 
 ---

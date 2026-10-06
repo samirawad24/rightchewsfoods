@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Right Chews | Premium Protein Snacks — Brownies, Cookies &amp; More</title>
+  <title>Right Chews | Premium Protein Snacks — Protein Brownies &amp; More</title>
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <meta name="description" content="Right Chews is your one-stop premium protein snack brand. 19g clean protein per serving, zero artificial. Retail &amp; wholesale. Free shipping over $100." />
   <meta property="og:site_name" content="Right Chews Foods" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://samirawad24.github.io/rightchewsfoods/" />
-  <meta property="og:title" content="Right Chews | Premium Protein Snacks — Brownies, Cookies &amp; More" />
+  <meta property="og:title" content="Right Chews | Premium Protein Snacks — Protein Brownies &amp; More" />
   <meta property="og:description" content="Right Chews is your one-stop premium protein snack brand. 19g clean protein per serving, zero artificial. Retail &amp; wholesale. Free shipping over $100." />
   <meta property="og:image" content="https://samirawad24.github.io/rightchewsfoods/images/share-logo.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -224,35 +224,6 @@
     }
     .product__btn:hover { background: var(--orange-lt); transform: translateY(-2px); }
 
-    /* ── Cookies ── */
-    .cookies { background: #FAF7F3; }
-    .cookies__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-    .cookie { text-align: center; }
-    .cookie__media {
-      display: flex; align-items: center; justify-content: center;
-      height: 190px; margin-bottom: 14px;
-    }
-    .cookie__media img {
-      max-height: 100%; width: auto;
-      filter: drop-shadow(0 14px 12px rgba(60, 30, 8, .28));
-      transition: transform 320ms cubic-bezier(.2,.7,.3,1), filter 320ms ease;
-    }
-    .cookie:hover .cookie__media img { filter: drop-shadow(0 20px 16px rgba(60, 30, 8, .32)); }
-    .cookie:hover .cookie__media img { transform: translateY(-6px) scale(1.04); }
-    .cookie__name {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 1.02rem; font-weight: 600; color: #23180F; margin-bottom: 6px;
-    }
-    .cookie__desc { font-size: .87rem; color: #6A6A6A; line-height: 1.55; }
-    .cookie__media { position: relative; }
-    .cookie__soon {
-      position: absolute; top: 4px; left: 50%; transform: translateX(-50%); z-index: 1;
-      background: var(--gold); color: #22150C; white-space: nowrap;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: .66rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
-      padding: 5px 13px; border-radius: 999px; box-shadow: 0 4px 10px rgba(60, 30, 8, .18);
-    }
-
     /* ── Value strip ── */
     .values { background: #22150C; padding: 40px 0; }
     .values__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -333,7 +304,6 @@
       .nav__link::after { display: none; }
       .band { grid-template-columns: 1fr; gap: 34px; }
       .band__media { order: -1; }
-      .cookies__grid { grid-template-columns: repeat(2, 1fr); gap: 26px; }
     }
     @media (max-width: 760px) {
       .container { padding: 0 20px; }
@@ -545,38 +515,6 @@
     </div>
   </section>
 
-  <!-- Cookies -->
-  <section class="sec cookies">
-    <div class="container">
-      <div class="sec__head animate-in">
-        <h2 class="sec__title">Coming soon: <em>protein cookies</em></h2>
-        <p class="sec__sub">Same 19g standard, new shape. Four flavors, soft-baked, no chalky aftertaste.</p>
-      </div>
-      <div class="cookies__grid">
-        <div class="cookie animate-in">
-          <div class="cookie__media"><span class="cookie__soon">Coming Soon</span><img src="images/3.0/choc-chip-cookie.webp" alt="Chocolate Chip Protein Cookie" /></div>
-          <h3 class="cookie__name">Chocolate Chip</h3>
-          <p class="cookie__desc">The classic, rebuilt.</p>
-        </div>
-        <div class="cookie animate-in" style="transition-delay:90ms;">
-          <div class="cookie__media"><span class="cookie__soon">Coming Soon</span><img src="images/3.0/double-chocolate-cookie.webp" alt="Double Chocolate Protein Cookie" /></div>
-          <h3 class="cookie__name">Double Chocolate</h3>
-          <p class="cookie__desc">Dark cocoa, chips throughout.</p>
-        </div>
-        <div class="cookie animate-in" style="transition-delay:180ms;">
-          <div class="cookie__media"><span class="cookie__soon">Coming Soon</span><img src="images/3.0/churro-cookie.webp" alt="Churro Protein Cookie" /></div>
-          <h3 class="cookie__name">Churro</h3>
-          <p class="cookie__desc">Cinnamon sugar, all over.</p>
-        </div>
-        <div class="cookie animate-in" style="transition-delay:270ms;">
-          <div class="cookie__media"><span class="cookie__soon">Coming Soon</span><img src="images/3.0/red-velvet-cookie.webp" alt="Red Velvet Protein Cookie" /></div>
-          <h3 class="cookie__name">Red Velvet</h3>
-          <p class="cookie__desc">Deep red, white chip bites.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Split band -->
   <section class="sec">
     <div class="container">
@@ -599,7 +537,7 @@
       <div class="rc-footer__grid">
         <div>
           <div class="rc-footer__brand-name">Right<span>Chews</span> Foods</div>
-          <p class="rc-footer__tagline">Protein that actually tastes like a treat. Brownies, cookies, one standard — premium.</p>
+          <p class="rc-footer__tagline">Protein that actually tastes like a treat. Protein brownies, one standard — premium.</p>
           <div class="rc-footer__social">
             <a href="#" class="rc-footer__social-btn" aria-label="Instagram">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>

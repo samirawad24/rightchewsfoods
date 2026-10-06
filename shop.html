@@ -869,7 +869,7 @@
   <div class="page-header">
     <div class="page-header__label">Right Chews Foods</div>
     <h1 class="page-header__title">Shop</h1>
-    <p class="page-header__sub">Brownies, 12-packs and cookies. 19g of protein in every one.</p>
+    <p class="page-header__sub">Brownies and 12-packs. 19g of protein in every one.</p>
   </div>
 
   <!-- ═══ PRODUCTS ═══ -->
@@ -1041,7 +1041,7 @@
         const wsPrice = isCS ? null : calcWholesalePrice(p.price, wsTags);
         const qty     = cardQtys[p.id] || 1;
         const varId   = p.variants[0].id;
-        const unit    = p.handle.includes('cookie') ? 'cookie' : 'brownie';
+        const unit    = 'brownie';
 
         return `
           <div class="pcard${isCS ? ' pcard--coming-soon' : ''}">
