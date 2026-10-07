@@ -166,16 +166,6 @@ const MOCK_PRODUCTS = [
   }
 ];
 
-// Wholesale price per unit (multiplied by retail $3.99)
-// In Shopify, tag wholesale customers with: 'wholesale', 'wholesale-standard',
-// 'wholesale-volume', or 'wholesale-super'
-const WHOLESALE_UNIT_PRICES = {
-  'wholesale-super':    1.80,
-  'wholesale-volume':   1.95,
-  'wholesale-standard': 2.10,
-  'wholesale':          2.25
-};
-
 // ── Base Shopify fetch ──────────────────────────────────
 async function storefrontFetch(query, variables = {}) {
   const res = await fetch(
@@ -231,95 +221,41 @@ async function getProducts() {
 
 // ── Checkout ────────────────────────────────────────────
 async function createCheckout(lineItems) {
-  if (SHOPIFY_CONFIG.useMockData) {
+  if (!SHOPIFY_CONFIG.checkoutLive) {
     return { mock: true };
   }
 
+  // Merge lines that map to the same Shopify variant (single "case of 12" + 12-pack)
+  const merged = {};
+  for (const i of lineItems) {
+    const id = SHOPIFY_CONFIG.variantMap[i.variantId] || i.variantId;
+    merged[id] = (merged[id] || 0) + i.quantity;
+  }
+
   const data = await storefrontFetch(`
-    mutation CreateCheckout($input: CheckoutCreateInput!) {
-      checkoutCreate(input: $input) {
-        checkout { id webUrl }
-        checkoutUserErrors { message }
+    mutation CartCreate($input: CartInput!) {
+      cartCreate(input: $input) {
+        cart { id checkoutUrl }
+        userErrors { message }
       }
     }
   `, {
     input: {
-      lineItems: lineItems.map(i => ({ variantId: i.variantId, quantity: i.quantity }))
+      lines: Object.entries(merged).map(([merchandiseId, quantity]) => ({ merchandiseId, quantity }))
     }
   });
 
-  const result = data.checkoutCreate;
-  if (result.checkoutUserErrors.length > 0) throw new Error(result.checkoutUserErrors[0].message);
-  return result.checkout;
+  const result = data.cartCreate;
+  if (result.userErrors.length > 0) throw new Error(result.userErrors[0].message);
+  return { id: result.cart.id, webUrl: result.cart.checkoutUrl };
 }
 
-// ── Customer Auth ───────────────────────────────────────
-async function loginCustomer(email, password) {
-  if (SHOPIFY_CONFIG.useMockData) {
-    // Demo mode: any credentials succeed and return a mock wholesale account
-    return {
-      customerAccessToken: {
-        accessToken: 'demo-wholesale-token',
-        expiresAt: new Date(Date.now() + 86400000).toISOString()
-      }
-    };
-  }
-
-  const data = await storefrontFetch(`
-    mutation CustomerLogin($input: CustomerAccessTokenCreateInput!) {
-      customerAccessTokenCreate(input: $input) {
-        customerAccessToken { accessToken expiresAt }
-        customerUserErrors { message }
-      }
-    }
-  `, { input: { email, password } });
-
-  const result = data.customerAccessTokenCreate;
-  if (result.customerUserErrors.length > 0) throw new Error(result.customerUserErrors[0].message);
-  return result;
-}
-
-async function getCustomer(accessToken) {
-  if (SHOPIFY_CONFIG.useMockData && accessToken === 'demo-wholesale-token') {
-    return {
-      id: 'demo-customer',
-      firstName: 'Wholesale',
-      lastName: 'Demo',
-      email: 'wholesale@demo.com',
-      tags: ['wholesale']
-    };
-  }
-
-  const data = await storefrontFetch(`
-    query GetCustomer($token: String!) {
-      customer(customerAccessToken: $token) {
-        id firstName lastName email tags
-      }
-    }
-  `, { customerAccessToken: accessToken });
-
-  if (!data.customer) throw new Error('Session expired. Please log in again.');
-  return data.customer;
-}
-
-// ── Wholesale Pricing Helpers ───────────────────────────
-function calcWholesalePrice(retailPrice, tags = []) {
-  for (const key of Object.keys(WHOLESALE_UNIT_PRICES)) {
-    if (tags.includes(key)) {
-      return WHOLESALE_UNIT_PRICES[key].toFixed(2);
-    }
-  }
-  return null;
-}
-
-function getWholesaleTierName(tags = []) {
-  if (tags.includes('wholesale-super'))    return 'Super Volume — 25+ cases ($1.80/unit)';
-  if (tags.includes('wholesale-volume'))   return 'Volume Tier — 10–24 cases ($1.95/unit)';
-  if (tags.includes('wholesale-standard')) return 'Standard Tier — 5–9 cases ($2.10/unit)';
-  if (tags.includes('wholesale'))          return 'Sample Tier — 1–4 cases ($2.25/unit)';
-  return null;
-}
-
-function isWholesaleCustomer(tags = []) {
-  return Object.keys(WHOLESALE_UNIT_PRICES).some(t => tags.includes(t));
-}
+// ── Customer accounts ───────────────────────────────────
+// Customers sign in on Shopify's hosted account page (SHOPIFY_CONFIG.accountUrl).
+// Wholesale pricing is applied by Shopify at checkout for approved accounts,
+// so the site always shows retail prices. These stubs keep shop.html working.
+async function loginCustomer() { throw new Error('Sign in on the account page.'); }
+async function getCustomer()   { throw new Error('Not signed in.'); }
+function calcWholesalePrice()  { return null; }
+function getWholesaleTierName() { return ''; }
+function isWholesaleCustomer() { return false; }

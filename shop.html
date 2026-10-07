@@ -862,7 +862,7 @@
   <!-- ═══ WHOLESALE BANNER ═══ -->
   <div class="ws-banner retail-mode" id="wsBanner">
     <span>Are you a gym, gym owner, or retailer?</span>
-    <span class="ws-banner__link" id="wsBannerLink">Login for wholesale pricing →</span>
+    <a class="ws-banner__link" id="wsBannerLink" href="wholesale.html">Apply for wholesale →</a>
   </div>
 
   <!-- ═══ SHOP HEADER ═══ -->
@@ -997,9 +997,9 @@
   <!-- ═══ Scripts ═══ -->
   <script>window.RC_CART_OWNER = true; /* shop.html renders its own cart badge */</script>
   <script src="js/site-nav.js?v=20260813b"></script>
-  <script src="js/config.js?v=20260813"></script>
-  <script src="js/shopify.js?v=20261001"></script>
-  <script src="js/cart.js?v=20260813"></script>
+  <script src="js/config.js?v=20261006"></script>
+  <script src="js/shopify.js?v=20261006"></script>
+  <script src="js/cart.js?v=20261006"></script>
   <script src="js/welcome-rain.js?v=20261006a"></script>
   <script>
     // ── State ───────────────────────────────────────────
@@ -1016,14 +1016,8 @@
     });
 
     async function restoreSession() {
-      const auth = getAuth();
-      if (!auth?.accessToken) return;
-      try {
-        currentUser = await getCustomer(auth.accessToken);
-        refreshAccountUI();
-      } catch {
-        clearAuth();
-      }
+      // Sign-in lives on Shopify's account page now; drop any old demo session.
+      clearAuth();
     }
 
     // ── Render products ─────────────────────────────────
@@ -1282,9 +1276,8 @@
         wsBanner.className = 'ws-banner retail-mode';
         wsBanner.innerHTML = `
           <span>Are you a gym owner or retailer?</span>
-          <span class="ws-banner__link" id="wsBannerLink">Login for wholesale pricing →</span>
+          <a class="ws-banner__link" id="wsBannerLink" href="wholesale.html">Apply for wholesale →</a>
         `;
-        document.getElementById('wsBannerLink')?.addEventListener('click', () => openAcctModal('wholesale'));
       }
     }
 
@@ -1341,13 +1334,12 @@
     document.getElementById('cartOverlay').addEventListener('click', closeCart);
     document.getElementById('checkoutBtn').addEventListener('click', handleCheckout);
 
-    document.getElementById('acctBtn').addEventListener('click', () => openAcctModal());
-    document.getElementById('mobileAcctBtn')?.addEventListener('click', () => { openAcctModal(); document.getElementById('hamburger').classList.remove('open'); document.getElementById('mobileMenu').classList.remove('open'); });
+    document.getElementById('acctBtn').addEventListener('click', () => { window.location.href = SHOPIFY_CONFIG.accountUrl; });
+    document.getElementById('mobileAcctBtn')?.addEventListener('click', () => { window.location.href = SHOPIFY_CONFIG.accountUrl; });
     document.getElementById('acctCloseBtn').addEventListener('click', closeAcctModal);
     document.getElementById('acctOverlay').addEventListener('click', e => { if (e.target === document.getElementById('acctOverlay')) closeAcctModal(); });
     document.querySelectorAll('.acct-tab').forEach(tab => tab.addEventListener('click', () => setAcctTab(tab.dataset.tab)));
 
-    document.getElementById('wsBannerLink')?.addEventListener('click', () => openAcctModal('wholesale'));
 
     // Nav scroll effect
     window.addEventListener('scroll', () => {

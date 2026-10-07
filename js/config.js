@@ -1,7 +1,8 @@
 // ─────────────────────────────────────────────────────────
 //  Shopify Configuration — Right Chews Foods
 //
-//  HOW TO CONNECT (do this tomorrow when you create your account):
+//  CONNECTED 2026-10-06 through the Headless sales channel.
+//  Original setup notes (custom app route, no longer needed):
 //
 //  1. Go to your Shopify admin → Settings → Apps and sales channels
 //  2. Click "Develop apps" → Create an app (name it "Storefront")
@@ -18,8 +19,29 @@
 // ─────────────────────────────────────────────────────────
 
 const SHOPIFY_CONFIG = {
-  storeDomain:     'YOUR-STORE.myshopify.com',  // e.g. rightchewfoods.myshopify.com
-  storefrontToken: 'YOUR-STOREFRONT-API-TOKEN', // paste token here
-  apiVersion:      '2024-01',
-  useMockData:     true  // set to false after connecting Shopify
+  storeDomain:     '4zbcmw-ua.myshopify.com',
+  storefrontToken: 'cc532865dc8ca78e816d2f1ba040a860', // public Storefront token (Headless channel), safe in page code
+  apiVersion:      '2026-07',
+  useMockData:     true,  // products + login still come from this site (photos, nutrition, stickers)
+
+  // Shopify-hosted customer account page (sign in with an emailed code)
+  accountUrl:      'https://shopify.com/99813130607/account',
+
+  // Real Shopify checkout. Only on in the private local copy for now;
+  // set to true to send live visitors to Shopify checkout.
+  checkoutLive:    ['localhost', '127.0.0.1'].includes(location.hostname),
+
+  // Site variant id -> Shopify variant id
+  variantMap: {
+    'gid://shopify/ProductVariant/101':  'gid://shopify/ProductVariant/67682740339055', // Chocolate single
+    'gid://shopify/ProductVariant/102':  'gid://shopify/ProductVariant/67682740797807', // Chocolate case of 12
+    'gid://shopify/ProductVariant/201':  'gid://shopify/ProductVariant/67682740470127', // Red Velvet single
+    'gid://shopify/ProductVariant/202':  'gid://shopify/ProductVariant/67682740896111', // Red Velvet case of 12
+    'gid://shopify/ProductVariant/301':  'gid://shopify/ProductVariant/67682740601199', // Blondie single
+    'gid://shopify/ProductVariant/302':  'gid://shopify/ProductVariant/67682741125487', // Blondie case of 12
+    'gid://shopify/ProductVariant/401':  'gid://shopify/ProductVariant/67682740797807', // Chocolate 12-Pack
+    'gid://shopify/ProductVariant/501':  'gid://shopify/ProductVariant/67682740896111', // Red Velvet 12-Pack
+    'gid://shopify/ProductVariant/601':  'gid://shopify/ProductVariant/67682741125487', // Blondie 12-Pack
+    'gid://shopify/ProductVariant/1101': 'gid://shopify/ProductVariant/67682741354863'  // Variety 12-Pack
+  }
 };
