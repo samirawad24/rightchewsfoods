@@ -27,9 +27,10 @@ const SHOPIFY_CONFIG = {
   // Shopify-hosted customer account page (sign in with an emailed code)
   accountUrl:      'https://shopify.com/99813130607/account',
 
-  // Real Shopify checkout. Only on in the private local copy for now;
-  // set to true to send live visitors to Shopify checkout.
-  checkoutLive:    ['localhost', '127.0.0.1'].includes(location.hostname),
+  // Real Shopify checkout. On for everyone since 2026-10-07 (owner demo).
+  // The store is still password protected and uses the test payment gateway.
+  // Set to false to bring back the "coming soon" popup.
+  checkoutLive:    true,
 
   // Site variant id -> Shopify variant id
   variantMap: {
