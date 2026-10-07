@@ -217,9 +217,13 @@ input[type="search"], input[type="password"], input:not([type]), textarea {
 /* ------------------------------------------------------------ responsive */
 
 @media (max-width: 1040px) {
-  .nav__inner { grid-template-columns: auto 1fr; }
+  .nav__inner { grid-template-columns: auto 1fr auto; }
   .nav__toggle { display: block; }
-  .nav__actions { display: none; }
+  /* Phones keep the cart beside the menu button; Login moves into the menu. */
+  .nav__actions { background: none; padding: 0; margin-right: 6px; }
+  .nav__actions .nav__login, .nav__actions .nav__acct-btn { display: none; }
+  .nav__cart, .nav__cart-btn { padding: 8px; }
+  .nav__cart-badge { top: 0; right: 0; }
   .nav__links {
     display: none; position: absolute; left: 0; right: 0; top: 100%;
     background: #FFF; border-bottom: 1px solid var(--rc-line);
