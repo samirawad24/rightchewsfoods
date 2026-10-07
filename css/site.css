@@ -109,6 +109,7 @@ input[type="search"], input[type="password"], input:not([type]), textarea {
   padding: 8px 26px; background: #FFF;
   transition: border-color 180ms ease, color 180ms ease;
 }
+.nav__link--mobile { display: none; }
 .nav__login:hover { border-color: var(--rc-orange); color: var(--rc-orange); }
 
 .nav__cart, .nav__cart-btn { position: relative; color: #3A2A1C; display: flex; }
@@ -228,6 +229,7 @@ input[type="search"], input[type="password"], input:not([type]), textarea {
   .nav__links.open { display: flex; }
   .nav__link { padding: 13px 28px; width: 100%; text-align: center; }
   .nav__link::after { display: none; }
+  .nav__link--mobile { display: block; }
 }
 
 @media (max-width: 760px) {
