@@ -40,6 +40,9 @@
   var DROP_COUNT = 40;
   var RAIN_MS = 2600;
 
+  // Off for now (owner request 2026-10-07). Set to true to bring the 10% popup back.
+  var OFFER_ENABLED = false;
+
   // Gates the newsletter popup only. The rain is not gated.
   function offerAlreadyShown() {
     try {
@@ -237,7 +240,7 @@
   function start() {
     injectStyles();
     // Rain every time; only follow it with the offer on a visitor's first ever run.
-    var withOffer = !offerAlreadyShown();
+    var withOffer = OFFER_ENABLED && !offerAlreadyShown();
     rain(function () {
       if (!withOffer) return;
       remember(SEEN_KEY);
