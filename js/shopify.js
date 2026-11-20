@@ -241,13 +241,17 @@ async function createCheckout(lineItems) {
     }
   `, {
     input: {
-      lines: Object.entries(merged).map(([merchandiseId, quantity]) => ({ merchandiseId, quantity }))
+      lines: Object.entries(merged).map(([merchandiseId, quantity]) => ({ merchandiseId, quantity })),
+      attributes: (typeof window.rcSourceAttributes === 'function') ? window.rcSourceAttributes() : []
     }
   });
 
   const result = data.cartCreate;
   if (result.userErrors.length > 0) throw new Error(result.userErrors[0].message);
-  return { id: result.cart.id, webUrl: result.cart.checkoutUrl };
+  let webUrl = result.cart.checkoutUrl;
+  const utm = (typeof window.rcSourceUtm === 'function') ? window.rcSourceUtm() : '';
+  if (utm) webUrl += (webUrl.indexOf('?') === -1 ? '?' : '&') + utm;
+  return { id: result.cart.id, webUrl };
 }
 
 // ── Customer accounts ───────────────────────────────────
