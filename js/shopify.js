@@ -78,6 +78,78 @@ const MOCK_PRODUCTS = [
     ]
   },
   {
+    id: 'gid://shopify/Product/7',
+    handle: 'pistachio-protein-brownie',
+    title: 'Pistachio Chocolate Protein Brownie',
+    description: 'Real pistachio pieces and milk chocolate chips in a soft, nutty protein brownie.',
+    price: '3.99',
+    image: 'images/3.0/pistachio-brownie-single.webp',
+    imgPosition: 'center 50%',
+    nutrition: {
+      servingSize: '1 pack (70g)', calories: 190,
+      totalFat: { amount: '7g', dv: '9.5%' }, satFat: { amount: '3g', dv: '17%' },
+      transFat: '0g', cholesterol: { amount: '8mg', dv: '13%' },
+      sodium: { amount: '170mg', dv: '6%' }, totalCarb: { amount: '17g', dv: '6%' },
+      fiber: { amount: '4.5g', dv: '16%' }, sugars: '3g', protein: '19g',
+      ingredients: 'Whole Wheat Flour, Dried Egg Whites, Whey Protein, Pistachio Flour, Coconut Oil, Erythritol, Brown Sugar, Eggs, White Chocolate Wafer, Milk Chocolate Wafers, CMC, Baking Powder, Baking Soda, Salt, Corn Starch, Potassium Sorbate, Vanilla Extract, Pistachio Pieces, Water, Pistachio Extract, Milk Chocolate Chips, Cornstarch, Baking Powder.',
+      allergens: 'Wheat, Egg, Milk, Tree Nuts (Pistachio).'
+    },
+    badge: 'New',
+    macros: { protein: '19g', calories: '190', sugar: '3g', fat: '7g' },
+    variants: [
+      { id: 'gid://shopify/ProductVariant/701', title: 'Single', price: '3.99' },
+      { id: 'gid://shopify/ProductVariant/702', title: 'Case of 12', price: '39.99' }
+    ]
+  },
+  {
+    id: 'gid://shopify/Product/8',
+    handle: 'orange-royal-cream-protein-brownie',
+    title: 'Orange Royal Cream Protein Brownie',
+    description: 'Real orange peel and creamy white chocolate chips in a soft protein brownie.',
+    price: '3.99',
+    image: 'images/3.0/orange-creamsicle-brownie-single.webp',
+    imgPosition: 'center 50%',
+    nutrition: {
+      servingSize: '1 pack (70g)', calories: 180,
+      totalFat: { amount: '6g', dv: '9%' }, satFat: { amount: '3g', dv: '16%' },
+      transFat: '0g', cholesterol: { amount: '6mg', dv: '12%' },
+      sodium: { amount: '160mg', dv: '6%' }, totalCarb: { amount: '15g', dv: '5%' },
+      fiber: { amount: '4g', dv: '16%' }, sugars: '3g', protein: '19g',
+      ingredients: 'Whole Wheat Flour, Dried Egg Whites, Whey Protein, Coconut Oil, Erythritol, Brown Sugar, Eggs, White Chocolate Wafers, White Chocolate Chips, CMC, Baking Powder, Baking Soda, Corn Starch, Salt, Potassium Sorbate, Vanilla Extract, Orange Extract, Powdered Orange Peel and Water, Cornstarch, Baking Powder.',
+      allergens: 'Wheat, Egg, Milk.'
+    },
+    badge: 'New',
+    macros: { protein: '19g', calories: '180', sugar: '3g', fat: '6g' },
+    variants: [
+      { id: 'gid://shopify/ProductVariant/801', title: 'Single', price: '3.99' },
+      { id: 'gid://shopify/ProductVariant/802', title: 'Case of 12', price: '39.99' }
+    ]
+  },
+  {
+    id: 'gid://shopify/Product/9',
+    handle: 'snickerdoodle-protein-brownie',
+    title: 'Snickerdoodle Protein Brownie',
+    description: 'Warm cinnamon sugar on top of a soft, buttery protein brownie.',
+    price: '3.99',
+    image: 'images/3.0/snickerdoodle-brownie-single.webp',
+    imgPosition: 'center 50%',
+    nutrition: {
+      servingSize: '1 pack (70g)', calories: 165,
+      totalFat: { amount: '5g', dv: '8.5%' }, satFat: { amount: '2.5g', dv: '15%' },
+      transFat: '0g', cholesterol: { amount: '6mg', dv: '12%' },
+      sodium: { amount: '160mg', dv: '6%' }, totalCarb: { amount: '15g', dv: '5%' },
+      fiber: { amount: '4g', dv: '16%' }, sugars: '2.5g', protein: '19g',
+      ingredients: 'Whole Wheat Flour, Dried Egg Whites, Whey Protein, Coconut Oil, Erythritol, Brown Sugar, Eggs, White Chocolate Wafer, CMC, Baking Powder, Baking Soda, Corn Starch, Salt, Potassium Sorbate, Cinnamon Extract, Butter Extract, Vanilla Extract, Ground Cinnamon and Water, Cornstarch, Baking Powder.',
+      allergens: 'Wheat, Egg, Milk.'
+    },
+    badge: 'New',
+    macros: { protein: '19g', calories: '165', sugar: '2.5g', fat: '5g' },
+    variants: [
+      { id: 'gid://shopify/ProductVariant/901', title: 'Single', price: '3.99' },
+      { id: 'gid://shopify/ProductVariant/902', title: 'Case of 12', price: '39.99' }
+    ]
+  },
+  {
     id: 'gid://shopify/Product/4',
     handle: 'chocolate-protein-brownie-12-pack',
     title: 'Chocolate 12-Pack',
@@ -147,6 +219,78 @@ const MOCK_PRODUCTS = [
     macros: { protein: '19g', calories: '180', sugar: '3g', fat: '6g' },
     variants: [
       { id: 'gid://shopify/ProductVariant/601', title: '12-Pack', price: '39.99' }
+    ]
+  },
+  {
+    id: 'gid://shopify/Product/12',
+    handle: 'pistachio-protein-brownie-12-pack',
+    title: 'Pistachio 12-Pack',
+    description: 'A full dozen of our Pistachio Chocolate Protein Brownies. Real pistachio pieces and milk chocolate chips in a soft, nutty protein brownie.',
+    price: '39.99',
+    image: 'images/3.0/pistachio-12pack.webp',
+    sticker: { num: '12', word: 'pack' },
+    imgPosition: 'center 50%',
+    nutrition: {
+      servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 190,
+      totalFat: { amount: '7g', dv: '9.5%' }, satFat: { amount: '3g', dv: '17%' },
+      transFat: '0g', cholesterol: { amount: '8mg', dv: '13%' },
+      sodium: { amount: '170mg', dv: '6%' }, totalCarb: { amount: '17g', dv: '6%' },
+      fiber: { amount: '4.5g', dv: '16%' }, sugars: '3g', protein: '19g',
+      ingredients: 'Whole Wheat Flour, Dried Egg Whites, Whey Protein, Pistachio Flour, Coconut Oil, Erythritol, Brown Sugar, Eggs, White Chocolate Wafer, Milk Chocolate Wafers, CMC, Baking Powder, Baking Soda, Salt, Corn Starch, Potassium Sorbate, Vanilla Extract, Pistachio Pieces, Water, Pistachio Extract, Milk Chocolate Chips, Cornstarch, Baking Powder.',
+      allergens: 'Wheat, Egg, Milk, Tree Nuts (Pistachio).'
+    },
+    badge: 'New',
+    macros: { protein: '19g', calories: '190', sugar: '3g', fat: '7g' },
+    variants: [
+      { id: 'gid://shopify/ProductVariant/1201', title: '12-Pack', price: '39.99' }
+    ]
+  },
+  {
+    id: 'gid://shopify/Product/13',
+    handle: 'orange-royal-cream-protein-brownie-12-pack',
+    title: 'Orange Royal Cream 12-Pack',
+    description: 'A full dozen of our Orange Royal Cream Protein Brownies. Real orange peel and creamy white chocolate chips in a soft protein brownie.',
+    price: '39.99',
+    image: 'images/3.0/orange-creamsicle-12pack.webp',
+    sticker: { num: '12', word: 'pack' },
+    imgPosition: 'center 50%',
+    nutrition: {
+      servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 180,
+      totalFat: { amount: '6g', dv: '9%' }, satFat: { amount: '3g', dv: '16%' },
+      transFat: '0g', cholesterol: { amount: '6mg', dv: '12%' },
+      sodium: { amount: '160mg', dv: '6%' }, totalCarb: { amount: '15g', dv: '5%' },
+      fiber: { amount: '4g', dv: '16%' }, sugars: '3g', protein: '19g',
+      ingredients: 'Whole Wheat Flour, Dried Egg Whites, Whey Protein, Coconut Oil, Erythritol, Brown Sugar, Eggs, White Chocolate Wafers, White Chocolate Chips, CMC, Baking Powder, Baking Soda, Corn Starch, Salt, Potassium Sorbate, Vanilla Extract, Orange Extract, Powdered Orange Peel and Water, Cornstarch, Baking Powder.',
+      allergens: 'Wheat, Egg, Milk.'
+    },
+    badge: 'New',
+    macros: { protein: '19g', calories: '180', sugar: '3g', fat: '6g' },
+    variants: [
+      { id: 'gid://shopify/ProductVariant/1301', title: '12-Pack', price: '39.99' }
+    ]
+  },
+  {
+    id: 'gid://shopify/Product/14',
+    handle: 'snickerdoodle-protein-brownie-12-pack',
+    title: 'Snickerdoodle 12-Pack',
+    description: 'A full dozen of our Snickerdoodle Protein Brownies. Warm cinnamon sugar on top of a soft, buttery protein brownie.',
+    price: '39.99',
+    image: 'images/3.0/snickerdoodle-12pack.webp',
+    sticker: { num: '12', word: 'pack' },
+    imgPosition: 'center 50%',
+    nutrition: {
+      servingSize: '1 brownie (70g)', servingsPerContainer: 12, calories: 165,
+      totalFat: { amount: '5g', dv: '8.5%' }, satFat: { amount: '2.5g', dv: '15%' },
+      transFat: '0g', cholesterol: { amount: '6mg', dv: '12%' },
+      sodium: { amount: '160mg', dv: '6%' }, totalCarb: { amount: '15g', dv: '5%' },
+      fiber: { amount: '4g', dv: '16%' }, sugars: '2.5g', protein: '19g',
+      ingredients: 'Whole Wheat Flour, Dried Egg Whites, Whey Protein, Coconut Oil, Erythritol, Brown Sugar, Eggs, White Chocolate Wafer, CMC, Baking Powder, Baking Soda, Corn Starch, Salt, Potassium Sorbate, Cinnamon Extract, Butter Extract, Vanilla Extract, Ground Cinnamon and Water, Cornstarch, Baking Powder.',
+      allergens: 'Wheat, Egg, Milk.'
+    },
+    badge: 'New',
+    macros: { protein: '19g', calories: '165', sugar: '2.5g', fat: '5g' },
+    variants: [
+      { id: 'gid://shopify/ProductVariant/1401', title: '12-Pack', price: '39.99' }
     ]
   },
   {

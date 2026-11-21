@@ -43,6 +43,15 @@ const SHOPIFY_CONFIG = {
     'gid://shopify/ProductVariant/401':  'gid://shopify/ProductVariant/67682740797807', // Chocolate 12-Pack
     'gid://shopify/ProductVariant/501':  'gid://shopify/ProductVariant/67682740896111', // Red Velvet 12-Pack
     'gid://shopify/ProductVariant/601':  'gid://shopify/ProductVariant/67682741125487', // Blondie 12-Pack
-    'gid://shopify/ProductVariant/1101': 'gid://shopify/ProductVariant/67682741354863'  // Variety 12-Pack
+    'gid://shopify/ProductVariant/1101': 'gid://shopify/ProductVariant/67682741354863', // Variety 12-Pack
+    'gid://shopify/ProductVariant/701':  'gid://shopify/ProductVariant/68250480542063', // Pistachio single
+    'gid://shopify/ProductVariant/702':  'gid://shopify/ProductVariant/68250480640367', // Pistachio case of 12
+    'gid://shopify/ProductVariant/801':  'gid://shopify/ProductVariant/68250480574831', // Orange Royal Cream single
+    'gid://shopify/ProductVariant/802':  'gid://shopify/ProductVariant/68250480673135', // Orange Royal Cream case of 12
+    'gid://shopify/ProductVariant/901':  'gid://shopify/ProductVariant/68250480607599', // Snickerdoodle single
+    'gid://shopify/ProductVariant/902':  'gid://shopify/ProductVariant/68250480705903', // Snickerdoodle case of 12
+    'gid://shopify/ProductVariant/1201': 'gid://shopify/ProductVariant/68250480640367', // Pistachio 12-Pack
+    'gid://shopify/ProductVariant/1301': 'gid://shopify/ProductVariant/68250480673135', // Orange Royal Cream 12-Pack
+    'gid://shopify/ProductVariant/1401': 'gid://shopify/ProductVariant/68250480705903'  // Snickerdoodle 12-Pack
   }
 };
